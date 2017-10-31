@@ -12,6 +12,14 @@ package model.bean;
 public class LojaProdutoBean {
     private int cod_loja;
     private int cod_produto;
+    
+    public LojaProdutoBean(){
+    
+    }
+    public LojaProdutoBean(int codigo) {
+        this.cod_produto = codigo;
+        
+    }
 
     public int getCod_loja() {
         return cod_loja;

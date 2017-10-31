@@ -12,6 +12,14 @@ package model.bean;
 public class ProdCompraBean {
     private int cod_prod;
     private int cod_compra;
+    
+    public ProdCompraBean(){
+    
+    }
+    public ProdCompraBean(int codigo) {
+        this.cod_prod = codigo;
+        ;
+    }
 
     public int getCod_prod() {
         return cod_prod;

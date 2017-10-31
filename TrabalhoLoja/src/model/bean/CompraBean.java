@@ -15,6 +15,14 @@ public class CompraBean {
     private int data;
     private int codigo;
     private int cod_cl;
+    
+    public CompraBean(){
+    
+    }
+    public CompraBean(int codigo) {
+        this.codigo = codigo;
+        
+    }
 
     public String getForma_pag() {
         return forma_pag;

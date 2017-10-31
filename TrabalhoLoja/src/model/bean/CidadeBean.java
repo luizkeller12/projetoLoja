@@ -11,11 +11,17 @@ package model.bean;
  */
 public class CidadeBean {
     private String nome;
-    private String cep;
+    private int cep;
     private String uf;
     private int codigo;
 
+    public CidadeBean(){
     
+    }
+    public CidadeBean(int codigo, String nome) {
+        this.codigo = codigo;
+        this.nome = nome;
+    }
     public String getNome() {
         return nome;
     }
@@ -24,11 +30,11 @@ public class CidadeBean {
         this.nome = nome;
     }
 
-    public String getCep() {
+    public int getCep() {
         return cep;
     }
 
-    public void setCep(String cep) {
+    public void setCep(int cep) {
         this.cep = cep;
     }
 

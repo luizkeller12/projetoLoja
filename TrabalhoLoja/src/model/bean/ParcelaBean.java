@@ -16,6 +16,14 @@ public class ParcelaBean {
     private int data_pag;
     private int data_venc;
     private  int cod_comp;
+    
+    public ParcelaBean(){
+    
+    }
+    public ParcelaBean(int codigo) {
+        this.codigo = codigo;
+        
+    }
 
     public int getCodigo() {
         return codigo;

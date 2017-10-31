@@ -16,6 +16,14 @@ public class LojaBean {
     private int cnpj;
     private int codigo;
     private int cod_cidade;
+    
+    public LojaBean(){
+    
+    }
+    public LojaBean(int codigo, String nome) {
+        this.codigo = codigo;
+        this.nome = nome;
+    }
 
     public String getEndereco() {
         return endereco;

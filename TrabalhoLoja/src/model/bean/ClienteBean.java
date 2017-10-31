@@ -18,6 +18,13 @@ public class ClienteBean {
     private int codigo;
     private int cod_cidade;
 
+    public ClienteBean(){
+    
+    }
+    public ClienteBean(int codigo, String nome) {
+        this.codigo = codigo;
+        this.nome = nome;
+    }
     
     public int getCpf() {
         return cpf;

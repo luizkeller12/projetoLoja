@@ -12,6 +12,13 @@ package model.bean;
 public class ProdutoBean {
     private String nome;
     private int codigo;
+    public ProdutoBean(){
+    
+    }
+    public ProdutoBean(int codigo, String nome) {
+        this.codigo = codigo;
+        this.nome = nome;
+    }
 
     public String getNome() {
         return nome;
