@@ -23,9 +23,12 @@ public class CompraDAO {
         PreparedStatement stmt = null;
         
         try {
-            stmt = con.prepareStatement("INSERT INTO compra(forma_pag,)VALUES(?,?,?,?,?,?)");           
-            stmt.setIString(1,c.getCpf());
-          
+            stmt = con.prepareStatement("INSERT INTO compra(forma_pag,total,data,codigo,cod_cl)VALUES(?,?,?,?,?)");           
+            stmt.setString(1,c.getForma_pag());
+            stmt.setInt(2,c.getTotal());
+            stmt.setInt(3,c.getData());
+            stmt.setInt(4,c.getCodigo());
+            stmt.setInt(5,c.getCod_cl());
             
             
             stmt.executeUpdate();
