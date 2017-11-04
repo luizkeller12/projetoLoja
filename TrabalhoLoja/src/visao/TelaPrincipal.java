@@ -27,20 +27,131 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenu1 = new javax.swing.JMenu();
+        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu2 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
+        jInternalFrame1 = new javax.swing.JInternalFrame();
+        jPanel1 = new javax.swing.JPanel();
+        jButtonCadCli = new javax.swing.JButton();
+        jButtonCadCid = new javax.swing.JButton();
+        jButtonCadCli1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenuCadastro = new javax.swing.JMenu();
+        jMenuItemCadCid = new javax.swing.JMenuItem();
+        jMenuItemCadCLi = new javax.swing.JMenuItem();
+        jMenuItemCadLoja = new javax.swing.JMenuItem();
+        jMenuItemCadUsu = new javax.swing.JMenuItem();
+        jMenuBuscar = new javax.swing.JMenu();
+        jMenuItemBusProd = new javax.swing.JMenuItem();
+        jMenuOpcoes = new javax.swing.JMenu();
+        jMenuItemTelaBV = new javax.swing.JMenuItem();
+        jMenuSobre = new javax.swing.JMenu();
+        jMenuSair = new javax.swing.JMenu();
+
+        jMenu1.setText("jMenu1");
+
+        jCheckBoxMenuItem1.setSelected(true);
+        jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
+
+        jMenuItem1.setText("jMenuItem1");
+
+        jMenu2.setText("File");
+        jMenuBar2.add(jMenu2);
+
+        jMenu3.setText("Edit");
+        jMenuBar2.add(jMenu3);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Principal");
+        getContentPane().setLayout(null);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        jInternalFrame1.setTitle("BEM VINDO");
+        jInternalFrame1.setVisible(true);
+        jInternalFrame1.getContentPane().setLayout(null);
 
-        pack();
+        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel1.setLayout(null);
+
+        jButtonCadCli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_grocery-store_103257.png"))); // NOI18N
+        jButtonCadCli.setToolTipText("CIDADE");
+        jPanel1.add(jButtonCadCli);
+        jButtonCadCli.setBounds(290, 50, 130, 120);
+
+        jButtonCadCid.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_Citycons_building_1342941.png"))); // NOI18N
+        jButtonCadCid.setToolTipText("CIDADE");
+        jPanel1.add(jButtonCadCid);
+        jButtonCadCid.setBounds(10, 50, 130, 120);
+
+        jButtonCadCli1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_icon-ios7-people_211793.png"))); // NOI18N
+        jButtonCadCli1.setToolTipText("CIDADE");
+        jPanel1.add(jButtonCadCli1);
+        jButtonCadCli1.setBounds(150, 50, 130, 120);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/planofundointerno.png"))); // NOI18N
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(0, 0, 860, 370);
+
+        jInternalFrame1.getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 50, 860, 370);
+
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel3.setText("Sistema de Gerenciamento de:");
+        jInternalFrame1.getContentPane().add(jLabel3);
+        jLabel3.setBounds(10, 10, 330, 40);
+
+        getContentPane().add(jInternalFrame1);
+        jInternalFrame1.setBounds(10, 40, 880, 450);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/planofundo.png"))); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 890, 500);
+
+        jMenuCadastro.setText("Cadastros");
+
+        jMenuItemCadCid.setText("Cidade");
+        jMenuCadastro.add(jMenuItemCadCid);
+
+        jMenuItemCadCLi.setText("Cliente");
+        jMenuCadastro.add(jMenuItemCadCLi);
+
+        jMenuItemCadLoja.setText("Loja");
+        jMenuCadastro.add(jMenuItemCadLoja);
+
+        jMenuItemCadUsu.setText("Usuários");
+        jMenuCadastro.add(jMenuItemCadUsu);
+
+        jMenuBar1.add(jMenuCadastro);
+
+        jMenuBuscar.setText("Buscar");
+
+        jMenuItemBusProd.setText("Produtos");
+        jMenuBuscar.add(jMenuItemBusProd);
+
+        jMenuBar1.add(jMenuBuscar);
+
+        jMenuOpcoes.setText("Opções");
+
+        jMenuItemTelaBV.setText("Tela- Bem Vindo");
+        jMenuOpcoes.add(jMenuItemTelaBV);
+
+        jMenuBar1.add(jMenuOpcoes);
+
+        jMenuSobre.setText("Sobre");
+        jMenuBar1.add(jMenuSobre);
+
+        jMenuSair.setText("Sair");
+        jMenuBar1.add(jMenuSair);
+
+        setJMenuBar(jMenuBar1);
+
+        setSize(new java.awt.Dimension(904, 554));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**
@@ -79,5 +190,31 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonCadCid;
+    private javax.swing.JButton jButtonCadCli;
+    private javax.swing.JButton jButtonCadCli1;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
+    private javax.swing.JInternalFrame jInternalFrame1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenu jMenuBuscar;
+    private javax.swing.JMenu jMenuCadastro;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItemBusProd;
+    private javax.swing.JMenuItem jMenuItemCadCLi;
+    private javax.swing.JMenuItem jMenuItemCadCid;
+    private javax.swing.JMenuItem jMenuItemCadLoja;
+    private javax.swing.JMenuItem jMenuItemCadUsu;
+    private javax.swing.JMenuItem jMenuItemTelaBV;
+    private javax.swing.JMenu jMenuOpcoes;
+    private javax.swing.JMenu jMenuSair;
+    private javax.swing.JMenu jMenuSobre;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

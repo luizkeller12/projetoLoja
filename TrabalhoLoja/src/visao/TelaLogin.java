@@ -37,10 +37,16 @@ public class TelaLogin extends javax.swing.JFrame {
         jLabelFundoLogin = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("LOGIN");
         getContentPane().setLayout(null);
 
         jButtonAcessar1.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jButtonAcessar1.setText("ACESSAR");
+        jButtonAcessar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAcessar1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButtonAcessar1);
         jButtonAcessar1.setBounds(250, 160, 120, 30);
 
@@ -75,6 +81,12 @@ public class TelaLogin extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(603, 300));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonAcessar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAcessar1ActionPerformed
+        TelaPrincipal tela =  new TelaPrincipal();  
+        tela.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButtonAcessar1ActionPerformed
 
     /**
      * @param args the command line arguments
