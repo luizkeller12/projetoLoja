@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controle;
+package modeloConnection;
 
 import java.sql.*;
 import javax.swing.JOptionPane;
@@ -28,15 +28,27 @@ public class ConexaoBD {
         try {
             System.setProperty("jdbc.Drivers", driver);
             con=DriverManager.getConnection(caminho, usuario, senha);
-            JOptionPane.showMessageDialog(null, "Conectado com Sucesso");
+            //JOptionPane.showMessageDialog(null, "Conectado com Sucesso");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Não Conectado Erro:\n"+ ex.getMessage());
         }
     }
-        public void desconecta(){
+    
+    public void executaSql (String sql){
+        try {
+            stm = con.createStatement(rs.TYPE_SCROLL_INSENSITIVE,rs.CONCUR_READ_ONLY);
+            rs = stm.executeQuery(sql);
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Não executa sql\n Erro: "+ ex.getMessage());
+        }
+    }
+    
+    
+    public void desconecta(){
         try {
             con.close();
-            JOptionPane.showMessageDialog(null,"BD Desconectado com Sucesso");
+            //JOptionPane.showMessageDialog(null,"BD Desconectado com Sucesso");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null,"Erro ao Desconectar BD:\n"+ ex.getMessage());
         }

@@ -3,35 +3,26 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model.bean;
+package modeloBeans;
 
 /**
  *
  * @author luizk
  */
-public class ClienteBean {
-    
-    private int cpf;
+public class LojaBean {
     private String endereco;
     private int telefone;
     private String nome;
+    private int cnpj;
     private int codigo;
     private int cod_cidade;
-
-    public ClienteBean(){
+    
+    public LojaBean(){
     
     }
-    public ClienteBean(int codigo, String nome) {
+    public LojaBean(int codigo, String nome) {
         this.codigo = codigo;
         this.nome = nome;
-    }
-    
-    public int getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(int cpf) {
-        this.cpf = cpf;
     }
 
     public String getEndereco() {
@@ -58,6 +49,14 @@ public class ClienteBean {
         this.nome = nome;
     }
 
+    public int getCnpj() {
+        return cnpj;
+    }
+
+    public void setCnpj(int cnpj) {
+        this.cnpj = cnpj;
+    }
+
     public int getCodigo() {
         return codigo;
     }
@@ -73,6 +72,5 @@ public class ClienteBean {
     public void setCod_cidade(int cod_cidade) {
         this.cod_cidade = cod_cidade;
     }
-    
     
 }

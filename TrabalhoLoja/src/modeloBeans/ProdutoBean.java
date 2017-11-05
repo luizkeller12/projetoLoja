@@ -3,47 +3,29 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model.bean;
+package modeloBeans;
 
 /**
  *
  * @author luizk
  */
-public class CidadeBean {
+public class ProdutoBean {
     private String nome;
-    private int cep;
-    private String uf;
     private int codigo;
-
-    public CidadeBean(){
+    public ProdutoBean(){
     
     }
-    public CidadeBean(int codigo, String nome) {
+    public ProdutoBean(int codigo, String nome) {
         this.codigo = codigo;
         this.nome = nome;
     }
+
     public String getNome() {
         return nome;
     }
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public int getCep() {
-        return cep;
-    }
-
-    public void setCep(int cep) {
-        this.cep = cep;
-    }
-
-    public String getUf() {
-        return uf;
-    }
-
-    public void setUf(String uf) {
-        this.uf = uf;
     }
 
     public int getCodigo() {
@@ -53,6 +35,5 @@ public class CidadeBean {
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
-    
     
 }

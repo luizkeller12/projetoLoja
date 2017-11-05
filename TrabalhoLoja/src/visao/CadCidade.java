@@ -5,17 +5,17 @@
  */
 package visao;
 
-import Controle.ConexaoBD;
-import Controle.ControleCidade;
-import model.bean.CidadeBean;
+import modeloConnection.ConexaoBD;
+import modeloDao.DaoCidade;
+import modeloBeans.BeansCidade;
 
 /**
  *
  * @author luizk
  */
 public class CadCidade extends javax.swing.JFrame {
-    CidadeBean cid = new CidadeBean();
-    ControleCidade control = new ControleCidade();
+    BeansCidade mod = new BeansCidade();
+    DaoCidade control = new DaoCidade();
     ConexaoBD conex = new ConexaoBD();
     /**
      * Creates new form CadCidade
@@ -44,13 +44,13 @@ public class CadCidade extends javax.swing.JFrame {
         jButtonSalvar = new javax.swing.JButton();
         jButtonCancelar = new javax.swing.JButton();
         jButtonEditar = new javax.swing.JButton();
-        Apagar = new javax.swing.JButton();
+        jButtonApagar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableCidade = new javax.swing.JTable();
-        jTextField4 = new javax.swing.JTextField();
-        jButton6 = new javax.swing.JButton();
+        jTextFieldPesquisa = new javax.swing.JTextField();
+        jButtonPesquisa = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        jTextFieldCodigo = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jButtonVoltar = new javax.swing.JButton();
 
@@ -62,9 +62,12 @@ public class CadCidade extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel2.setText("Nome:");
 
+        jTextFieldNome.setEnabled(false);
+
         jLabel3.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel3.setText("UF:");
 
+        jTextFieldCep.setEnabled(false);
         jTextFieldCep.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldCepActionPerformed(evt);
@@ -74,6 +77,7 @@ public class CadCidade extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel4.setText("CEP:");
 
+        jTextFieldUf.setEnabled(false);
         jTextFieldUf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldUfActionPerformed(evt);
@@ -90,6 +94,7 @@ public class CadCidade extends javax.swing.JFrame {
 
         jButtonSalvar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jButtonSalvar.setText("SALVAR");
+        jButtonSalvar.setEnabled(false);
         jButtonSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSalvarActionPerformed(evt);
@@ -98,12 +103,15 @@ public class CadCidade extends javax.swing.JFrame {
 
         jButtonCancelar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jButtonCancelar.setText("CANCELAR");
+        jButtonCancelar.setEnabled(false);
 
         jButtonEditar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jButtonEditar.setText("EDITAR");
+        jButtonEditar.setEnabled(false);
 
-        Apagar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        Apagar.setText("APAGAR");
+        jButtonApagar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jButtonApagar.setText("APAGAR");
+        jButtonApagar.setEnabled(false);
 
         jTableCidade.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -118,20 +126,21 @@ public class CadCidade extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTableCidade);
 
-        jButton6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jButton6.setText("PESQUISAR");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        jButtonPesquisa.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jButtonPesquisa.setText("PESQUISAR");
+        jButtonPesquisa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                jButtonPesquisaActionPerformed(evt);
             }
         });
 
         jLabel5.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel5.setText("Código:");
 
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldCodigo.setEnabled(false);
+        jTextFieldCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                jTextFieldCodigoActionPerformed(evt);
             }
         });
 
@@ -142,6 +151,13 @@ public class CadCidade extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldCep, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButtonNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -149,30 +165,23 @@ public class CadCidade extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonCancelar))
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldCep, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButtonCancelar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Apagar, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 496, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextFieldPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(27, 27, 27))))
+                                .addComponent(jButtonPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(27, 27, 27))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonApagar, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,8 +195,8 @@ public class CadCidade extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(42, 42, 42)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jTextFieldPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(11, 11, 11)
@@ -201,7 +210,7 @@ public class CadCidade extends javax.swing.JFrame {
                         .addGap(31, 31, 31)
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTextFieldCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -211,7 +220,7 @@ public class CadCidade extends javax.swing.JFrame {
                     .addComponent(jButtonNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Apagar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButtonApagar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18))
         );
 
@@ -265,16 +274,39 @@ public class CadCidade extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldCepActionPerformed
 
     private void jTextFieldUfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUfActionPerformed
-        // TODO add your handling code here:
+        
+        
+        
     }//GEN-LAST:event_jTextFieldUfActionPerformed
 
     private void jButtonNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNovoActionPerformed
         // TODO add your handling code here:
+        jTextFieldCep.setEnabled(true);
+        jTextFieldNome.setEnabled(true);
+        jTextFieldUf.setEnabled(true);
+        jButtonSalvar.setEnabled(true);
+        jTextFieldNome.setText("");
+        jTextFieldCep.setText("");
+        jTextFieldUf.setText("");
+        jTextFieldCodigo.setText("");
+        jButtonEditar.setEnabled(false);
+        
     }//GEN-LAST:event_jButtonNovoActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    private void jButtonPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPesquisaActionPerformed
+        mod.setPesquisa(jTextFieldPesquisa.getText());
+        BeansCidade model = control.buscaCidade(mod);
+        jTextFieldNome.setText(model.getNome());
+        jTextFieldCep.setText(String.valueOf(model.getCep()));
+        jTextFieldUf.setText(model.getUf());
+        jTextFieldCodigo.setText(String.valueOf(model.getCodigo()));
+        jButtonEditar.setEnabled(true);
+        jButtonApagar.setEnabled(true);
+        jTextFieldNome.setEnabled(false);
+        jTextFieldCep.setEnabled(false);
+        jTextFieldUf.setEnabled(false);
+        jTextFieldCodigo.setEnabled(false);
+    }//GEN-LAST:event_jButtonPesquisaActionPerformed
 
     private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
         TelaPrincipal tela = new TelaPrincipal();
@@ -282,15 +314,23 @@ public class CadCidade extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButtonVoltarActionPerformed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void jTextFieldCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCodigoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_jTextFieldCodigoActionPerformed
 
     private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
-        cid.setNome(jTextFieldNome.getText());
-        cid.setCep(Integer.parseInt(jTextFieldCep.getText()));
-        cid.setUf(jTextFieldUf.getText());
-        control.Salvar(cid);
+        mod.setNome(jTextFieldNome.getText());
+        mod.setCep(Integer.parseInt(jTextFieldCep.getText()));
+        mod.setUf(jTextFieldUf.getText());
+        control.Salvar(mod);
+        jTextFieldCep.setText("");
+        jTextFieldNome.setText("");
+        jTextFieldUf.setText("");
+        jTextFieldCep.setEnabled(false);
+        jTextFieldNome.setEnabled(false);
+        jTextFieldUf.setEnabled(false);
+        jButtonSalvar.setEnabled(false);
+     
         
     }//GEN-LAST:event_jButtonSalvarActionPerformed
 
@@ -330,11 +370,11 @@ public class CadCidade extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Apagar;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButtonApagar;
     private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonEditar;
     private javax.swing.JButton jButtonNovo;
+    private javax.swing.JButton jButtonPesquisa;
     private javax.swing.JButton jButtonSalvar;
     private javax.swing.JButton jButtonVoltar;
     private javax.swing.JLabel jLabel1;
@@ -345,10 +385,10 @@ public class CadCidade extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableCidade;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextFieldCep;
+    private javax.swing.JTextField jTextFieldCodigo;
     private javax.swing.JTextField jTextFieldNome;
+    private javax.swing.JTextField jTextFieldPesquisa;
     private javax.swing.JTextField jTextFieldUf;
     // End of variables declaration//GEN-END:variables
 }
