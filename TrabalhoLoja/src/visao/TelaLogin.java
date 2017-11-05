@@ -5,6 +5,8 @@
  */
 package visao;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author luizk
@@ -32,8 +34,8 @@ public class TelaLogin extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        jTextFieldUsuario = new javax.swing.JTextField();
+        jPasswordFieldSenha = new javax.swing.JPasswordField();
         jLabelFundoLogin = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -52,6 +54,11 @@ public class TelaLogin extends javax.swing.JFrame {
 
         jButtonSair.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jButtonSair.setText("SAIR");
+        jButtonSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSairActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButtonSair);
         jButtonSair.setBounds(500, 220, 80, 29);
 
@@ -68,10 +75,10 @@ public class TelaLogin extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/latlojadacerto.png"))); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(40, 20, 170, 200);
-        getContentPane().add(jTextField2);
-        jTextField2.setBounds(320, 50, 240, 30);
-        getContentPane().add(jPasswordField1);
-        jPasswordField1.setBounds(320, 90, 240, 30);
+        getContentPane().add(jTextFieldUsuario);
+        jTextFieldUsuario.setBounds(320, 50, 240, 30);
+        getContentPane().add(jPasswordFieldSenha);
+        jPasswordFieldSenha.setBounds(320, 90, 240, 30);
 
         jLabelFundoLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/713.png"))); // NOI18N
         jLabelFundoLogin.setText("Login");
@@ -83,10 +90,19 @@ public class TelaLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAcessar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAcessar1ActionPerformed
+       if(jTextFieldUsuario.getText().equals("admin")&&(jPasswordFieldSenha.getText().equals("1234"))){
         TelaPrincipal tela =  new TelaPrincipal();  
         tela.setVisible(true);
-        dispose();
+        dispose();                          
+       }else{
+           JOptionPane.showMessageDialog(rootPane, "Usuário ou Senha Incorretos");
+       }
+       
     }//GEN-LAST:event_jButtonAcessar1ActionPerformed
+    
+    private void jButtonSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSairActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jButtonSairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -130,7 +146,7 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelFundoLogin;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JPasswordField jPasswordFieldSenha;
+    private javax.swing.JTextField jTextFieldUsuario;
     // End of variables declaration//GEN-END:variables
 }
