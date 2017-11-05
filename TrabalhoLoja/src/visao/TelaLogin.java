@@ -40,6 +40,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("LOGIN");
+        setResizable(false);
         getContentPane().setLayout(null);
 
         jButtonAcessar1.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
@@ -83,7 +84,7 @@ public class TelaLogin extends javax.swing.JFrame {
         jLabelFundoLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/713.png"))); // NOI18N
         jLabelFundoLogin.setText("Login");
         getContentPane().add(jLabelFundoLogin);
-        jLabelFundoLogin.setBounds(-130, 0, 740, 260);
+        jLabelFundoLogin.setBounds(-130, 0, 740, 280);
 
         setSize(new java.awt.Dimension(603, 300));
         setLocationRelativeTo(null);

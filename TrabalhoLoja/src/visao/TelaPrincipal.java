@@ -5,17 +5,23 @@
  */
 package visao;
 
+import Controle.ConexaoBD;
+
+
+
 /**
  *
  * @author luizk
  */
 public class TelaPrincipal extends javax.swing.JFrame {
-
+    ConexaoBD conecta = new ConexaoBD();
+    
     /**
      * Creates new form TelaPrincipal
      */
     public TelaPrincipal() {
         initComponents();
+        conecta.conexao();
     }
 
     /**
@@ -75,6 +81,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Principal");
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setResizable(false);
         getContentPane().setLayout(null);
 
         jInternalBV.setTitle("BEM VINDO");
@@ -101,6 +109,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jButtonCadCid.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_Citycons_building_1342941.png"))); // NOI18N
         jButtonCadCid.setToolTipText("Cidades");
+        jButtonCadCid.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCadCidActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButtonCadCid);
         jButtonCadCid.setBounds(10, 50, 130, 120);
 
@@ -227,7 +240,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuSairActionPerformed
 
     private void jMenuItemSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSairActionPerformed
-       System.exit(0);
+       conecta.desconecta();
+        System.exit(0);
+       
     }//GEN-LAST:event_jMenuItemSairActionPerformed
 
     private void jMenuItemTelaBVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemTelaBVActionPerformed
@@ -242,6 +257,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         dispose();
         
     }//GEN-LAST:event_jMenuItemCadCidActionPerformed
+
+    private void jButtonCadCidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadCidActionPerformed
+        CadCidade tela = new CadCidade();
+        tela.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButtonCadCidActionPerformed
 
     /**
      * @param args the command line arguments
