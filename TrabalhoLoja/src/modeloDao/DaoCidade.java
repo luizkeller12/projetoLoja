@@ -36,6 +36,34 @@ public class DaoCidade {
         
         conex.desconecta();
     }
+    public void Editar(BeansCidade cid ) {
+        conex.conexao();    
+        try {
+            PreparedStatement pst = conex.con.prepareStatement("update cidade set nome=?,cep=?,uf=? where codigo=?");
+            pst.setString(1, cid.getNome());
+            pst.setInt(2, cid.getCep());
+            pst.setString(3, cid.getUf());
+            pst.setInt(4, cid.getCodigo());
+            pst.execute();
+            JOptionPane.showMessageDialog(null,"Dados alterados com Sucesso!");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,"Erro ao alterar dados\n Erro: "+ ex);
+        }   
+       conex.desconecta(); 
+    }
+    public void Apagar(BeansCidade cid){
+        conex.conexao();
+        try {
+            PreparedStatement pst = conex.con.prepareStatement("delete from cidade where codigo=?");
+            pst.setInt(1, cid.getCodigo());
+            pst.execute();
+            JOptionPane.showMessageDialog(null,"Apagado com Sucesso!");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,"Erro ao apagar dados\n Erro: "+ ex);
+        }
+        
+        conex.desconecta();
+    }
     public BeansCidade buscaCidade(BeansCidade mod){    
         conex.conexao();
         

@@ -5,6 +5,7 @@
  */
 package visao;
 
+import javax.swing.JOptionPane;
 import modeloConnection.ConexaoBD;
 import modeloDao.DaoCidade;
 import modeloBeans.BeansCidade;
@@ -17,6 +18,7 @@ public class CadCidade extends javax.swing.JFrame {
     BeansCidade mod = new BeansCidade();
     DaoCidade control = new DaoCidade();
     ConexaoBD conex = new ConexaoBD();
+    int flag = 0;
     /**
      * Creates new form CadCidade
      */
@@ -104,14 +106,29 @@ public class CadCidade extends javax.swing.JFrame {
         jButtonCancelar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jButtonCancelar.setText("CANCELAR");
         jButtonCancelar.setEnabled(false);
+        jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelarActionPerformed(evt);
+            }
+        });
 
         jButtonEditar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jButtonEditar.setText("EDITAR");
         jButtonEditar.setEnabled(false);
+        jButtonEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEditarActionPerformed(evt);
+            }
+        });
 
         jButtonApagar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jButtonApagar.setText("APAGAR");
         jButtonApagar.setEnabled(false);
+        jButtonApagar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonApagarActionPerformed(evt);
+            }
+        });
 
         jTableCidade.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -281,16 +298,12 @@ public class CadCidade extends javax.swing.JFrame {
 
     private void jButtonNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNovoActionPerformed
         // TODO add your handling code here:
+        flag = 1;
         jTextFieldCep.setEnabled(true);
         jTextFieldNome.setEnabled(true);
         jTextFieldUf.setEnabled(true);
-        jButtonSalvar.setEnabled(true);
-        jTextFieldNome.setText("");
-        jTextFieldCep.setText("");
-        jTextFieldUf.setText("");
-        jTextFieldCodigo.setText("");
-        jButtonEditar.setEnabled(false);
-        
+        jButtonSalvar.setEnabled(true);           
+        jButtonCancelar.setEnabled(true);  
     }//GEN-LAST:event_jButtonNovoActionPerformed
 
     private void jButtonPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPesquisaActionPerformed
@@ -301,11 +314,7 @@ public class CadCidade extends javax.swing.JFrame {
         jTextFieldUf.setText(model.getUf());
         jTextFieldCodigo.setText(String.valueOf(model.getCodigo()));
         jButtonEditar.setEnabled(true);
-        jButtonApagar.setEnabled(true);
-        jTextFieldNome.setEnabled(false);
-        jTextFieldCep.setEnabled(false);
-        jTextFieldUf.setEnabled(false);
-        jTextFieldCodigo.setEnabled(false);
+        jButtonApagar.setEnabled(true);       
     }//GEN-LAST:event_jButtonPesquisaActionPerformed
 
     private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
@@ -319,20 +328,80 @@ public class CadCidade extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldCodigoActionPerformed
 
     private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
+        if(flag == 1){ 
         mod.setNome(jTextFieldNome.getText());
         mod.setCep(Integer.parseInt(jTextFieldCep.getText()));
         mod.setUf(jTextFieldUf.getText());
-        control.Salvar(mod);
+        control.Salvar(mod);      
         jTextFieldCep.setText("");
         jTextFieldNome.setText("");
         jTextFieldUf.setText("");
         jTextFieldCep.setEnabled(false);
         jTextFieldNome.setEnabled(false);
         jTextFieldUf.setEnabled(false);
-        jButtonSalvar.setEnabled(false);
+        jButtonSalvar.setEnabled(false); 
+        jButtonCancelar.setEnabled(false);
+        }else{
+            mod.setNome(jTextFieldNome.getText());
+            mod.setCep(Integer.parseInt(jTextFieldCep.getText()));
+            mod.setUf(jTextFieldUf.getText());
+            mod.setCodigo(Integer.parseInt(jTextFieldCodigo.getText()));
+            control.Editar(mod);
+            jTextFieldCep.setEnabled(false);
+            jTextFieldNome.setEnabled(false);
+            jTextFieldUf.setEnabled(false);   
+            jTextFieldCep.setText("");
+            jTextFieldNome.setText("");
+            jTextFieldUf.setText("");
+            jTextFieldCodigo.setText("");
+        }
      
         
     }//GEN-LAST:event_jButtonSalvarActionPerformed
+
+    private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
+        // TODO add your handling code here:
+        jTextFieldCep.setEnabled(!true);
+        jTextFieldNome.setEnabled(!true);
+        jTextFieldUf.setEnabled(!true);
+        jButtonSalvar.setEnabled(!true);           
+        jButtonCancelar.setEnabled(!true);
+        jButtonNovo.setEnabled(true);
+        jButtonEditar.setEnabled(false);
+        jButtonApagar.setEnabled(false);
+    }//GEN-LAST:event_jButtonCancelarActionPerformed
+
+    private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
+        flag=2;
+        jTextFieldCep.setEnabled(true);
+        jTextFieldNome.setEnabled(true);
+        jTextFieldUf.setEnabled(true);
+        jButtonSalvar.setEnabled(true);           
+        jButtonCancelar.setEnabled(true);
+        jButtonEditar.setEnabled(false);
+        jButtonNovo.setEnabled(false);
+        jButtonApagar.setEnabled(false);
+    }//GEN-LAST:event_jButtonEditarActionPerformed
+
+    private void jButtonApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonApagarActionPerformed
+        // TODO add your handling code here:
+        int resposta = 0;
+        resposta= JOptionPane.showConfirmDialog(rootPane, "Realmente deseja Apagar?");
+        if(resposta == JOptionPane.YES_OPTION){
+        mod.setCodigo(Integer.parseInt(jTextFieldCodigo.getText()));
+        control.Apagar(mod);
+        jButtonEditar.setEnabled(false);
+        jButtonApagar.setEnabled(false);
+        jButtonCancelar.setEnabled(false);
+        jTextFieldCep.setEnabled(false);
+        jTextFieldNome.setEnabled(false);
+        jTextFieldUf.setEnabled(false);   
+        jTextFieldCep.setText("");
+        jTextFieldNome.setText("");
+        jTextFieldUf.setText("");
+        jTextFieldCodigo.setText("");
+        }
+    }//GEN-LAST:event_jButtonApagarActionPerformed
 
     /**
      * @param args the command line arguments
