@@ -7,6 +7,8 @@ package visao;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import modeloConnection.ConexaoBD;
@@ -19,19 +21,20 @@ import modeloBeans.ModeloTabela;
  * @author luizk
  */
 public class CadCidade extends javax.swing.JFrame {
+
     BeansCidade mod = new BeansCidade();
     DaoCidade control = new DaoCidade();
     ConexaoBD conex = new ConexaoBD();
-    
-    
+
     int flag = 0;
+
     /**
      * Creates new form CadCidade
      */
     public CadCidade() {
         initComponents();
         preencherTabela("select * from cidade order by nome");
-        
+
     }
 
     /**
@@ -149,6 +152,16 @@ public class CadCidade extends javax.swing.JFrame {
 
             }
         ));
+        jTableCidade.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableCidadeMouseClicked(evt);
+            }
+        });
+        jTableCidade.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTableCidadeKeyReleased(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTableCidade);
 
         jButtonPesquisa.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -299,9 +312,8 @@ public class CadCidade extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldCepActionPerformed
 
     private void jTextFieldUfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUfActionPerformed
-        
-        
-        
+
+
     }//GEN-LAST:event_jTextFieldUfActionPerformed
 
     private void jButtonNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNovoActionPerformed
@@ -310,8 +322,9 @@ public class CadCidade extends javax.swing.JFrame {
         jTextFieldCep.setEnabled(true);
         jTextFieldNome.setEnabled(true);
         jTextFieldUf.setEnabled(true);
-        jButtonSalvar.setEnabled(true);           
-        jButtonCancelar.setEnabled(true);  
+        jButtonSalvar.setEnabled(true);
+        jButtonCancelar.setEnabled(true);
+        
     }//GEN-LAST:event_jButtonNovoActionPerformed
 
     private void jButtonPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPesquisaActionPerformed
@@ -322,7 +335,7 @@ public class CadCidade extends javax.swing.JFrame {
         jTextFieldUf.setText(model.getUf());
         jTextFieldCodigo.setText(String.valueOf(model.getCodigo()));
         jButtonEditar.setEnabled(true);
-        jButtonApagar.setEnabled(true);       
+        jButtonApagar.setEnabled(true);
     }//GEN-LAST:event_jButtonPesquisaActionPerformed
 
     private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
@@ -336,20 +349,20 @@ public class CadCidade extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldCodigoActionPerformed
 
     private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
-        if(flag == 1){ 
-        mod.setNome(jTextFieldNome.getText());
-        mod.setCep(Integer.parseInt(jTextFieldCep.getText()));
-        mod.setUf(jTextFieldUf.getText());
-        control.Salvar(mod);      
-        jTextFieldCep.setText("");
-        jTextFieldNome.setText("");
-        jTextFieldUf.setText("");
-        jTextFieldCep.setEnabled(false);
-        jTextFieldNome.setEnabled(false);
-        jTextFieldUf.setEnabled(false);
-        jButtonSalvar.setEnabled(false); 
-        jButtonCancelar.setEnabled(false);
-        }else{
+        if (flag == 1) {
+            mod.setNome(jTextFieldNome.getText());
+            mod.setCep(Integer.parseInt(jTextFieldCep.getText()));
+            mod.setUf(jTextFieldUf.getText());
+            control.Salvar(mod);
+            jTextFieldCep.setText("");
+            jTextFieldNome.setText("");
+            jTextFieldUf.setText("");
+            jTextFieldCep.setEnabled(false);
+            jTextFieldNome.setEnabled(false);
+            jTextFieldUf.setEnabled(false);
+            jButtonSalvar.setEnabled(false);
+            jButtonCancelar.setEnabled(false);
+        } else {
             mod.setNome(jTextFieldNome.getText());
             mod.setCep(Integer.parseInt(jTextFieldCep.getText()));
             mod.setUf(jTextFieldUf.getText());
@@ -357,15 +370,15 @@ public class CadCidade extends javax.swing.JFrame {
             control.Editar(mod);
             jTextFieldCep.setEnabled(false);
             jTextFieldNome.setEnabled(false);
-            jTextFieldUf.setEnabled(false);   
+            jTextFieldUf.setEnabled(false);
             jTextFieldCep.setText("");
             jTextFieldNome.setText("");
             jTextFieldUf.setText("");
             jTextFieldCodigo.setText("");
             jButtonSalvar.setEnabled(false);
         }
-     
-        
+
+
     }//GEN-LAST:event_jButtonSalvarActionPerformed
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
@@ -373,7 +386,7 @@ public class CadCidade extends javax.swing.JFrame {
         jTextFieldCep.setEnabled(!true);
         jTextFieldNome.setEnabled(!true);
         jTextFieldUf.setEnabled(!true);
-        jButtonSalvar.setEnabled(!true);           
+        jButtonSalvar.setEnabled(!true);
         jButtonCancelar.setEnabled(!true);
         jButtonNovo.setEnabled(true);
         jButtonEditar.setEnabled(false);
@@ -381,11 +394,11 @@ public class CadCidade extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
-        flag=2;
+        flag = 2;
         jTextFieldCep.setEnabled(true);
         jTextFieldNome.setEnabled(true);
         jTextFieldUf.setEnabled(true);
-        jButtonSalvar.setEnabled(true);           
+        jButtonSalvar.setEnabled(true);
         jButtonCancelar.setEnabled(true);
         jButtonEditar.setEnabled(false);
         jButtonNovo.setEnabled(false);
@@ -395,53 +408,74 @@ public class CadCidade extends javax.swing.JFrame {
     private void jButtonApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonApagarActionPerformed
         // TODO add your handling code here:
         int resposta = 0;
-        resposta= JOptionPane.showConfirmDialog(rootPane, "Realmente deseja Apagar?");
-        if(resposta == JOptionPane.YES_OPTION){
-        mod.setCodigo(Integer.parseInt(jTextFieldCodigo.getText()));
-        control.Apagar(mod);
-        jButtonEditar.setEnabled(false);
-        jButtonApagar.setEnabled(false);
-        jButtonCancelar.setEnabled(false);
-        jTextFieldCep.setEnabled(false);
-        jTextFieldNome.setEnabled(false);
-        jTextFieldUf.setEnabled(false);   
-        jTextFieldCep.setText("");
-        jTextFieldNome.setText("");
-        jTextFieldUf.setText("");
-        jTextFieldCodigo.setText("");
+        resposta = JOptionPane.showConfirmDialog(rootPane, "Realmente deseja Apagar?");
+        if (resposta == JOptionPane.YES_OPTION) {
+            mod.setCodigo(Integer.parseInt(jTextFieldCodigo.getText()));
+            control.Apagar(mod);
+            jButtonEditar.setEnabled(false);
+            jButtonApagar.setEnabled(false);
+            jButtonCancelar.setEnabled(false);
+            jTextFieldCep.setEnabled(false);
+            jTextFieldNome.setEnabled(false);
+            jTextFieldUf.setEnabled(false);
+            jTextFieldCep.setText("");
+            jTextFieldNome.setText("");
+            jTextFieldUf.setText("");
+            jTextFieldCodigo.setText("");
         }
     }//GEN-LAST:event_jButtonApagarActionPerformed
 
-  public void preencherTabela(String Sql){
-      ArrayList dados =  new ArrayList();
-      String [] colunas =  new String[]{"nome","cep","uf","codigo"};
-      conex.conexao();
-      conex.executaSql(Sql);
-      
-      try{
-          conex.rs.first();
-          do{
-              dados.add(new Object[]{conex.rs.getString("nome"),conex.rs.getInt("cep"),conex.rs.getString("uf"),conex.rs.getInt("codigo")});
-          }while(conex.rs.next());
-      }catch(SQLException ex){
-          JOptionPane.showMessageDialog(rootPane, "Erro ao preencher Lista"+ex);
-      }
-      ModeloTabela modelo = new ModeloTabela(dados, colunas);
-      
-      jTableCidade.setModel(modelo);
-      jTableCidade.getColumnModel().getColumn(0).setPreferredWidth(180);
-      jTableCidade.getColumnModel().getColumn(0).setResizable(false);
-      jTableCidade.getColumnModel().getColumn(1).setPreferredWidth(130);
-      jTableCidade.getColumnModel().getColumn(1).setResizable(false);
-      jTableCidade.getColumnModel().getColumn(2).setPreferredWidth(60);
-      jTableCidade.getColumnModel().getColumn(2).setResizable(false);
-      jTableCidade.getColumnModel().getColumn(3).setPreferredWidth(120);
-      jTableCidade.getColumnModel().getColumn(3).setResizable(false);
-      jTableCidade.getTableHeader().setReorderingAllowed(false);
-      jTableCidade.setAutoResizeMode(jTableCidade.AUTO_RESIZE_OFF);
-      jTableCidade.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-      conex.desconecta();
-  }
+    private void jTableCidadeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableCidadeMouseClicked
+        setaTextFields();
+        
+        
+    }//GEN-LAST:event_jTableCidadeMouseClicked
+    public void setaTextFields() {
+        int indice = jTableCidade.getSelectedRow();
+        jTextFieldNome.setText(jTableCidade.getValueAt(indice, 0).toString());
+        jTextFieldCep.setText(jTableCidade.getValueAt(indice, 1).toString());
+        jTextFieldUf.setText(jTableCidade.getValueAt(indice, 2).toString());
+        jTextFieldCodigo.setText(jTableCidade.getValueAt(indice, 3).toString());
+        jButtonEditar.setEnabled(true);
+        jButtonApagar.setEnabled(true);
+        jButtonNovo.setEnabled(false);
+    }
+    private void jTableCidadeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTableCidadeKeyReleased
+        setaTextFields();
+    }//GEN-LAST:event_jTableCidadeKeyReleased
+
+    public void preencherTabela(String Sql) {
+        ArrayList dados = new ArrayList();
+        String[] colunas = new String[]{"nome", "cep", "uf", "codigo"};
+        conex.conexao();
+        conex.executaSql(Sql);
+
+        try {
+            conex.rs.first();
+            do {
+                dados.add(new Object[]{conex.rs.getString("nome"), conex.rs.getInt("cep"), conex.rs.getString("uf"), conex.rs.getInt("codigo")});
+            } while (conex.rs.next());
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(rootPane, "Erro ao preencher Lista" + ex);
+        }
+        ModeloTabela modelo = new ModeloTabela(dados, colunas);
+
+        jTableCidade.setModel(modelo);
+        jTableCidade.getColumnModel().getColumn(0).setPreferredWidth(180);
+        jTableCidade.getColumnModel().getColumn(0).setResizable(false);
+        jTableCidade.getColumnModel().getColumn(1).setPreferredWidth(130);
+        jTableCidade.getColumnModel().getColumn(1).setResizable(false);
+        jTableCidade.getColumnModel().getColumn(2).setPreferredWidth(60);
+        jTableCidade.getColumnModel().getColumn(2).setResizable(false);
+        jTableCidade.getColumnModel().getColumn(3).setPreferredWidth(120);
+        jTableCidade.getColumnModel().getColumn(3).setResizable(false);
+        jTableCidade.getTableHeader().setReorderingAllowed(false);
+
+        jTableCidade.setAutoResizeMode(jTableCidade.AUTO_RESIZE_OFF);
+        jTableCidade.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        conex.desconecta();
+    }
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
