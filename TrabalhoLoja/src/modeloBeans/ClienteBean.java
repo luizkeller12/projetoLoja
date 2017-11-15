@@ -17,7 +17,11 @@ public class ClienteBean {
     private String nome;
     private int codigo;
     private int cod_cidade;
-
+    private String pesquisa;
+    
+    public String getPesquisa() {
+        return pesquisa;
+    }
     public ClienteBean(){
     
     }

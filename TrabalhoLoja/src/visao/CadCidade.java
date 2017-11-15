@@ -5,10 +5,14 @@
  */
 package visao;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.ListSelectionModel;
 import modeloConnection.ConexaoBD;
 import modeloDao.DaoCidade;
 import modeloBeans.BeansCidade;
+import modeloBeans.ModeloTabela;
 
 /**
  *
@@ -18,12 +22,16 @@ public class CadCidade extends javax.swing.JFrame {
     BeansCidade mod = new BeansCidade();
     DaoCidade control = new DaoCidade();
     ConexaoBD conex = new ConexaoBD();
+    
+    
     int flag = 0;
     /**
      * Creates new form CadCidade
      */
     public CadCidade() {
         initComponents();
+        preencherTabela("select * from cidade order by nome");
+        
     }
 
     /**
@@ -354,6 +362,7 @@ public class CadCidade extends javax.swing.JFrame {
             jTextFieldNome.setText("");
             jTextFieldUf.setText("");
             jTextFieldCodigo.setText("");
+            jButtonSalvar.setEnabled(false);
         }
      
         
@@ -403,9 +412,36 @@ public class CadCidade extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonApagarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+  public void preencherTabela(String Sql){
+      ArrayList dados =  new ArrayList();
+      String [] colunas =  new String[]{"nome","cep","uf","codigo"};
+      conex.conexao();
+      conex.executaSql(Sql);
+      
+      try{
+          conex.rs.first();
+          do{
+              dados.add(new Object[]{conex.rs.getString("nome"),conex.rs.getInt("cep"),conex.rs.getString("uf"),conex.rs.getInt("codigo")});
+          }while(conex.rs.next());
+      }catch(SQLException ex){
+          JOptionPane.showMessageDialog(rootPane, "Erro ao preencher Lista"+ex);
+      }
+      ModeloTabela modelo = new ModeloTabela(dados, colunas);
+      
+      jTableCidade.setModel(modelo);
+      jTableCidade.getColumnModel().getColumn(0).setPreferredWidth(180);
+      jTableCidade.getColumnModel().getColumn(0).setResizable(false);
+      jTableCidade.getColumnModel().getColumn(1).setPreferredWidth(130);
+      jTableCidade.getColumnModel().getColumn(1).setResizable(false);
+      jTableCidade.getColumnModel().getColumn(2).setPreferredWidth(60);
+      jTableCidade.getColumnModel().getColumn(2).setResizable(false);
+      jTableCidade.getColumnModel().getColumn(3).setPreferredWidth(120);
+      jTableCidade.getColumnModel().getColumn(3).setResizable(false);
+      jTableCidade.getTableHeader().setReorderingAllowed(false);
+      jTableCidade.setAutoResizeMode(jTableCidade.AUTO_RESIZE_OFF);
+      jTableCidade.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+      conex.desconecta();
+  }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
