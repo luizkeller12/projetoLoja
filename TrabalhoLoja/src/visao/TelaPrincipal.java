@@ -64,6 +64,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuSobre = new javax.swing.JMenu();
         jMenuSair = new javax.swing.JMenu();
         jMenuItemSair = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
 
         jMenu1.setText("jMenu1");
 
@@ -219,6 +220,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenuSair.add(jMenuItemSair);
 
+        jMenuItem2.setText("Sair");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenuSair.add(jMenuItem2);
+
         jMenuBar1.add(jMenuSair);
 
         setJMenuBar(jMenuBar1);
@@ -261,6 +270,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
         tela.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonCadCidActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        TelaLogin tela = new TelaLogin();
+        tela.setVisible(true);
+        dispose();
+        
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -318,6 +334,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuBuscar;
     private javax.swing.JMenu jMenuCadastro;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItemBusProd;
     private javax.swing.JMenuItem jMenuItemCadCLi;
     private javax.swing.JMenuItem jMenuItemCadCid;

@@ -374,13 +374,13 @@ public class CadCidade extends javax.swing.JFrame {
 
     private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
         if(jTextFieldNome.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Preencha o NOME para continuar!");
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos para continuar!");
             jTextFieldNome.requestFocus();
         }else if(jTextFieldCep.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Preencha o CEP para continuar!");
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos para continuar!");
             jTextFieldCep.requestFocus();
         }else if(jTextFieldUf.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Preencha o UF para continuar!");
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos para continuar!");
             jTextFieldUf.requestFocus();
         }else{
         
