@@ -73,7 +73,8 @@ public class DaoCidade {
             mod.setUf(conex.rs.getString("uf"));
             mod.setCodigo(conex.rs.getInt("codigo"));
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null,"Erro ao buscar cidade/n Erro: "+ex);
+            JOptionPane.showMessageDialog(null, "Cidade não cadastrada!");
+            
         }
         
         conex.desconecta();

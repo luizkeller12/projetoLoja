@@ -66,6 +66,7 @@ public class CadCidade extends javax.swing.JFrame {
         jTextFieldCodigo = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jButtonVoltar = new javax.swing.JButton();
+        jButtonAtualizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -274,6 +275,15 @@ public class CadCidade extends javax.swing.JFrame {
             }
         });
 
+        jButtonAtualizar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jButtonAtualizar.setText("ATUALIZAR");
+        jButtonAtualizar.setToolTipText("atualizar pagina");
+        jButtonAtualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAtualizarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -287,6 +297,8 @@ public class CadCidade extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButtonAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(jButtonVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -299,7 +311,9 @@ public class CadCidade extends javax.swing.JFrame {
                 .addGap(11, 11, 11)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButtonVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -324,7 +338,14 @@ public class CadCidade extends javax.swing.JFrame {
         jTextFieldUf.setEnabled(true);
         jButtonSalvar.setEnabled(true);
         jButtonCancelar.setEnabled(true);
-        
+        jTextFieldCep.setText("");
+        jTextFieldNome.setText("");
+        jTextFieldUf.setText("");
+        jTextFieldCodigo.setText("");
+        jButtonEditar.setEnabled(false);
+        jButtonApagar.setEnabled(false);
+        jButtonPesquisa.setEnabled(false);
+        jTextFieldPesquisa.setEnabled(false);
     }//GEN-LAST:event_jButtonNovoActionPerformed
 
     private void jButtonPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPesquisaActionPerformed
@@ -334,8 +355,11 @@ public class CadCidade extends javax.swing.JFrame {
         jTextFieldCep.setText(String.valueOf(model.getCep()));
         jTextFieldUf.setText(model.getUf());
         jTextFieldCodigo.setText(String.valueOf(model.getCodigo()));
-        jButtonEditar.setEnabled(true);
-        jButtonApagar.setEnabled(true);
+       
+        jTextFieldCep.setText("");
+        jTextFieldNome.setText("");
+        jTextFieldUf.setText("");
+        jTextFieldCodigo.setText("");
     }//GEN-LAST:event_jButtonPesquisaActionPerformed
 
     private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
@@ -349,6 +373,17 @@ public class CadCidade extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldCodigoActionPerformed
 
     private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
+        if(jTextFieldNome.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Preencha o NOME para continuar!");
+            jTextFieldNome.requestFocus();
+        }else if(jTextFieldCep.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Preencha o CEP para continuar!");
+            jTextFieldCep.requestFocus();
+        }else if(jTextFieldUf.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Preencha o UF para continuar!");
+            jTextFieldUf.requestFocus();
+        }else{
+        
         if (flag == 1) {
             mod.setNome(jTextFieldNome.getText());
             mod.setCep(Integer.parseInt(jTextFieldCep.getText()));
@@ -362,6 +397,7 @@ public class CadCidade extends javax.swing.JFrame {
             jTextFieldUf.setEnabled(false);
             jButtonSalvar.setEnabled(false);
             jButtonCancelar.setEnabled(false);
+             preencherTabela("select * from cidade order by nome");
         } else {
             mod.setNome(jTextFieldNome.getText());
             mod.setCep(Integer.parseInt(jTextFieldCep.getText()));
@@ -376,8 +412,9 @@ public class CadCidade extends javax.swing.JFrame {
             jTextFieldUf.setText("");
             jTextFieldCodigo.setText("");
             jButtonSalvar.setEnabled(false);
+             preencherTabela("select * from cidade order by nome");
         }
-
+}
 
     }//GEN-LAST:event_jButtonSalvarActionPerformed
 
@@ -391,6 +428,12 @@ public class CadCidade extends javax.swing.JFrame {
         jButtonNovo.setEnabled(true);
         jButtonEditar.setEnabled(false);
         jButtonApagar.setEnabled(false);
+        jTextFieldPesquisa.setEnabled(true);
+        jButtonPesquisa.setEnabled(true);
+        jTextFieldCep.setText("");
+        jTextFieldNome.setText("");
+        jTextFieldUf.setText("");
+        jTextFieldCodigo.setText("");
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
@@ -422,13 +465,14 @@ public class CadCidade extends javax.swing.JFrame {
             jTextFieldNome.setText("");
             jTextFieldUf.setText("");
             jTextFieldCodigo.setText("");
+             preencherTabela("select * from cidade order by nome");
         }
     }//GEN-LAST:event_jButtonApagarActionPerformed
 
     private void jTableCidadeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableCidadeMouseClicked
         setaTextFields();
-        
-        
+
+
     }//GEN-LAST:event_jTableCidadeMouseClicked
     public void setaTextFields() {
         int indice = jTableCidade.getSelectedRow();
@@ -444,6 +488,12 @@ public class CadCidade extends javax.swing.JFrame {
         setaTextFields();
     }//GEN-LAST:event_jTableCidadeKeyReleased
 
+    private void jButtonAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtualizarActionPerformed
+        dispose();
+        CadCidade tela = new CadCidade();
+        tela.setVisible(true);
+    }//GEN-LAST:event_jButtonAtualizarActionPerformed
+
     public void preencherTabela(String Sql) {
         ArrayList dados = new ArrayList();
         String[] colunas = new String[]{"nome", "cep", "uf", "codigo"};
@@ -456,7 +506,7 @@ public class CadCidade extends javax.swing.JFrame {
                 dados.add(new Object[]{conex.rs.getString("nome"), conex.rs.getInt("cep"), conex.rs.getString("uf"), conex.rs.getInt("codigo")});
             } while (conex.rs.next());
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(rootPane, "Erro ao preencher Lista" + ex);
+            
         }
         ModeloTabela modelo = new ModeloTabela(dados, colunas);
 
@@ -510,6 +560,7 @@ public class CadCidade extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonApagar;
+    private javax.swing.JButton jButtonAtualizar;
     private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonEditar;
     private javax.swing.JButton jButtonNovo;
