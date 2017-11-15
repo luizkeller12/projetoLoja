@@ -152,7 +152,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jButtonFecharBV.setBounds(750, 0, 80, 30);
 
         getContentPane().add(jInternalBV);
-        jInternalBV.setBounds(70, 40, 860, 430);
+        jInternalBV.setBounds(60, 60, 860, 430);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/planofundo.png"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -162,8 +162,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jMenuBar1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
 
+        jMenuCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/cad.png"))); // NOI18N
         jMenuCadastro.setText("Cadastros");
+        jMenuCadastro.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
 
+        jMenuItemCadCid.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jMenuItemCadCid.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/cityicon2.png"))); // NOI18N
         jMenuItemCadCid.setText("Cidade");
         jMenuItemCadCid.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -172,25 +176,42 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenuCadastro.add(jMenuItemCadCid);
 
+        jMenuItemCadCLi.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jMenuItemCadCLi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/cliente.png"))); // NOI18N
         jMenuItemCadCLi.setText("Cliente");
         jMenuCadastro.add(jMenuItemCadCLi);
 
+        jMenuItemCadLoja.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jMenuItemCadLoja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/loja.png"))); // NOI18N
         jMenuItemCadLoja.setText("Loja");
         jMenuCadastro.add(jMenuItemCadLoja);
 
+        jMenuItemCadUsu.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jMenuItemCadUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/usuario.png"))); // NOI18N
         jMenuItemCadUsu.setText("Usuários");
+        jMenuItemCadUsu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemCadUsuActionPerformed(evt);
+            }
+        });
         jMenuCadastro.add(jMenuItemCadUsu);
 
         jMenuBar1.add(jMenuCadastro);
 
+        jMenuBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/buscar.png"))); // NOI18N
         jMenuBuscar.setText("Buscar");
+        jMenuBuscar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
 
+        jMenuItemBusProd.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jMenuItemBusProd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/prodtuos.png"))); // NOI18N
         jMenuItemBusProd.setText("Produtos");
         jMenuBuscar.add(jMenuItemBusProd);
 
         jMenuBar1.add(jMenuBuscar);
 
+        jMenuOpcoes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/opçoes2.png"))); // NOI18N
         jMenuOpcoes.setText("Opções");
+        jMenuOpcoes.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
 
         jMenuItemTelaBV.setText("Tela- Bem Vindo");
         jMenuItemTelaBV.addActionListener(new java.awt.event.ActionListener() {
@@ -203,15 +224,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(jMenuOpcoes);
 
         jMenuSobre.setText("Sobre");
+        jMenuSobre.setFocusable(false);
+        jMenuSobre.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jMenuBar1.add(jMenuSobre);
 
         jMenuSair.setText("Sair");
+        jMenuSair.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jMenuSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuSairActionPerformed(evt);
             }
         });
 
+        jMenuItemSair.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jMenuItemSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/exit2.png"))); // NOI18N
         jMenuItemSair.setText("Fechar Sistema");
         jMenuItemSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -220,6 +246,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenuSair.add(jMenuItemSair);
 
+        jMenuItem2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/sair.png"))); // NOI18N
         jMenuItem2.setText("Sair");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -277,6 +305,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         dispose();
         
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItemCadUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadUsuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItemCadUsuActionPerformed
 
     /**
      * @param args the command line arguments

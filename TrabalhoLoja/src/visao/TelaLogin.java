@@ -44,6 +44,7 @@ public class TelaLogin extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         jButtonAcessar1.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        jButtonAcessar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/sair.png"))); // NOI18N
         jButtonAcessar1.setText("ACESSAR");
         jButtonAcessar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -51,9 +52,10 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonAcessar1);
-        jButtonAcessar1.setBounds(250, 160, 120, 30);
+        jButtonAcessar1.setBounds(250, 160, 170, 40);
 
         jButtonSair.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        jButtonSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/exit2.png"))); // NOI18N
         jButtonSair.setText("SAIR");
         jButtonSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -61,14 +63,16 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonSair);
-        jButtonSair.setBounds(500, 220, 80, 29);
+        jButtonSair.setBounds(459, 213, 110, 40);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Usuário:");
         getContentPane().add(jLabel3);
         jLabel3.setBounds(250, 50, 70, 22);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Senha:");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(250, 100, 70, 17);

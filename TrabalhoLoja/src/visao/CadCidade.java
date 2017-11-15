@@ -64,6 +64,10 @@ public class CadCidade extends javax.swing.JFrame {
         jButtonPesquisa = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jTextFieldCodigo = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jButtonVoltar = new javax.swing.JButton();
         jButtonAtualizar = new javax.swing.JButton();
@@ -183,6 +187,18 @@ public class CadCidade extends javax.swing.JFrame {
             }
         });
 
+        jLabel6.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jLabel6.setText("Ex: \"Ibirubá\"");
+
+        jLabel7.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jLabel7.setText("Ex: \"RS\"");
+
+        jLabel8.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jLabel8.setText("Ex: \"98200000\"");
+
+        jLabel9.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jLabel9.setText("Ex: \"Ibirubá\"");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -191,29 +207,33 @@ public class CadCidade extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldCep, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldUf, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButtonNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonCancelar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButtonEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldUf, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldCep, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 496, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jTextFieldPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel6))
                                 .addGap(18, 18, 18)
                                 .addComponent(jButtonPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(27, 27, 27))
@@ -228,32 +248,39 @@ public class CadCidade extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(21, 21, 21)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
+                        .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextFieldPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButtonPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldCep, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(8, 8, 8)
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldUf, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel7)
+                        .addGap(26, 26, 26)
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -288,65 +315,63 @@ public class CadCidade extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButtonVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30))
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(752, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButtonAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButtonVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                        .addGap(10, 10, 10)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 978, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(11, 11, 11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
-        setSize(new java.awt.Dimension(1028, 586));
+        setSize(new java.awt.Dimension(1051, 586));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldCepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCepActionPerformed
+    private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
+        TelaPrincipal tela = new TelaPrincipal();
+        tela.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButtonVoltarActionPerformed
+    public void setaTextFields() {
+        int indice = jTableCidade.getSelectedRow();
+        jTextFieldNome.setText(jTableCidade.getValueAt(indice, 0).toString());
+        jTextFieldCep.setText(jTableCidade.getValueAt(indice, 1).toString());
+        jTextFieldUf.setText(jTableCidade.getValueAt(indice, 2).toString());
+        jTextFieldCodigo.setText(jTableCidade.getValueAt(indice, 3).toString());
+        jButtonEditar.setEnabled(true);
+        jButtonApagar.setEnabled(true);
+        jButtonNovo.setEnabled(false);
+    }
+    private void jButtonAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtualizarActionPerformed
+        dispose();
+        CadCidade tela = new CadCidade();
+        tela.setVisible(true);
+    }//GEN-LAST:event_jButtonAtualizarActionPerformed
+
+    private void jTextFieldCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCodigoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldCepActionPerformed
-
-    private void jTextFieldUfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUfActionPerformed
-
-
-    }//GEN-LAST:event_jTextFieldUfActionPerformed
-
-    private void jButtonNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNovoActionPerformed
-        // TODO add your handling code here:
-        flag = 1;
-        jTextFieldCep.setEnabled(true);
-        jTextFieldNome.setEnabled(true);
-        jTextFieldUf.setEnabled(true);
-        jButtonSalvar.setEnabled(true);
-        jButtonCancelar.setEnabled(true);
-        jTextFieldCep.setText("");
-        jTextFieldNome.setText("");
-        jTextFieldUf.setText("");
-        jTextFieldCodigo.setText("");
-        jButtonEditar.setEnabled(false);
-        jButtonApagar.setEnabled(false);
-        jButtonPesquisa.setEnabled(false);
-        jTextFieldPesquisa.setEnabled(false);
-    }//GEN-LAST:event_jButtonNovoActionPerformed
+    }//GEN-LAST:event_jTextFieldCodigoActionPerformed
 
     private void jButtonPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPesquisaActionPerformed
         mod.setPesquisa(jTextFieldPesquisa.getText());
@@ -355,55 +380,32 @@ public class CadCidade extends javax.swing.JFrame {
         jTextFieldCep.setText(String.valueOf(model.getCep()));
         jTextFieldUf.setText(model.getUf());
         jTextFieldCodigo.setText(String.valueOf(model.getCodigo()));
-       
+
         jTextFieldCep.setText("");
         jTextFieldNome.setText("");
         jTextFieldUf.setText("");
         jTextFieldCodigo.setText("");
     }//GEN-LAST:event_jButtonPesquisaActionPerformed
 
-    private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
-        TelaPrincipal tela = new TelaPrincipal();
-        tela.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jButtonVoltarActionPerformed
+    private void jTableCidadeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTableCidadeKeyReleased
+        setaTextFields();
+    }//GEN-LAST:event_jTableCidadeKeyReleased
 
-    private void jTextFieldCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCodigoActionPerformed
+    private void jTableCidadeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableCidadeMouseClicked
+        setaTextFields();
+
+    }//GEN-LAST:event_jTableCidadeMouseClicked
+
+    private void jButtonApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonApagarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldCodigoActionPerformed
-
-    private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
-        if(jTextFieldNome.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Preencha todos os campos para continuar!");
-            jTextFieldNome.requestFocus();
-        }else if(jTextFieldCep.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Preencha todos os campos para continuar!");
-            jTextFieldCep.requestFocus();
-        }else if(jTextFieldUf.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Preencha todos os campos para continuar!");
-            jTextFieldUf.requestFocus();
-        }else{
-        
-        if (flag == 1) {
-            mod.setNome(jTextFieldNome.getText());
-            mod.setCep(Integer.parseInt(jTextFieldCep.getText()));
-            mod.setUf(jTextFieldUf.getText());
-            control.Salvar(mod);
-            jTextFieldCep.setText("");
-            jTextFieldNome.setText("");
-            jTextFieldUf.setText("");
-            jTextFieldCep.setEnabled(false);
-            jTextFieldNome.setEnabled(false);
-            jTextFieldUf.setEnabled(false);
-            jButtonSalvar.setEnabled(false);
-            jButtonCancelar.setEnabled(false);
-             preencherTabela("select * from cidade order by nome");
-        } else {
-            mod.setNome(jTextFieldNome.getText());
-            mod.setCep(Integer.parseInt(jTextFieldCep.getText()));
-            mod.setUf(jTextFieldUf.getText());
+        int resposta = 0;
+        resposta = JOptionPane.showConfirmDialog(rootPane, "Realmente deseja Apagar?");
+        if (resposta == JOptionPane.YES_OPTION) {
             mod.setCodigo(Integer.parseInt(jTextFieldCodigo.getText()));
-            control.Editar(mod);
+            control.Apagar(mod);
+            jButtonEditar.setEnabled(false);
+            jButtonApagar.setEnabled(false);
+            jButtonCancelar.setEnabled(false);
             jTextFieldCep.setEnabled(false);
             jTextFieldNome.setEnabled(false);
             jTextFieldUf.setEnabled(false);
@@ -411,12 +413,25 @@ public class CadCidade extends javax.swing.JFrame {
             jTextFieldNome.setText("");
             jTextFieldUf.setText("");
             jTextFieldCodigo.setText("");
-            jButtonSalvar.setEnabled(false);
-             preencherTabela("select * from cidade order by nome");
+            preencherTabela("select * from cidade order by nome");
+            jButtonNovo.setEnabled(true);
+            jButtonPesquisa.setEnabled(true);
+            jTextFieldPesquisa.setEnabled(true);
+            
         }
-}
+    }//GEN-LAST:event_jButtonApagarActionPerformed
 
-    }//GEN-LAST:event_jButtonSalvarActionPerformed
+    private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
+        flag = 2;
+        jTextFieldCep.setEnabled(true);
+        jTextFieldNome.setEnabled(true);
+        jTextFieldUf.setEnabled(true);
+        jButtonSalvar.setEnabled(true);
+        jButtonCancelar.setEnabled(true);
+        jButtonEditar.setEnabled(false);
+        jButtonNovo.setEnabled(false);
+        jButtonApagar.setEnabled(false);
+    }//GEN-LAST:event_jButtonEditarActionPerformed
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
         // TODO add your handling code here:
@@ -436,63 +451,76 @@ public class CadCidade extends javax.swing.JFrame {
         jTextFieldCodigo.setText("");
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
-    private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
-        flag = 2;
+    private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
+        if(jTextFieldNome.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos para continuar!");
+            jTextFieldNome.requestFocus();
+        }else if(jTextFieldCep.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos para continuar!");
+            jTextFieldCep.requestFocus();
+        }else if(jTextFieldUf.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos para continuar!");
+            jTextFieldUf.requestFocus();
+        }else{
+
+            if (flag == 1) {
+                mod.setNome(jTextFieldNome.getText());
+                mod.setCep(Integer.parseInt(jTextFieldCep.getText()));
+                mod.setUf(jTextFieldUf.getText());
+                control.Salvar(mod);
+                jTextFieldCep.setText("");
+                jTextFieldNome.setText("");
+                jTextFieldUf.setText("");
+                jTextFieldCep.setEnabled(false);
+                jTextFieldNome.setEnabled(false);
+                jTextFieldUf.setEnabled(false);
+                jButtonSalvar.setEnabled(false);
+                jButtonCancelar.setEnabled(false);
+                preencherTabela("select * from cidade order by nome");
+            } else {
+                mod.setNome(jTextFieldNome.getText());
+                mod.setCep(Integer.parseInt(jTextFieldCep.getText()));
+                mod.setUf(jTextFieldUf.getText());
+                mod.setCodigo(Integer.parseInt(jTextFieldCodigo.getText()));
+                control.Editar(mod);
+                jTextFieldCep.setEnabled(false);
+                jTextFieldNome.setEnabled(false);
+                jTextFieldUf.setEnabled(false);
+                jTextFieldCep.setText("");
+                jTextFieldNome.setText("");
+                jTextFieldUf.setText("");
+                jTextFieldCodigo.setText("");
+                jButtonSalvar.setEnabled(false);
+                preencherTabela("select * from cidade order by nome");
+            }
+        }
+    }//GEN-LAST:event_jButtonSalvarActionPerformed
+
+    private void jButtonNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNovoActionPerformed
+        // TODO add your handling code here:
+        flag = 1;
         jTextFieldCep.setEnabled(true);
         jTextFieldNome.setEnabled(true);
         jTextFieldUf.setEnabled(true);
         jButtonSalvar.setEnabled(true);
         jButtonCancelar.setEnabled(true);
+        jTextFieldCep.setText("");
+        jTextFieldNome.setText("");
+        jTextFieldUf.setText("");
+        jTextFieldCodigo.setText("");
         jButtonEditar.setEnabled(false);
-        jButtonNovo.setEnabled(false);
         jButtonApagar.setEnabled(false);
-    }//GEN-LAST:event_jButtonEditarActionPerformed
+        jButtonPesquisa.setEnabled(false);
+        jTextFieldPesquisa.setEnabled(false);
+    }//GEN-LAST:event_jButtonNovoActionPerformed
 
-    private void jButtonApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonApagarActionPerformed
+    private void jTextFieldUfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUfActionPerformed
+
+    }//GEN-LAST:event_jTextFieldUfActionPerformed
+
+    private void jTextFieldCepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCepActionPerformed
         // TODO add your handling code here:
-        int resposta = 0;
-        resposta = JOptionPane.showConfirmDialog(rootPane, "Realmente deseja Apagar?");
-        if (resposta == JOptionPane.YES_OPTION) {
-            mod.setCodigo(Integer.parseInt(jTextFieldCodigo.getText()));
-            control.Apagar(mod);
-            jButtonEditar.setEnabled(false);
-            jButtonApagar.setEnabled(false);
-            jButtonCancelar.setEnabled(false);
-            jTextFieldCep.setEnabled(false);
-            jTextFieldNome.setEnabled(false);
-            jTextFieldUf.setEnabled(false);
-            jTextFieldCep.setText("");
-            jTextFieldNome.setText("");
-            jTextFieldUf.setText("");
-            jTextFieldCodigo.setText("");
-             preencherTabela("select * from cidade order by nome");
-        }
-    }//GEN-LAST:event_jButtonApagarActionPerformed
-
-    private void jTableCidadeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableCidadeMouseClicked
-        setaTextFields();
-
-
-    }//GEN-LAST:event_jTableCidadeMouseClicked
-    public void setaTextFields() {
-        int indice = jTableCidade.getSelectedRow();
-        jTextFieldNome.setText(jTableCidade.getValueAt(indice, 0).toString());
-        jTextFieldCep.setText(jTableCidade.getValueAt(indice, 1).toString());
-        jTextFieldUf.setText(jTableCidade.getValueAt(indice, 2).toString());
-        jTextFieldCodigo.setText(jTableCidade.getValueAt(indice, 3).toString());
-        jButtonEditar.setEnabled(true);
-        jButtonApagar.setEnabled(true);
-        jButtonNovo.setEnabled(false);
-    }
-    private void jTableCidadeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTableCidadeKeyReleased
-        setaTextFields();
-    }//GEN-LAST:event_jTableCidadeKeyReleased
-
-    private void jButtonAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtualizarActionPerformed
-        dispose();
-        CadCidade tela = new CadCidade();
-        tela.setVisible(true);
-    }//GEN-LAST:event_jButtonAtualizarActionPerformed
+    }//GEN-LAST:event_jTextFieldCepActionPerformed
 
     public void preencherTabela(String Sql) {
         ArrayList dados = new ArrayList();
@@ -572,6 +600,10 @@ public class CadCidade extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableCidade;
