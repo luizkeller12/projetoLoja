@@ -278,6 +278,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void jButtonCadCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadCliActionPerformed
         // TODO add your handling code here:
+        
+        CadUsuario tela = new CadUsuario();
+        tela.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButtonCadCliActionPerformed
 
     /**

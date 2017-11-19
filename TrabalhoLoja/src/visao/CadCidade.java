@@ -378,11 +378,9 @@ public class CadCidade extends javax.swing.JFrame {
         jTextFieldCep.setText(String.valueOf(model.getCep()));
         jTextFieldUf.setText(model.getUf());
         jTextFieldCodigo.setText(String.valueOf(model.getCodigo()));
+        preencherTabela("SELECT * FROM cidade WHERE nome LIKE '%"+mod.getPesquisa()+"%'");
 
-        jTextFieldCep.setText("");
-        jTextFieldNome.setText("");
-        jTextFieldUf.setText("");
-        jTextFieldCodigo.setText("");
+        
     }//GEN-LAST:event_jButtonPesquisaActionPerformed
 
     private void jTableCidadeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTableCidadeKeyReleased
@@ -528,6 +526,7 @@ public class CadCidade extends javax.swing.JFrame {
                 dados.add(new Object[]{conex.rs.getString("nome"), conex.rs.getInt("cep"), conex.rs.getString("uf"), conex.rs.getInt("codigo")});
             } while (conex.rs.next());
         } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(rootPane, "Busque outra cidade na tabela");
             
         }
         ModeloTabela modelo = new ModeloTabela(dados, colunas);

@@ -56,7 +56,7 @@
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="jTextFieldNome1" min="-2" pref="385" max="-2" attributes="0"/>
+                          <Component id="jTextFieldPesquisa" min="-2" pref="385" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jButtonBuscar" min="-2" pref="115" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
@@ -128,7 +128,7 @@
                   <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jButtonBuscar" min="-2" pref="37" max="-2" attributes="0"/>
-                      <Component id="jTextFieldNome1" min="-2" pref="37" max="-2" attributes="0"/>
+                      <Component id="jTextFieldPesquisa" min="-2" pref="37" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" pref="179" max="-2" attributes="0"/>
@@ -166,10 +166,19 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldUsuario">
+          <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JPasswordField" name="jPasswordSenha">
+          <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JPasswordField" name="jPasswordConfirmaSenha">
+          <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonNovo">
           <Properties>
@@ -178,6 +187,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="NOVO"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonNovoActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonSalvar">
           <Properties>
@@ -185,7 +197,11 @@
               <Font name="Arial" size="18" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="SALVAR"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSalvarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonCancelar">
           <Properties>
@@ -193,6 +209,7 @@
               <Font name="Arial" size="18" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="CANCELAR"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonAlterar">
@@ -201,6 +218,7 @@
               <Font name="Arial" size="18" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="ALTERAR"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonExcluir">
@@ -209,9 +227,10 @@
               <Font name="Arial" size="18" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="EXCLUIR"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldNome1">
+        <Component class="javax.swing.JTextField" name="jTextFieldPesquisa">
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane1">
           <AuxValues>
