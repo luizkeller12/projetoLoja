@@ -7,8 +7,6 @@ package visao;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import modeloConnection.ConexaoBD;
@@ -50,9 +48,7 @@ public class CadCidade extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jTextFieldNome = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextFieldCep = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextFieldUf = new javax.swing.JTextField();
         jButtonNovo = new javax.swing.JButton();
         jButtonSalvar = new javax.swing.JButton();
         jButtonCancelar = new javax.swing.JButton();
@@ -68,6 +64,8 @@ public class CadCidade extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        jTextFieldCep = new javax.swing.JFormattedTextField();
+        jTextFieldUf = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jButtonVoltar = new javax.swing.JButton();
         jButtonAtualizar = new javax.swing.JButton();
@@ -85,22 +83,8 @@ public class CadCidade extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel3.setText("UF:");
 
-        jTextFieldCep.setEnabled(false);
-        jTextFieldCep.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldCepActionPerformed(evt);
-            }
-        });
-
         jLabel4.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel4.setText("CEP:");
-
-        jTextFieldUf.setEnabled(false);
-        jTextFieldUf.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldUfActionPerformed(evt);
-            }
-        });
 
         jButtonNovo.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jButtonNovo.setText("NOVO");
@@ -199,6 +183,20 @@ public class CadCidade extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel9.setText("Ex: \"Ibirubá\"");
 
+        try {
+            jTextFieldCep.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("########")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jTextFieldCep.setEnabled(false);
+
+        jTextFieldUf.setEnabled(false);
+        jTextFieldUf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldUfActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -206,11 +204,14 @@ public class CadCidade extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButtonNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -219,12 +220,9 @@ public class CadCidade extends javax.swing.JFrame {
                         .addComponent(jButtonCancelar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jTextFieldUf, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldCep, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9))
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldCep, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldUf, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -263,12 +261,12 @@ public class CadCidade extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldCep, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(8, 8, 8)
+                        .addComponent(jTextFieldCep, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(5, 5, 5)
                         .addComponent(jTextFieldUf, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel7)
@@ -455,11 +453,11 @@ public class CadCidade extends javax.swing.JFrame {
         if(jTextFieldNome.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Preencha todos os campos para continuar!");
             jTextFieldNome.requestFocus();
-        }else if(jTextFieldCep.getText().isEmpty()){
+        }else if(jTextFieldCep.getText().isEmpty()|| (jTextFieldCep.getText ().trim().length () != 8)){
             JOptionPane.showMessageDialog(null, "Preencha todos os campos para continuar!");
             jTextFieldCep.requestFocus();
-        }else if(jTextFieldUf.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Preencha todos os campos para continuar!");
+        }else if((jTextFieldUf.getText().isEmpty())||(jTextFieldUf.getText ().trim().length () != 2)){
+            JOptionPane.showMessageDialog(null, "Valor digitado não corresponde ao correto");
             jTextFieldUf.requestFocus();
         }else{
 
@@ -515,12 +513,8 @@ public class CadCidade extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonNovoActionPerformed
 
     private void jTextFieldUfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUfActionPerformed
-
-    }//GEN-LAST:event_jTextFieldUfActionPerformed
-
-    private void jTextFieldCepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCepActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldCepActionPerformed
+    }//GEN-LAST:event_jTextFieldUfActionPerformed
 
     public void preencherTabela(String Sql) {
         ArrayList dados = new ArrayList();
@@ -607,7 +601,7 @@ public class CadCidade extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableCidade;
-    private javax.swing.JTextField jTextFieldCep;
+    private javax.swing.JFormattedTextField jTextFieldCep;
     private javax.swing.JTextField jTextFieldCodigo;
     private javax.swing.JTextField jTextFieldNome;
     private javax.swing.JTextField jTextFieldPesquisa;

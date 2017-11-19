@@ -1,8 +1,5 @@
 package visao;
 import static java.awt.Frame.MAXIMIZED_BOTH;
-import java.util.Date;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
 import modeloConnection.ConexaoBD;
 /**
  *
@@ -15,7 +12,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     public TelaPrincipal() {
         initComponents();
         conecta.conexao();
-        initComponents();
+        
         
         
         
@@ -71,7 +68,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         setTitle("Principal");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setExtendedState(6);
-        setMaximumSize(new java.awt.Dimension(1024, 768));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -108,6 +104,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jButtonCadCli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_icon-ios7-people_211793.png"))); // NOI18N
         jButtonCadCli.setToolTipText("Clientes");
+        jButtonCadCli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCadCliActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButtonCadCli);
         jButtonCadCli.setBounds(510, 110, 190, 160);
 
@@ -266,11 +267,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void jMenuItemCadUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadUsuActionPerformed
         // TODO add your handling code here:
+        CadUsuario tela = new CadUsuario();
+        tela.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jMenuItemCadUsuActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
      this.setExtendedState(MAXIMIZED_BOTH);
     }//GEN-LAST:event_formWindowOpened
+
+    private void jButtonCadCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadCliActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonCadCliActionPerformed
 
     /**
      * @param args the command line arguments
@@ -336,18 +344,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuSair;
     private javax.swing.JMenu jMenuSobre;
     // End of variables declaration//GEN-END:variables
-private void setLAF() {
-        try {
-            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | UnsupportedLookAndFeelException e) {
-            System.out.println("ERROR IN LAF");
-        }
-    }
+
+    
 
 
 
