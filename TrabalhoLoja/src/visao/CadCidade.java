@@ -61,14 +61,13 @@ public class CadCidade extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jTextFieldCodigo = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jTextFieldCep = new javax.swing.JFormattedTextField();
-        jTextFieldUf = new javax.swing.JTextField();
         jTextFieldNome = new br.com.cyber.componente.KTextField();
         jButtonAtualizar = new javax.swing.JButton();
         jButtonVoltar = new javax.swing.JButton();
+        kComboBoXUf = new br.com.cyber.componente.KComboBox();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -178,9 +177,6 @@ public class CadCidade extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel6.setText("Ex: \"Ibirubá\"");
 
-        jLabel7.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jLabel7.setText("Ex: \"RS\"");
-
         jLabel8.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel8.setText("Ex: \"98200000\"");
 
@@ -196,13 +192,6 @@ public class CadCidade extends javax.swing.JFrame {
         jTextFieldCep.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldCepActionPerformed(evt);
-            }
-        });
-
-        jTextFieldUf.setEnabled(false);
-        jTextFieldUf.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldUfActionPerformed(evt);
             }
         });
 
@@ -227,6 +216,10 @@ public class CadCidade extends javax.swing.JFrame {
             }
         });
 
+        kComboBoXUf.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "SELECIONE", "RS", "PR", "SC" }));
+        kComboBoXUf.setEnabled(false);
+        kComboBoXUf.setName(""); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -236,8 +229,6 @@ public class CadCidade extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -249,13 +240,13 @@ public class CadCidade extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldCep, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldUf, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldCep, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(kComboBoXUf, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 496, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -266,7 +257,6 @@ public class CadCidade extends javax.swing.JFrame {
                                 .addComponent(jButtonPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(27, 27, 27))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonApagar, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(147, 147, 147)
                         .addComponent(jButtonAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -300,11 +290,9 @@ public class CadCidade extends javax.swing.JFrame {
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel3)
-                        .addGap(5, 5, 5)
-                        .addComponent(jTextFieldUf, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel7)
-                        .addGap(27, 27, 27)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(kComboBoXUf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42)
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -364,7 +352,7 @@ public class CadCidade extends javax.swing.JFrame {
         int indice = jTableCidade.getSelectedRow();
         jTextFieldNome.setText(jTableCidade.getValueAt(indice, 0).toString());
         jTextFieldCep.setText(jTableCidade.getValueAt(indice, 1).toString());
-        jTextFieldUf.setText(jTableCidade.getValueAt(indice, 2).toString());
+        kComboBoXUf.setSelectedItem(jTableCidade.getValueAt(indice, 2).toString());
         jTextFieldCodigo.setText(jTableCidade.getValueAt(indice, 3).toString());
         jButtonEditar.setEnabled(true);
         jButtonApagar.setEnabled(true);
@@ -401,10 +389,10 @@ public class CadCidade extends javax.swing.JFrame {
             jButtonCancelar.setEnabled(false);
             jTextFieldCep.setEnabled(false);
             jTextFieldNome.setEnabled(false);
-            jTextFieldUf.setEnabled(false);
+            kComboBoXUf.setEnabled(false);
             jTextFieldCep.setText("");
             jTextFieldNome.setText("");
-            jTextFieldUf.setText("");
+            
             jTextFieldCodigo.setText("");
             preencherTabela("select * from cidade order by nome");
             jButtonNovo.setEnabled(true);
@@ -419,7 +407,7 @@ public class CadCidade extends javax.swing.JFrame {
         flag = 2;
         jTextFieldCep.setEnabled(true);
         jTextFieldNome.setEnabled(true);
-        jTextFieldUf.setEnabled(true);
+        kComboBoXUf.setEnabled(true);
         jButtonSalvar.setEnabled(true);
         jButtonCancelar.setEnabled(true);
         jButtonEditar.setEnabled(false);
@@ -432,7 +420,7 @@ public class CadCidade extends javax.swing.JFrame {
         // TODO add your handling code here:
         jTextFieldCep.setEnabled(!true);
         jTextFieldNome.setEnabled(!true);
-        jTextFieldUf.setEnabled(!true);
+        kComboBoXUf.setEnabled(!true);
         jButtonSalvar.setEnabled(!true);
         jButtonCancelar.setEnabled(!true);
         jButtonNovo.setEnabled(true);
@@ -442,7 +430,6 @@ public class CadCidade extends javax.swing.JFrame {
         jButtonPesquisa.setEnabled(true);
         jTextFieldCep.setText("");
         jTextFieldNome.setText("");
-        jTextFieldUf.setText("");
         jTextFieldCodigo.setText("");
         jTableCidade.setEnabled(true);
     }//GEN-LAST:event_jButtonCancelarActionPerformed
@@ -454,22 +441,20 @@ public class CadCidade extends javax.swing.JFrame {
         }else if(jTextFieldCep.getText().isEmpty()|| (jTextFieldCep.getText ().trim().length () != 8)){
             JOptionPane.showMessageDialog(null, "Preencha todos os campos para continuar!");
             jTextFieldCep.requestFocus();
-        }else if((jTextFieldUf.getText().isEmpty())||(jTextFieldUf.getText ().trim().length () != 2)){
-            JOptionPane.showMessageDialog(null, "Valor digitado não corresponde ao correto");
-            jTextFieldUf.requestFocus();
+        
         }else{
 
             if (flag == 1) {
                 mod.setNome(jTextFieldNome.getText());
                 mod.setCep(Integer.parseInt(jTextFieldCep.getText()));
-                mod.setUf(jTextFieldUf.getText());
+                mod.setUf(kComboBoXUf.getSelectedItem().toString());
                 control.Salvar(mod);
                 jTextFieldCep.setText("");
                 jTextFieldNome.setText("");
-                jTextFieldUf.setText("");
+                
                 jTextFieldCep.setEnabled(false);
                 jTextFieldNome.setEnabled(false);
-                jTextFieldUf.setEnabled(false);
+                kComboBoXUf.setEnabled(false);
                 jButtonSalvar.setEnabled(false);
                 jButtonCancelar.setEnabled(false);
                 jTableCidade.setEnabled(true);
@@ -477,15 +462,15 @@ public class CadCidade extends javax.swing.JFrame {
             } else {
                 mod.setNome(jTextFieldNome.getText());
                 mod.setCep(Integer.parseInt(jTextFieldCep.getText()));
-                mod.setUf(jTextFieldUf.getText());
+                mod.setUf(kComboBoXUf.getSelectedItem().toString());
                 mod.setCodigo(Integer.parseInt(jTextFieldCodigo.getText()));
                 control.Editar(mod);
                 jTextFieldCep.setEnabled(false);
                 jTextFieldNome.setEnabled(false);
-                jTextFieldUf.setEnabled(false);
+                kComboBoXUf.setEnabled(false);
                 jTextFieldCep.setText("");
                 jTextFieldNome.setText("");
-                jTextFieldUf.setText("");
+             
                 jTextFieldCodigo.setText("");
                 jButtonSalvar.setEnabled(false);
                 jTableCidade.setEnabled(true);
@@ -499,12 +484,12 @@ public class CadCidade extends javax.swing.JFrame {
         flag = 1;
         jTextFieldCep.setEnabled(true);
         jTextFieldNome.setEnabled(true);
-        jTextFieldUf.setEnabled(true);
+        kComboBoXUf.setEnabled(true);
         jButtonSalvar.setEnabled(true);
         jButtonCancelar.setEnabled(true);
         jTextFieldCep.setText("");
         jTextFieldNome.setText("");
-        jTextFieldUf.setText("");
+        
         jTextFieldCodigo.setText("");
         jButtonEditar.setEnabled(false);
         jButtonApagar.setEnabled(false);
@@ -512,10 +497,6 @@ public class CadCidade extends javax.swing.JFrame {
         jTextFieldPesquisa.setEnabled(false);
         jTableCidade.setEnabled(false);
     }//GEN-LAST:event_jButtonNovoActionPerformed
-
-    private void jTextFieldUfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUfActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldUfActionPerformed
 
     private void jTextFieldCepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCepActionPerformed
         // TODO add your handling code here:
@@ -526,7 +507,7 @@ public class CadCidade extends javax.swing.JFrame {
         BeansCidade model = control.buscaCidade(mod);
         jTextFieldNome.setText(model.getNome());
         jTextFieldCep.setText(String.valueOf(model.getCep()));
-        jTextFieldUf.setText(model.getUf());
+        kComboBoXUf.setSelectedItem(model.getUf());
         jTextFieldCodigo.setText(String.valueOf(model.getCodigo()));
         preencherTabela("SELECT * FROM cidade WHERE nome LIKE '%"+mod.getPesquisa()+"%'");
 
@@ -612,7 +593,6 @@ public class CadCidade extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
@@ -623,6 +603,6 @@ public class CadCidade extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldCodigo;
     private br.com.cyber.componente.KTextField jTextFieldNome;
     private javax.swing.JTextField jTextFieldPesquisa;
-    private javax.swing.JTextField jTextFieldUf;
+    private br.com.cyber.componente.KComboBox kComboBoXUf;
     // End of variables declaration//GEN-END:variables
 }
