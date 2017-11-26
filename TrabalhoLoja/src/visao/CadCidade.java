@@ -72,6 +72,7 @@ public class CadCidade extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -351,7 +352,7 @@ public class CadCidade extends javax.swing.JFrame {
         getContentPane().add(jPanel2);
         jPanel2.setBounds(-10, -30, 1080, 560);
 
-        setSize(new java.awt.Dimension(1023, 568));
+        setSize(new java.awt.Dimension(1007, 529));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -410,6 +411,7 @@ public class CadCidade extends javax.swing.JFrame {
             jButtonPesquisa.setEnabled(true);
             jTextFieldPesquisa.setEnabled(true);
             
+            
         }
     }//GEN-LAST:event_jButtonApagarActionPerformed
 
@@ -423,6 +425,7 @@ public class CadCidade extends javax.swing.JFrame {
         jButtonEditar.setEnabled(false);
         jButtonNovo.setEnabled(false);
         jButtonApagar.setEnabled(false);
+        jTableCidade.setEnabled(false);
     }//GEN-LAST:event_jButtonEditarActionPerformed
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
@@ -441,6 +444,7 @@ public class CadCidade extends javax.swing.JFrame {
         jTextFieldNome.setText("");
         jTextFieldUf.setText("");
         jTextFieldCodigo.setText("");
+        jTableCidade.setEnabled(true);
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
@@ -468,6 +472,7 @@ public class CadCidade extends javax.swing.JFrame {
                 jTextFieldUf.setEnabled(false);
                 jButtonSalvar.setEnabled(false);
                 jButtonCancelar.setEnabled(false);
+                jTableCidade.setEnabled(true);
                 preencherTabela("select * from cidade order by nome");
             } else {
                 mod.setNome(jTextFieldNome.getText());
@@ -483,6 +488,7 @@ public class CadCidade extends javax.swing.JFrame {
                 jTextFieldUf.setText("");
                 jTextFieldCodigo.setText("");
                 jButtonSalvar.setEnabled(false);
+                jTableCidade.setEnabled(true);
                 preencherTabela("select * from cidade order by nome");
             }
         }
@@ -504,6 +510,7 @@ public class CadCidade extends javax.swing.JFrame {
         jButtonApagar.setEnabled(false);
         jButtonPesquisa.setEnabled(false);
         jTextFieldPesquisa.setEnabled(false);
+        jTableCidade.setEnabled(false);
     }//GEN-LAST:event_jButtonNovoActionPerformed
 
     private void jTextFieldUfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUfActionPerformed

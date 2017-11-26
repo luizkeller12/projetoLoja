@@ -1,5 +1,6 @@
 package visao;
 import static java.awt.Frame.MAXIMIZED_BOTH;
+import javax.swing.JOptionPane;
 import modeloConnection.ConexaoBD;
 /**
  *
@@ -36,6 +37,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jButtonCadCli = new javax.swing.JButton();
         jButtonCadLoja = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        kButton1 = new br.com.cyber.componente.KButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuCadastro = new javax.swing.JMenu();
         jMenuItemCadCid = new javax.swing.JMenuItem();
@@ -122,13 +124,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
         getContentPane().add(jLabel1);
         jLabel1.setBounds(-40, -640, 3310, 2020);
 
+        kButton1.setText("kButton1");
+        getContentPane().add(kButton1);
+        kButton1.setBounds(310, 320, 100, 34);
+
         jMenuBar1.setBackground(new java.awt.Color(255, 51, 204));
         jMenuBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jMenuBar1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
 
         jMenuCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/cad.png"))); // NOI18N
         jMenuCadastro.setText("Cadastros");
-        jMenuCadastro.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jMenuCadastro.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
 
         jMenuItemCadCid.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jMenuItemCadCid.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/cityicon2.png"))); // NOI18N
@@ -164,7 +170,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/buscar.png"))); // NOI18N
         jMenuBuscar.setText("Buscar");
-        jMenuBuscar.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jMenuBuscar.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
 
         jMenuItemBusProd.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jMenuItemBusProd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/prodtuos.png"))); // NOI18N
@@ -175,7 +181,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuOpcoes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/opçoes2.png"))); // NOI18N
         jMenuOpcoes.setText("Opções");
-        jMenuOpcoes.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jMenuOpcoes.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
 
         jMenuItemTelaBV.setText("Tela- Bem Vindo");
         jMenuItemTelaBV.addActionListener(new java.awt.event.ActionListener() {
@@ -189,11 +195,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuSobre.setText("Sobre");
         jMenuSobre.setFocusable(false);
-        jMenuSobre.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jMenuSobre.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         jMenuBar1.add(jMenuSobre);
 
         jMenuSair.setText("Sair");
-        jMenuSair.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jMenuSair.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         jMenuSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuSairActionPerformed(evt);
@@ -259,9 +265,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCadCidActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        byte resposta = 0;
+        resposta = (byte) JOptionPane.showConfirmDialog(rootPane, "Desejea realmente Fazer logoff ?");
+        if (resposta == JOptionPane.YES_OPTION) {
         TelaLogin tela = new TelaLogin();
         tela.setVisible(true);
-        
+        dispose();
+        }
         
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
@@ -344,6 +354,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuOpcoes;
     private javax.swing.JMenu jMenuSair;
     private javax.swing.JMenu jMenuSobre;
+    private br.com.cyber.componente.KButton kButton1;
     // End of variables declaration//GEN-END:variables
 
     

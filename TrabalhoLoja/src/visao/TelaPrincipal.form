@@ -60,7 +60,7 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Cadastros"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial" size="18" style="1"/>
+              <Font name="Arial" size="20" style="1"/>
             </Property>
           </Properties>
           <SubComponents>
@@ -123,7 +123,7 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Buscar"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial" size="18" style="1"/>
+              <Font name="Arial" size="20" style="1"/>
             </Property>
           </Properties>
           <SubComponents>
@@ -147,7 +147,7 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Op&#xe7;&#xf5;es"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial" size="18" style="1"/>
+              <Font name="Arial" size="20" style="1"/>
             </Property>
           </Properties>
           <SubComponents>
@@ -166,7 +166,7 @@
             <Property name="text" type="java.lang.String" value="Sobre"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial" size="18" style="1"/>
+              <Font name="Arial" size="20" style="1"/>
             </Property>
           </Properties>
         </Menu>
@@ -174,7 +174,7 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Sair"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial" size="18" style="1"/>
+              <Font name="Arial" size="20" style="1"/>
             </Property>
           </Properties>
           <Events>
@@ -352,6 +352,16 @@
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="-40" y="-640" width="3310" height="2020"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="br.com.cyber.componente.KButton" name="kButton1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="kButton1"/>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="310" y="320" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>

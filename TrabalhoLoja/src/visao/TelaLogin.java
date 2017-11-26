@@ -40,6 +40,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("LOGIN");
+        setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -52,7 +53,7 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonAcessar1);
-        jButtonAcessar1.setBounds(250, 160, 170, 40);
+        jButtonAcessar1.setBounds(280, 180, 170, 40);
 
         jButtonSair.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jButtonSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/exit2.png"))); // NOI18N
@@ -63,34 +64,36 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonSair);
-        jButtonSair.setBounds(459, 213, 110, 40);
+        jButtonSair.setBounds(490, 230, 110, 40);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Usuário:");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(250, 50, 70, 22);
+        jLabel3.setBounds(280, 70, 70, 30);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Senha:");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(250, 100, 70, 17);
+        jLabel2.setBounds(280, 120, 70, 20);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/latlojadacerto.png"))); // NOI18N
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(40, 20, 170, 200);
+        jLabel1.setBounds(70, 40, 170, 200);
         getContentPane().add(jTextFieldUsuario);
-        jTextFieldUsuario.setBounds(320, 50, 240, 30);
+        jTextFieldUsuario.setBounds(350, 70, 240, 30);
         getContentPane().add(jPasswordFieldSenha);
-        jPasswordFieldSenha.setBounds(320, 90, 240, 30);
+        jPasswordFieldSenha.setBounds(350, 110, 240, 30);
 
         jLabelFundoLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/713.png"))); // NOI18N
         jLabelFundoLogin.setText("Login");
         getContentPane().add(jLabelFundoLogin);
-        jLabelFundoLogin.setBounds(-2420, -180, 3210, 580);
+        jLabelFundoLogin.setBounds(-2390, -180, 3280, 610);
 
-        setSize(new java.awt.Dimension(600, 300));
+        setSize(new java.awt.Dimension(639, 300));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
