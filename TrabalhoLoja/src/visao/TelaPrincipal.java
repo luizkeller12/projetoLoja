@@ -248,20 +248,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void jMenuItemCadCidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadCidActionPerformed
         CadCidade tela = new CadCidade();
         tela.setVisible(true);
-        dispose();
+        
         
     }//GEN-LAST:event_jMenuItemCadCidActionPerformed
 
     private void jButtonCadCidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadCidActionPerformed
         CadCidade tela = new CadCidade();
         tela.setVisible(true);
-        dispose();
+        
     }//GEN-LAST:event_jButtonCadCidActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         TelaLogin tela = new TelaLogin();
         tela.setVisible(true);
-        dispose();
+        
         
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
@@ -269,7 +269,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         CadUsuario tela = new CadUsuario();
         tela.setVisible(true);
-        dispose();
+        
     }//GEN-LAST:event_jMenuItemCadUsuActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -278,10 +278,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void jButtonCadCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadCliActionPerformed
         // TODO add your handling code here:
-        
-        CadUsuario tela = new CadUsuario();
-        tela.setVisible(true);
-        dispose();
+     
     }//GEN-LAST:event_jButtonCadCliActionPerformed
 
     /**

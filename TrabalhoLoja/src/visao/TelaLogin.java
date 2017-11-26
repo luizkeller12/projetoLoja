@@ -95,13 +95,20 @@ public class TelaLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAcessar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAcessar1ActionPerformed
-       if(jTextFieldUsuario.getText().equals("admin")&&(jPasswordFieldSenha.getText().equals("1234"))){
+       //if(jTextFieldUsuario.getText().equals("admin")&&(jPasswordFieldSenha.getText().equals("1234"))){
         TelaPrincipal tela =  new TelaPrincipal();  
+        
+        
         tela.setVisible(true);
-        dispose();                          
-       }else{
-           JOptionPane.showMessageDialog(rootPane, "Usuário ou Senha Incorretos");
-       }
+        dispose();
+        
+        
+        
+        
+                                 
+      // }else{
+       //    JOptionPane.showMessageDialog(rootPane, "Usuário ou Senha Incorretos");
+      // }
        
     }//GEN-LAST:event_jButtonAcessar1ActionPerformed
     
