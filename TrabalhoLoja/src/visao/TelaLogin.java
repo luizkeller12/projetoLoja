@@ -5,8 +5,6 @@
  */
 package visao;
 
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author luizk
@@ -14,7 +12,7 @@ import javax.swing.JOptionPane;
 public class TelaLogin extends javax.swing.JFrame {
 
     /**
-     * Creates new form TelaLogin
+     * Creates new form TelaLFogin
      */
     public TelaLogin() {
         initComponents();
@@ -53,7 +51,7 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonAcessar1);
-        jButtonAcessar1.setBounds(280, 180, 170, 40);
+        jButtonAcessar1.setBounds(270, 180, 170, 40);
 
         jButtonSair.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jButtonSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/exit2.png"))); // NOI18N
@@ -66,14 +64,14 @@ public class TelaLogin extends javax.swing.JFrame {
         getContentPane().add(jButtonSair);
         jButtonSair.setBounds(490, 230, 110, 40);
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Usuário:");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(280, 70, 70, 30);
+        jLabel3.setBounds(270, 60, 80, 40);
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Senha:");
@@ -84,9 +82,9 @@ public class TelaLogin extends javax.swing.JFrame {
         getContentPane().add(jLabel1);
         jLabel1.setBounds(70, 40, 170, 200);
         getContentPane().add(jTextFieldUsuario);
-        jTextFieldUsuario.setBounds(350, 70, 240, 30);
+        jTextFieldUsuario.setBounds(350, 60, 240, 40);
         getContentPane().add(jPasswordFieldSenha);
-        jPasswordFieldSenha.setBounds(350, 110, 240, 30);
+        jPasswordFieldSenha.setBounds(350, 110, 240, 40);
 
         jLabelFundoLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/713.png"))); // NOI18N
         jLabelFundoLogin.setText("Login");

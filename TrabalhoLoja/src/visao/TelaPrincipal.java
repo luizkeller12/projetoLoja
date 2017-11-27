@@ -37,7 +37,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jButtonCadCli = new javax.swing.JButton();
         jButtonCadLoja = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        kButton1 = new br.com.cyber.componente.KButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuCadastro = new javax.swing.JMenu();
         jMenuItemCadCid = new javax.swing.JMenuItem();
@@ -123,10 +122,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         getContentPane().add(jLabel1);
         jLabel1.setBounds(-40, -640, 3310, 2020);
-
-        kButton1.setText("kButton1");
-        getContentPane().add(kButton1);
-        kButton1.setBounds(310, 320, 100, 34);
 
         jMenuBar1.setBackground(new java.awt.Color(255, 51, 204));
         jMenuBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -354,7 +349,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuOpcoes;
     private javax.swing.JMenu jMenuSair;
     private javax.swing.JMenu jMenuSobre;
-    private br.com.cyber.componente.KButton kButton1;
     // End of variables declaration//GEN-END:variables
 
     

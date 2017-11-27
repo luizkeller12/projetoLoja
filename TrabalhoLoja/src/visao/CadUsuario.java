@@ -15,6 +15,7 @@ import modeloDao.DaoUsuario;
  * @author luizk
  */
 public class CadUsuario extends javax.swing.JFrame {
+
     UsuarioBean mod = new UsuarioBean();
     DaoUsuario dao = new DaoUsuario();
     ConexaoBD conex = new ConexaoBD();
@@ -24,7 +25,6 @@ public class CadUsuario extends javax.swing.JFrame {
         initComponents();
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -77,6 +77,7 @@ public class CadUsuario extends javax.swing.JFrame {
         });
 
         jButtonSalvar.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jButtonSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_save_1608823 (1).png"))); // NOI18N
         jButtonSalvar.setText("SALVAR");
         jButtonSalvar.setEnabled(false);
         jButtonSalvar.addActionListener(new java.awt.event.ActionListener() {
@@ -116,8 +117,8 @@ public class CadUsuario extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addComponent(jButtonNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addComponent(jButtonSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addComponent(jButtonSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jButtonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32))
         );
@@ -186,7 +187,7 @@ public class CadUsuario extends javax.swing.JFrame {
 
     private void jButtonNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNovoActionPerformed
         jTextFieldUsuario.setEnabled(true);
-        
+
         jPasswordSenha.setEnabled(true);
         jButtonSalvar.setEnabled(true);
         jButtonCancelar.setEnabled(true);
@@ -198,7 +199,7 @@ public class CadUsuario extends javax.swing.JFrame {
         if (jTextFieldUsuario.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Preencha todos os campos para continuar!");
             jTextFieldUsuario.requestFocus();
-        
+
         } else if (jPasswordSenha.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Preencha todos os campos para continuar!");
             jPasswordSenha.requestFocus();
@@ -209,10 +210,10 @@ public class CadUsuario extends javax.swing.JFrame {
                 mod.setSenha(jPasswordSenha.getText());
                 dao.Salvar(mod);
                 jTextFieldUsuario.setText("");
-                
+
                 jPasswordSenha.setText("");
                 jTextFieldUsuario.setEnabled(false);
-                
+
                 jPasswordSenha.setEnabled(false);
                 jButtonSalvar.setEnabled(false);
                 jButtonCancelar.setEnabled(false);
@@ -225,8 +226,12 @@ public class CadUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     private void jButtonCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelar1ActionPerformed
-        // TODO add your handling code here:
-        dispose();
+        byte resposta = 0;
+        resposta = (byte) JOptionPane.showConfirmDialog(rootPane, "Deseja voltar? Seus dados não salvos serão perdidos!");
+        if (resposta == JOptionPane.YES_OPTION) {
+            dispose();
+        }        // TODO add your handling code here:
+
     }//GEN-LAST:event_jButtonCancelar1ActionPerformed
 
     /**
@@ -279,5 +284,4 @@ public class CadUsuario extends javax.swing.JFrame {
     private br.com.cyber.componente.KTextField jTextFieldUsuario;
     // End of variables declaration//GEN-END:variables
 
-    
 }
