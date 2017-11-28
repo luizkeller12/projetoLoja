@@ -115,6 +115,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jButtonCadLoja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_grocery-store_103257.png"))); // NOI18N
         jButtonCadLoja.setToolTipText("Lojas");
+        jButtonCadLoja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCadLojaActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButtonCadLoja);
         jButtonCadLoja.setBounds(280, 110, 190, 160);
 
@@ -149,6 +154,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuItemCadLoja.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jMenuItemCadLoja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/loja.png"))); // NOI18N
         jMenuItemCadLoja.setText("Loja");
+        jMenuItemCadLoja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemCadLojaActionPerformed(evt);
+            }
+        });
         jMenuCadastro.add(jMenuItemCadLoja);
 
         jMenuItemCadUsu.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -285,6 +295,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
      
     }//GEN-LAST:event_jButtonCadCliActionPerformed
+
+    private void jMenuItemCadLojaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadLojaActionPerformed
+        // TODO add your handling code here:
+        CadLoja tela =  new CadLoja();
+        tela.setVisible(true);
+    }//GEN-LAST:event_jMenuItemCadLojaActionPerformed
+
+    private void jButtonCadLojaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadLojaActionPerformed
+        // TODO add your handling code here:
+        CadLoja tela =  new CadLoja();
+        tela.setVisible(true);
+    }//GEN-LAST:event_jButtonCadLojaActionPerformed
 
     /**
      * @param args the command line arguments

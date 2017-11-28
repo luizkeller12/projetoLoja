@@ -16,6 +16,15 @@ public class LojaBean {
     private int cnpj;
     private int codigo;
     private int cod_cidade;
+    private String pesquisa;
+
+    public String getPesquisa() {
+        return pesquisa;
+    }
+
+    public void setPesquisa(String pesquisa) {
+        this.pesquisa = pesquisa;
+    }
     
     public LojaBean(){
     
