@@ -56,8 +56,6 @@ public class CadCidade extends javax.swing.JFrame {
         jButtonCancelar = new javax.swing.JButton();
         jButtonEditar = new javax.swing.JButton();
         jButtonApagar = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTableCidade = new javax.swing.JTable();
         jTextFieldPesquisa = new javax.swing.JTextField();
         jButtonPesquisa = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
@@ -69,6 +67,8 @@ public class CadCidade extends javax.swing.JFrame {
         jTextFieldNome = new br.com.cyber.componente.KTextField();
         jButtonVoltar = new javax.swing.JButton();
         kComboBoXUf = new br.com.cyber.componente.KComboBox();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTableCidade = new br.com.cyber.componente.Ktable();
         jLabel1 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
@@ -88,18 +88,26 @@ public class CadCidade extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         jPanel2.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel2.setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel1.setLayout(null);
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel2.setText("Nome:");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(12, 23, 78, 18);
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel3.setText("UF:");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(12, 201, 78, 22);
 
         jLabel4.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel4.setText("CEP:");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(12, 113, 78, 20);
 
         jButtonNovo.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jButtonNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_new10_216291.png"))); // NOI18N
@@ -109,6 +117,8 @@ public class CadCidade extends javax.swing.JFrame {
                 jButtonNovoActionPerformed(evt);
             }
         });
+        jPanel1.add(jButtonNovo);
+        jButtonNovo.setBounds(10, 410, 115, 40);
 
         jButtonSalvar.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jButtonSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_save_1608823 (1).png"))); // NOI18N
@@ -119,6 +129,8 @@ public class CadCidade extends javax.swing.JFrame {
                 jButtonSalvarActionPerformed(evt);
             }
         });
+        jPanel1.add(jButtonSalvar);
+        jButtonSalvar.setBounds(140, 410, 131, 40);
 
         jButtonCancelar.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jButtonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_cancel-2_309095.png"))); // NOI18N
@@ -129,6 +141,8 @@ public class CadCidade extends javax.swing.JFrame {
                 jButtonCancelarActionPerformed(evt);
             }
         });
+        jPanel1.add(jButtonCancelar);
+        jButtonCancelar.setBounds(280, 410, 157, 40);
 
         jButtonEditar.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jButtonEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_edit_2561427.png"))); // NOI18N
@@ -139,6 +153,8 @@ public class CadCidade extends javax.swing.JFrame {
                 jButtonEditarActionPerformed(evt);
             }
         });
+        jPanel1.add(jButtonEditar);
+        jButtonEditar.setBounds(440, 410, 123, 40);
 
         jButtonApagar.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jButtonApagar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_Streamline-70_185090.png"))); // NOI18N
@@ -149,6 +165,87 @@ public class CadCidade extends javax.swing.JFrame {
                 jButtonApagarActionPerformed(evt);
             }
         });
+        jPanel1.add(jButtonApagar);
+        jButtonApagar.setBounds(570, 410, 135, 40);
+        jPanel1.add(jTextFieldPesquisa);
+        jTextFieldPesquisa.setBounds(440, 50, 219, 33);
+
+        jButtonPesquisa.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jButtonPesquisa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_search_126577.png"))); // NOI18N
+        jButtonPesquisa.setText("PESQUISAR");
+        jButtonPesquisa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonPesquisaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButtonPesquisa);
+        jButtonPesquisa.setBounds(660, 50, 163, 35);
+
+        jLabel5.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel5.setText("Código:");
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(12, 298, 78, 23);
+
+        jTextFieldCodigo.setEnabled(false);
+        jTextFieldCodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldCodigoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jTextFieldCodigo);
+        jTextFieldCodigo.setBounds(12, 327, 97, 34);
+
+        jLabel6.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jLabel6.setText("Ex: \"Ibirubá\"");
+        jPanel1.add(jLabel6);
+        jLabel6.setBounds(450, 84, 58, 14);
+
+        jLabel8.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jLabel8.setText("Ex: \"98200000\"");
+        jPanel1.add(jLabel8);
+        jLabel8.setBounds(12, 181, 82, 14);
+
+        jLabel9.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jLabel9.setText("Ex: \"Ibirubá\"");
+        jPanel1.add(jLabel9);
+        jLabel9.setBounds(12, 93, 58, 14);
+
+        try {
+            jTextFieldCep.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("########")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jTextFieldCep.setEnabled(false);
+        jTextFieldCep.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldCepActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jTextFieldCep);
+        jTextFieldCep.setBounds(12, 139, 182, 35);
+
+        jTextFieldNome.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jTextFieldNome.setEnabled(false);
+        jPanel1.add(jTextFieldNome);
+        jTextFieldNome.setBounds(12, 47, 285, 35);
+
+        jButtonVoltar.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jButtonVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_ic_keyboard_return_48px_352473.png"))); // NOI18N
+        jButtonVoltar.setText("VOLTAR");
+        jButtonVoltar.setToolTipText("Voltar a tela principal");
+        jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVoltarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButtonVoltar);
+        jButtonVoltar.setBounds(850, 410, 131, 40);
+
+        kComboBoXUf.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "SELECIONE", "RS", "PR", "SC" }));
+        kComboBoXUf.setEnabled(false);
+        kComboBoXUf.setName(""); // NOI18N
+        jPanel1.add(kComboBoXUf);
+        kComboBoXUf.setBounds(12, 234, 142, 34);
 
         jTableCidade.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -167,188 +264,31 @@ public class CadCidade extends javax.swing.JFrame {
             }
         });
         jTableCidade.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTableCidadeKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTableCidadeKeyReleased(evt);
             }
         });
         jScrollPane1.setViewportView(jTableCidade);
 
-        jButtonPesquisa.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jButtonPesquisa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_search_126577.png"))); // NOI18N
-        jButtonPesquisa.setText("PESQUISAR");
-        jButtonPesquisa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonPesquisaActionPerformed(evt);
-            }
-        });
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(440, 110, 540, 260);
 
-        jLabel5.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLabel5.setText("Código:");
-
-        jTextFieldCodigo.setEnabled(false);
-        jTextFieldCodigo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldCodigoActionPerformed(evt);
-            }
-        });
-
-        jLabel6.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jLabel6.setText("Ex: \"Ibirubá\"");
-
-        jLabel8.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jLabel8.setText("Ex: \"98200000\"");
-
-        jLabel9.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jLabel9.setText("Ex: \"Ibirubá\"");
-
-        try {
-            jTextFieldCep.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("########")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        jTextFieldCep.setEnabled(false);
-        jTextFieldCep.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldCepActionPerformed(evt);
-            }
-        });
-
-        jTextFieldNome.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jTextFieldNome.setEnabled(false);
-
-        jButtonVoltar.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jButtonVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_ic_keyboard_return_48px_352473.png"))); // NOI18N
-        jButtonVoltar.setText("VOLTAR");
-        jButtonVoltar.setToolTipText("Voltar a tela principal");
-        jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonVoltarActionPerformed(evt);
-            }
-        });
-
-        kComboBoXUf.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "SELECIONE", "RS", "PR", "SC" }));
-        kComboBoXUf.setEnabled(false);
-        kComboBoXUf.setName(""); // NOI18N
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButtonNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonSalvar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonCancelar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9)
-                            .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldCep, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(kComboBoXUf, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jTextFieldPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonPesquisa))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                            .addComponent(jButtonEditar)
-                            .addGap(15, 15, 15)
-                            .addComponent(jButtonApagar)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonVoltar))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 496, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel6)))
-                .addGap(70, 70, 70))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldCep, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(7, 7, 7)
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(kComboBoXUf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(37, 37, 37))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(101, 101, 101)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonApagar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17))
-        );
+        jPanel2.add(jPanel1);
+        jPanel1.setBounds(30, 90, 1010, 460);
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Cadastro Cidade:");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 960, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(77, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(35, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36))
-        );
+        jPanel2.add(jLabel1);
+        jLabel1.setBounds(42, 11, 960, 104);
 
         getContentPane().add(jPanel2);
         jPanel2.setBounds(-10, -30, 1080, 580);
 
-        setSize(new java.awt.Dimension(1033, 551));
+        setSize(new java.awt.Dimension(1039, 534));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -372,15 +312,6 @@ public class CadCidade extends javax.swing.JFrame {
     private void jTextFieldCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCodigoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldCodigoActionPerformed
-
-    private void jTableCidadeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTableCidadeKeyReleased
-        setaTextFields();
-    }//GEN-LAST:event_jTableCidadeKeyReleased
-
-    private void jTableCidadeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableCidadeMouseClicked
-        setaTextFields();
-
-    }//GEN-LAST:event_jTableCidadeMouseClicked
 
     private void jButtonApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonApagarActionPerformed
         // TODO add your handling code here:
@@ -520,6 +451,21 @@ public class CadCidade extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButtonPesquisaActionPerformed
 
+    private void jTableCidadeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableCidadeMouseClicked
+        // TODO add your handling code here:
+        setaTextFields();
+    }//GEN-LAST:event_jTableCidadeMouseClicked
+
+    private void jTableCidadeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTableCidadeKeyPressed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jTableCidadeKeyPressed
+
+    private void jTableCidadeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTableCidadeKeyReleased
+        // TODO add your handling code here:
+        setaTextFields();
+    }//GEN-LAST:event_jTableCidadeKeyReleased
+
     public void preencherTabela(String Sql) {
         ArrayList dados = new ArrayList();
         String[] colunas = new String[]{"nome", "cep", "uf", "codigo"};
@@ -538,13 +484,13 @@ public class CadCidade extends javax.swing.JFrame {
         ModeloTabela modelo = new ModeloTabela(dados, colunas);
 
         jTableCidade.setModel(modelo);
-        jTableCidade.getColumnModel().getColumn(0).setPreferredWidth(180);
+        jTableCidade.getColumnModel().getColumn(0).setPreferredWidth(215);
         jTableCidade.getColumnModel().getColumn(0).setResizable(false);
-        jTableCidade.getColumnModel().getColumn(1).setPreferredWidth(130);
+        jTableCidade.getColumnModel().getColumn(1).setPreferredWidth(150);
         jTableCidade.getColumnModel().getColumn(1).setResizable(false);
-        jTableCidade.getColumnModel().getColumn(2).setPreferredWidth(60);
+        jTableCidade.getColumnModel().getColumn(2).setPreferredWidth(80);
         jTableCidade.getColumnModel().getColumn(2).setResizable(false);
-        jTableCidade.getColumnModel().getColumn(3).setPreferredWidth(120);
+        jTableCidade.getColumnModel().getColumn(3).setPreferredWidth(80);
         jTableCidade.getColumnModel().getColumn(3).setResizable(false);
         jTableCidade.getTableHeader().setReorderingAllowed(false);
 
@@ -606,7 +552,7 @@ public class CadCidade extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTableCidade;
+    private br.com.cyber.componente.Ktable jTableCidade;
     private javax.swing.JFormattedTextField jTextFieldCep;
     private javax.swing.JTextField jTextFieldCodigo;
     private br.com.cyber.componente.KTextField jTextFieldNome;
