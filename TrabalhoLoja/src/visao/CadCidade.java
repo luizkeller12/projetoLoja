@@ -527,6 +527,7 @@ public class CadCidade extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new CadCidade().setVisible(true);
+                
             }
         });
     }

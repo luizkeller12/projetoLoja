@@ -1,25 +1,24 @@
 package visao;
+
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import javax.swing.JOptionPane;
 import modeloConnection.ConexaoBD;
+
 /**
  *
- * @author lu
- * izk
+ * @author lu izk
  */
-    
+
 public class TelaPrincipal extends javax.swing.JFrame {
-    ConexaoBD conecta = new ConexaoBD();   
+
+    ConexaoBD conecta = new ConexaoBD();
+
     public TelaPrincipal() {
         initComponents();
         conecta.conexao();
-        
-        
-        
-        
-        
-        
+
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -32,8 +31,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
         jButtonCadCid = new javax.swing.JButton();
         jButtonConPro = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jButtonCadCli = new javax.swing.JButton();
         jButtonCadLoja = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -45,6 +42,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuItemCadUsu = new javax.swing.JMenuItem();
         jMenuBuscar = new javax.swing.JMenu();
         jMenuItemBusProd = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
         jMenuOpcoes = new javax.swing.JMenu();
         jMenuItemTelaBV = new javax.swing.JMenuItem();
         jMenuSobre = new javax.swing.JMenu();
@@ -89,19 +88,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jButtonConPro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_box_196757.png"))); // NOI18N
         jButtonConPro.setToolTipText("Produtos");
         getContentPane().add(jButtonConPro);
-        jButtonConPro.setBounds(40, 370, 190, 160);
-
-        jLabel6.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Consulta:");
-        getContentPane().add(jLabel6);
-        jLabel6.setBounds(40, 340, 140, 20);
-
-        jLabel5.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Cadastro:");
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(50, 70, 140, 20);
+        jButtonConPro.setBounds(740, 110, 190, 160);
 
         jButtonCadCli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_icon-ios7-people_211793.png"))); // NOI18N
         jButtonCadCli.setToolTipText("Clientes");
@@ -149,6 +136,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuItemCadCLi.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jMenuItemCadCLi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/cliente.png"))); // NOI18N
         jMenuItemCadCLi.setText("Cliente");
+        jMenuItemCadCLi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemCadCLiActionPerformed(evt);
+            }
+        });
         jMenuCadastro.add(jMenuItemCadCLi);
 
         jMenuItemCadLoja.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -181,6 +173,26 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuItemBusProd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/prodtuos.png"))); // NOI18N
         jMenuItemBusProd.setText("Produtos");
         jMenuBuscar.add(jMenuItemBusProd);
+
+        jMenuItem3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/cliente.png"))); // NOI18N
+        jMenuItem3.setText("Cliente");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenuBuscar.add(jMenuItem3);
+
+        jMenuItem4.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/loja.png"))); // NOI18N
+        jMenuItem4.setText("Loja");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenuBuscar.add(jMenuItem4);
 
         jMenuBar1.add(jMenuBuscar);
 
@@ -241,72 +253,92 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void jMenuSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuSairActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_jMenuSairActionPerformed
 
     private void jMenuItemSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSairActionPerformed
-       conecta.desconecta();
+        conecta.desconecta();
         System.exit(0);
-       
+
     }//GEN-LAST:event_jMenuItemSairActionPerformed
 
     private void jMenuItemTelaBVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemTelaBVActionPerformed
-          TelaPrincipal tela = new TelaPrincipal();
-          tela.setVisible(true);
-          dispose();
+        TelaPrincipal tela = new TelaPrincipal();
+        tela.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jMenuItemTelaBVActionPerformed
 
     private void jMenuItemCadCidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadCidActionPerformed
         CadCidade tela = new CadCidade();
         tela.setVisible(true);
-        
-        
+
+
     }//GEN-LAST:event_jMenuItemCadCidActionPerformed
 
     private void jButtonCadCidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadCidActionPerformed
         CadCidade tela = new CadCidade();
         tela.setVisible(true);
-        
+
     }//GEN-LAST:event_jButtonCadCidActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         byte resposta = 0;
         resposta = (byte) JOptionPane.showConfirmDialog(rootPane, "Desejea realmente Fazer logoff ?");
         if (resposta == JOptionPane.YES_OPTION) {
-        TelaLogin tela = new TelaLogin();
-        tela.setVisible(true);
-        dispose();
+            TelaLogin tela = new TelaLogin();
+            tela.setVisible(true);
+            dispose();
         }
-        
+
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItemCadUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadUsuActionPerformed
         // TODO add your handling code here:
         CadUsuario tela = new CadUsuario();
+       
         tela.setVisible(true);
-        
+
     }//GEN-LAST:event_jMenuItemCadUsuActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-     this.setExtendedState(MAXIMIZED_BOTH);
+        this.setExtendedState(MAXIMIZED_BOTH);
     }//GEN-LAST:event_formWindowOpened
 
     private void jButtonCadCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadCliActionPerformed
-        // TODO add your handling code here:
-     
+        TelaBuscaCadCliente tela = new TelaBuscaCadCliente();
+        tela.setVisible(true);
+
     }//GEN-LAST:event_jButtonCadCliActionPerformed
 
     private void jMenuItemCadLojaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadLojaActionPerformed
         // TODO add your handling code here:
-        CadLoja tela =  new CadLoja();
+        TelaBuscaCadLoja tela = new TelaBuscaCadLoja();
         tela.setVisible(true);
     }//GEN-LAST:event_jMenuItemCadLojaActionPerformed
 
     private void jButtonCadLojaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadLojaActionPerformed
         // TODO add your handling code here:
-        CadLoja tela =  new CadLoja();
+        TelaBuscaCadLoja tela = new TelaBuscaCadLoja();
         tela.setVisible(true);
     }//GEN-LAST:event_jButtonCadLojaActionPerformed
+
+    private void jMenuItemCadCLiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadCLiActionPerformed
+        // TODO add your handling code here:
+        CadCliente tela =  new CadCliente();
+        tela.setVisible(true);
+    }//GEN-LAST:event_jMenuItemCadCLiActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+        TelaBuscaLoja tela =  new TelaBuscaLoja();
+        tela.setVisible(true);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+        TelaBuscaCliente tela =  new TelaBuscaCliente();
+        tela.setVisible(true);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -339,6 +371,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new TelaPrincipal().setVisible(true);
+                JOptionPane.showMessageDialog(null, "Conexão Estabelecida, BEM VINDO!");
+
             }
         });
     }
@@ -350,8 +384,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButtonConPro;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -361,6 +393,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuCadastro;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItemBusProd;
     private javax.swing.JMenuItem jMenuItemCadCLi;
     private javax.swing.JMenuItem jMenuItemCadCid;
@@ -372,10 +406,5 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuSair;
     private javax.swing.JMenu jMenuSobre;
     // End of variables declaration//GEN-END:variables
-
-    
-
-
-
 
 }
