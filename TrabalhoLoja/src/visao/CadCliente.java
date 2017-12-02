@@ -42,6 +42,7 @@ public class CadCliente extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -120,9 +121,9 @@ public class CadCliente extends javax.swing.JFrame {
         jLabel1.setBounds(30, 10, 1010, 40);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(-10, -10, 1070, 530);
+        jPanel1.setBounds(-10, -10, 1070, 540);
 
-        setSize(new java.awt.Dimension(1054, 545));
+        setSize(new java.awt.Dimension(1042, 515));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 

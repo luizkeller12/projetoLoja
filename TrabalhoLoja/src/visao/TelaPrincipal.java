@@ -12,12 +12,15 @@ import modeloConnection.ConexaoBD;
 public class TelaPrincipal extends javax.swing.JFrame {
 
     ConexaoBD conecta = new ConexaoBD();
-
+    
     public TelaPrincipal() {
         initComponents();
         conecta.conexao();
+        JOptionPane.showMessageDialog(null, "Conexão Estabelecida,SEJA BEM VINDO!");
+        
 
     }
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -40,13 +43,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuItemCadCLi = new javax.swing.JMenuItem();
         jMenuItemCadLoja = new javax.swing.JMenuItem();
         jMenuItemCadUsu = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
         jMenuBuscar = new javax.swing.JMenu();
         jMenuItemBusProd = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuOpcoes = new javax.swing.JMenu();
-        jMenuItemTelaBV = new javax.swing.JMenuItem();
         jMenuSobre = new javax.swing.JMenu();
+        jMenuItem5 = new javax.swing.JMenuItem();
         jMenuSair = new javax.swing.JMenu();
         jMenuItemSair = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -87,9 +91,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jButtonConPro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_box_196757.png"))); // NOI18N
         jButtonConPro.setToolTipText("Produtos");
+        jButtonConPro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonConProActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButtonConPro);
         jButtonConPro.setBounds(740, 110, 190, 160);
 
+        jButtonCadCli.setBackground(new java.awt.Color(255, 255, 255));
         jButtonCadCli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_icon-ios7-people_211793.png"))); // NOI18N
         jButtonCadCli.setToolTipText("Clientes");
         jButtonCadCli.addActionListener(new java.awt.event.ActionListener() {
@@ -123,7 +133,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuCadastro.setText("Cadastros");
         jMenuCadastro.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
 
-        jMenuItemCadCid.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jMenuItemCadCid.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jMenuItemCadCid.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/cityicon2.png"))); // NOI18N
         jMenuItemCadCid.setText("Cidade");
         jMenuItemCadCid.addActionListener(new java.awt.event.ActionListener() {
@@ -133,7 +143,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenuCadastro.add(jMenuItemCadCid);
 
-        jMenuItemCadCLi.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jMenuItemCadCLi.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jMenuItemCadCLi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/cliente.png"))); // NOI18N
         jMenuItemCadCLi.setText("Cliente");
         jMenuItemCadCLi.addActionListener(new java.awt.event.ActionListener() {
@@ -143,7 +153,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenuCadastro.add(jMenuItemCadCLi);
 
-        jMenuItemCadLoja.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jMenuItemCadLoja.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jMenuItemCadLoja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/loja.png"))); // NOI18N
         jMenuItemCadLoja.setText("Loja");
         jMenuItemCadLoja.addActionListener(new java.awt.event.ActionListener() {
@@ -153,7 +163,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenuCadastro.add(jMenuItemCadLoja);
 
-        jMenuItemCadUsu.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jMenuItemCadUsu.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jMenuItemCadUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/usuario.png"))); // NOI18N
         jMenuItemCadUsu.setText("Usuários");
         jMenuItemCadUsu.addActionListener(new java.awt.event.ActionListener() {
@@ -163,18 +173,33 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenuCadastro.add(jMenuItemCadUsu);
 
+        jMenuItem6.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/prodtuos.png"))); // NOI18N
+        jMenuItem6.setText("Produtos");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMenuCadastro.add(jMenuItem6);
+
         jMenuBar1.add(jMenuCadastro);
 
         jMenuBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/buscar.png"))); // NOI18N
         jMenuBuscar.setText("Buscar");
         jMenuBuscar.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
 
-        jMenuItemBusProd.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jMenuItemBusProd.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jMenuItemBusProd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/prodtuos.png"))); // NOI18N
         jMenuItemBusProd.setText("Produtos");
+        jMenuItemBusProd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemBusProdActionPerformed(evt);
+            }
+        });
         jMenuBuscar.add(jMenuItemBusProd);
 
-        jMenuItem3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jMenuItem3.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/cliente.png"))); // NOI18N
         jMenuItem3.setText("Cliente");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
@@ -184,7 +209,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenuBuscar.add(jMenuItem3);
 
-        jMenuItem4.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jMenuItem4.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/loja.png"))); // NOI18N
         jMenuItem4.setText("Loja");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
@@ -199,22 +224,26 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuOpcoes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/opçoes2.png"))); // NOI18N
         jMenuOpcoes.setText("Opções");
         jMenuOpcoes.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
-
-        jMenuItemTelaBV.setText("Tela- Bem Vindo");
-        jMenuItemTelaBV.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemTelaBVActionPerformed(evt);
-            }
-        });
-        jMenuOpcoes.add(jMenuItemTelaBV);
-
         jMenuBar1.add(jMenuOpcoes);
 
+        jMenuSobre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_basics-11_296822 (1).png"))); // NOI18N
         jMenuSobre.setText("Sobre");
         jMenuSobre.setFocusable(false);
         jMenuSobre.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
+
+        jMenuItem5.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_35-Gear_2674077.png"))); // NOI18N
+        jMenuItem5.setText("Desenvolvedor");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        jMenuSobre.add(jMenuItem5);
+
         jMenuBar1.add(jMenuSobre);
 
+        jMenuSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_simpline_43_2305619.png"))); // NOI18N
         jMenuSair.setText("Sair");
         jMenuSair.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         jMenuSair.addActionListener(new java.awt.event.ActionListener() {
@@ -223,7 +252,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jMenuItemSair.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jMenuItemSair.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jMenuItemSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/exit2.png"))); // NOI18N
         jMenuItemSair.setText("Fechar Sistema");
         jMenuItemSair.addActionListener(new java.awt.event.ActionListener() {
@@ -233,7 +262,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenuSair.add(jMenuItemSair);
 
-        jMenuItem2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jMenuItem2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/sair.png"))); // NOI18N
         jMenuItem2.setText("Sair");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
@@ -261,12 +290,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         System.exit(0);
 
     }//GEN-LAST:event_jMenuItemSairActionPerformed
-
-    private void jMenuItemTelaBVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemTelaBVActionPerformed
-        TelaPrincipal tela = new TelaPrincipal();
-        tela.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jMenuItemTelaBVActionPerformed
 
     private void jMenuItemCadCidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadCidActionPerformed
         CadCidade tela = new CadCidade();
@@ -340,6 +363,30 @@ public class TelaPrincipal extends javax.swing.JFrame {
         tela.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        // TODO add your handling code here:
+        TelaDesenvolvedor tela = new TelaDesenvolvedor();
+        tela.setVisible(true);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jButtonConProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConProActionPerformed
+        // TODO add your handling code here:
+         TelaBuscaCadProduto tela = new TelaBuscaCadProduto();
+        tela.setVisible(true);
+    }//GEN-LAST:event_jButtonConProActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        // TODO add your handling code here:
+        CadProduto tela =  new CadProduto();
+        tela.setVisible(true);
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItemBusProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemBusProdActionPerformed
+        // TODO add your handling code here:
+        TelaBuscaCadProduto tela = new TelaBuscaCadProduto();
+        tela.setVisible(true);
+    }//GEN-LAST:event_jMenuItemBusProdActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -371,7 +418,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new TelaPrincipal().setVisible(true);
-                JOptionPane.showMessageDialog(null, "Conexão Estabelecida, BEM VINDO!");
+                
 
             }
         });
@@ -395,13 +442,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItemBusProd;
     private javax.swing.JMenuItem jMenuItemCadCLi;
     private javax.swing.JMenuItem jMenuItemCadCid;
     private javax.swing.JMenuItem jMenuItemCadLoja;
     private javax.swing.JMenuItem jMenuItemCadUsu;
     private javax.swing.JMenuItem jMenuItemSair;
-    private javax.swing.JMenuItem jMenuItemTelaBV;
     private javax.swing.JMenu jMenuOpcoes;
     private javax.swing.JMenu jMenuSair;
     private javax.swing.JMenu jMenuSobre;
