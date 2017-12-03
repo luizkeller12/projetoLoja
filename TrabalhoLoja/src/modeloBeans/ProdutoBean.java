@@ -12,6 +12,15 @@ package modeloBeans;
 public class ProdutoBean {
     private String nome;
     private int codigo;
+    private String pesquisa;
+
+    public String getPesquisa() {
+        return pesquisa;
+    }
+
+    public void setPesquisa(String pesquisa) {
+        this.pesquisa = pesquisa;
+    }
     public ProdutoBean(){
     
     }

@@ -5,12 +5,14 @@
  */
 package visao;
 
+import static java.awt.SystemColor.control;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
+import modeloBeans.BeansCidade;
 import modeloBeans.ModeloTabela;
-import modeloConnection.ConexaoBD;
+import static sun.util.calendar.CalendarUtils.mod;
 
 /**
  *
@@ -18,8 +20,7 @@ import modeloConnection.ConexaoBD;
  */
 public class TelaBuscaProduto extends javax.swing.JFrame {
 
-    ConexaoBD conex = new ConexaoBD();
-
+    
     /**
      * Creates new form TelaBuscaLoja
      */
@@ -42,10 +43,8 @@ public class TelaBuscaProduto extends javax.swing.JFrame {
         jtableCliente = new br.com.cyber.componente.Ktable();
         jButton1 = new javax.swing.JButton();
         kTextField1 = new br.com.cyber.componente.KTextField();
-        jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        jTextFieldPesquisa = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -90,29 +89,24 @@ public class TelaBuscaProduto extends javax.swing.JFrame {
         jPanel2.add(kTextField1);
         kTextField1.setBounds(20, 30, 260, 40);
 
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel1.setText("txt11111:");
-        jPanel2.add(jLabel1);
-        jLabel1.setBounds(20, 260, 80, 20);
-
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel3.setText("txt11111:");
+        jLabel3.setText("Código:");
         jPanel2.add(jLabel3);
         jLabel3.setBounds(20, 200, 80, 20);
 
-        jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel4.setText("txt11111:");
-        jPanel2.add(jLabel4);
-        jLabel4.setBounds(20, 230, 80, 20);
-
-        jButton2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/buscar.png"))); // NOI18N
-        jButton2.setText("PESQUISAR");
-        jPanel2.add(jButton2);
-        jButton2.setBounds(70, 80, 170, 40);
+        jTextFieldPesquisa.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jTextFieldPesquisa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/buscar.png"))); // NOI18N
+        jTextFieldPesquisa.setText("PESQUISAR");
+        jTextFieldPesquisa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldPesquisaActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jTextFieldPesquisa);
+        jTextFieldPesquisa.setBounds(70, 80, 170, 40);
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel5.setText("txt11111:");
+        jLabel5.setText("Nome:");
         jPanel2.add(jLabel5);
         jLabel5.setBounds(20, 170, 80, 20);
 
@@ -132,42 +126,22 @@ public class TelaBuscaProduto extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    
+    
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here: 
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
-    public void preencherTabela(String Sql) {
-        ArrayList dados = new ArrayList();
-        String[] colunas = new String[]{"nome", "cep", "uf", "codigo"};
-        conex.conexao();
-        conex.executaSql(Sql);
 
-        try {
-            conex.rs.first();
-            do {
-                dados.add(new Object[]{conex.rs.getString("nome"), conex.rs.getInt("Telefone"), conex.rs.getString("Telefone"), conex.rs.getInt("codigo")});
-            } while (conex.rs.next());
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(rootPane, "Busque outra cidade na tabela");
+    private void jTextFieldPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPesquisaActionPerformed
+       
+        
+        
+        
+    }//GEN-LAST:event_jTextFieldPesquisaActionPerformed
 
-        }
-        ModeloTabela modelo = new ModeloTabela(dados, colunas);
-
-        jtableCliente.setModel(modelo);
-        jtableCliente.getColumnModel().getColumn(0).setPreferredWidth(215);
-        jtableCliente.getColumnModel().getColumn(0).setResizable(false);
-        jtableCliente.getColumnModel().getColumn(1).setPreferredWidth(150);
-        jtableCliente.getColumnModel().getColumn(1).setResizable(false);
-        jtableCliente.getColumnModel().getColumn(2).setPreferredWidth(80);
-        jtableCliente.getColumnModel().getColumn(2).setResizable(false);
-        jtableCliente.getColumnModel().getColumn(3).setPreferredWidth(80);
-        jtableCliente.getColumnModel().getColumn(3).setResizable(false);
-        jtableCliente.getTableHeader().setReorderingAllowed(false);
-
-        jtableCliente.setAutoResizeMode(jtableCliente.AUTO_RESIZE_OFF);
-        jtableCliente.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        conex.desconecta();
-    }
 
     /**
      * @param args the command line arguments
@@ -209,15 +183,13 @@ public class TelaBuscaProduto extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton jTextFieldPesquisa;
     private br.com.cyber.componente.Ktable jtableCliente;
     private br.com.cyber.componente.KTextField kTextField1;
     // End of variables declaration//GEN-END:variables

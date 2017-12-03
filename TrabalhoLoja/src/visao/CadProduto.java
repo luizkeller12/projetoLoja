@@ -5,11 +5,21 @@
  */
 package visao;
 
+import javax.swing.JOptionPane;
+import modeloBeans.ProdutoBean;
+import modeloConnection.ConexaoBD;
+import modeloDao.DaoProduto;
+
 /**
  *
  * @author luizk
  */
 public class CadProduto extends javax.swing.JFrame {
+
+    ConexaoBD conex = new ConexaoBD();
+    ProdutoBean mod = new ProdutoBean();
+    DaoProduto control = new DaoProduto();
+    int flag = 0;
 
     /**
      * Creates new form CadCliente
@@ -30,15 +40,19 @@ public class CadProduto extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jButtonVoltar = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        kTextField2 = new br.com.cyber.componente.KTextField();
         jLabel3 = new javax.swing.JLabel();
-        kTextField3 = new br.com.cyber.componente.KTextField();
-        kTextField4 = new br.com.cyber.componente.KTextField();
+        txtNome = new br.com.cyber.componente.KTextField();
+        btnSalvar = new javax.swing.JButton();
+        jButtonApagar = new javax.swing.JButton();
+        jButtonNovo = new javax.swing.JButton();
+        jButtonCancelar = new javax.swing.JButton();
+        jButtonEditar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        ktableProduto = new br.com.cyber.componente.Ktable();
+        txtCod = new br.com.cyber.componente.KTextField();
         jLabel4 = new javax.swing.JLabel();
-        kTextField5 = new br.com.cyber.componente.KTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        txtPesq = new br.com.cyber.componente.KTextField();
+        btnBuscar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -52,7 +66,8 @@ public class CadProduto extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel2.setLayout(null);
 
-        jButtonVoltar.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jButtonVoltar.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jButtonVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_ic_keyboard_return_48px_352473.png"))); // NOI18N
         jButtonVoltar.setText("VOLTAR");
         jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,56 +75,117 @@ public class CadProduto extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButtonVoltar);
-        jButtonVoltar.setBounds(846, 413, 152, 34);
-
-        jLabel2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Nome:");
-        jPanel2.add(jLabel2);
-        jLabel2.setBounds(50, 240, 70, 40);
-
-        kTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                kTextField2ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(kTextField2);
-        kTextField2.setBounds(120, 240, 230, 40);
+        jButtonVoltar.setBounds(830, 410, 152, 40);
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Nome:");
+        jLabel3.setText("Código:");
         jPanel2.add(jLabel3);
-        jLabel3.setBounds(50, 90, 70, 40);
-        jPanel2.add(kTextField3);
-        kTextField3.setBounds(120, 90, 230, 40);
-        jPanel2.add(kTextField4);
-        kTextField4.setBounds(120, 140, 230, 40);
+        jLabel3.setBounds(60, 110, 70, 40);
+
+        txtNome.setEnabled(false);
+        txtNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNomeActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtNome);
+        txtNome.setBounds(130, 50, 370, 40);
+
+        btnSalvar.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_save_1608823 (1).png"))); // NOI18N
+        btnSalvar.setText("SALVAR");
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnSalvar);
+        btnSalvar.setBounds(280, 190, 210, 50);
+
+        jButtonApagar.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jButtonApagar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_Streamline-70_185090.png"))); // NOI18N
+        jButtonApagar.setText("APAGAR");
+        jButtonApagar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonApagarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButtonApagar);
+        jButtonApagar.setBounds(280, 250, 210, 50);
+
+        jButtonNovo.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jButtonNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/cad.png"))); // NOI18N
+        jButtonNovo.setText("NOVO");
+        jButtonNovo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonNovoActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButtonNovo);
+        jButtonNovo.setBounds(60, 190, 210, 50);
+
+        jButtonCancelar.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jButtonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_cancel-2_309095.png"))); // NOI18N
+        jButtonCancelar.setText("CANCELAR");
+        jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButtonCancelar);
+        jButtonCancelar.setBounds(10, 390, 220, 60);
+
+        jButtonEditar.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jButtonEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_edit_2561427.png"))); // NOI18N
+        jButtonEditar.setText("EDITAR");
+        jButtonEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEditarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButtonEditar);
+        jButtonEditar.setBounds(60, 250, 210, 50);
+
+        ktableProduto.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        ktableProduto.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane1.setViewportView(ktableProduto);
+
+        jPanel2.add(jScrollPane1);
+        jScrollPane1.setBounds(530, 92, 450, 310);
+
+        txtCod.setEnabled(false);
+        jPanel2.add(txtCod);
+        txtCod.setBounds(130, 110, 100, 40);
 
         jLabel4.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Nome:");
         jPanel2.add(jLabel4);
-        jLabel4.setBounds(50, 140, 70, 40);
+        jLabel4.setBounds(60, 50, 70, 40);
+        jPanel2.add(txtPesq);
+        txtPesq.setBounds(530, 50, 240, 40);
 
-        kTextField5.addActionListener(new java.awt.event.ActionListener() {
+        btnBuscar.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/buscar.png"))); // NOI18N
+        btnBuscar.setText("BUSCAR");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                kTextField5ActionPerformed(evt);
+                btnBuscarActionPerformed(evt);
             }
         });
-        jPanel2.add(kTextField5);
-        kTextField5.setBounds(120, 190, 230, 40);
-
-        jLabel5.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Nome:");
-        jPanel2.add(jLabel5);
-        jLabel5.setBounds(50, 190, 70, 40);
-
-        jButton1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jButton1.setText("SALVAR");
-        jPanel2.add(jButton1);
-        jButton1.setBounds(50, 383, 110, 40);
+        jPanel2.add(btnBuscar);
+        btnBuscar.setBounds(780, 50, 200, 40);
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(30, 50, 1010, 460);
@@ -132,13 +208,122 @@ public class CadProduto extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButtonVoltarActionPerformed
 
-    private void kTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kTextField2ActionPerformed
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_kTextField2ActionPerformed
+        if (txtNome.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos para continuar!");
+            txtNome.requestFocus();
+        } else {
+            if (flag == 1) {
+                mod.setNome(txtNome.getText());
+                control.Salvar(mod);
+                txtNome.setText("");
+                txtCod.setText("");
+                btnSalvar.setEnabled(false);
+            } else if (flag == 2) {
+                mod.setNome(txtNome.getText());
+                
+                mod.setCodigo(Integer.parseInt(txtCod.getText()));
+                control.Editar(mod);
+                txtCod.setEnabled(false);
+                txtNome.setEnabled(false);
+                
+                txtCod.setText("");
+                txtNome.setText("");
+             btnBuscar.setEnabled(true);
+             txtPesq.setEnabled(true);
+                
+                btnSalvar.setEnabled(false);
+                ktableProduto.setEnabled(true);
+            }
+        }
+    }//GEN-LAST:event_btnSalvarActionPerformed
 
-    private void kTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kTextField5ActionPerformed
+    private void jButtonApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonApagarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_kTextField5ActionPerformed
+        int resposta = 0;
+        resposta = JOptionPane.showConfirmDialog(rootPane, "Realmente deseja Apagar?");
+        if (resposta == JOptionPane.YES_OPTION) {
+            mod.setCodigo(Integer.parseInt(txtCod.getText()));
+            control.Apagar(mod);
+            jButtonEditar.setEnabled(false);
+            jButtonApagar.setEnabled(false);
+            jButtonCancelar.setEnabled(false);
+            txtNome.setEnabled(false);
+           
+            txtNome.setText("");
+            txtCod.setText("");
+            
+            
+            //preencherTabela("select * from cidade order by nome");
+            jButtonNovo.setEnabled(true);
+            btnBuscar.setEnabled(true);
+            txtPesq.setEnabled(true);
+            
+            
+        }
+        
+    }//GEN-LAST:event_jButtonApagarActionPerformed
+
+    private void jButtonNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNovoActionPerformed
+        // TODO add your handling code here
+
+        flag = 1;
+        txtNome.setEnabled(true);
+
+        btnSalvar.setEnabled(true);
+        jButtonCancelar.setEnabled(true);
+        txtNome.setText("");
+        txtCod.setText("");
+        jButtonEditar.setEnabled(false);
+        jButtonApagar.setEnabled(false);
+        btnBuscar.setEnabled(false);
+        txtPesq.setEnabled(false);
+        ktableProduto.setEnabled(false);
+
+
+    }//GEN-LAST:event_jButtonNovoActionPerformed
+
+    private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
+        // TODO add your handling code here:
+        txtNome.setEnabled(!true);
+        
+        btnSalvar.setEnabled(!true);
+        jButtonCancelar.setEnabled(!true);
+        jButtonNovo.setEnabled(true);
+        jButtonEditar.setEnabled(false);
+        jButtonApagar.setEnabled(false);
+        txtPesq.setEnabled(true);
+        btnBuscar.setEnabled(true);
+        txtCod.setText("");
+        txtNome.setText("");
+        txtPesq.setText("");
+        ktableProduto.setEnabled(true);
+        
+        
+        
+    }//GEN-LAST:event_jButtonCancelarActionPerformed
+
+    private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
+        // TODO add your handling code here:
+        flag = 2;
+        txtCod.setEnabled(true);
+        txtNome.setEnabled(true);
+        btnSalvar.setEnabled(true);
+        jButtonCancelar.setEnabled(true);
+        jButtonEditar.setEnabled(false);
+        jButtonNovo.setEnabled(false);
+        jButtonApagar.setEnabled(false);
+        ktableProduto.setEnabled(false);
+    }//GEN-LAST:event_jButtonEditarActionPerformed
+
+    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomeActionPerformed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -177,18 +362,22 @@ public class CadProduto extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnSalvar;
+    private javax.swing.JButton jButtonApagar;
+    private javax.swing.JButton jButtonCancelar;
+    private javax.swing.JButton jButtonEditar;
+    private javax.swing.JButton jButtonNovo;
     private javax.swing.JButton jButtonVoltar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private br.com.cyber.componente.KTextField kTextField2;
-    private br.com.cyber.componente.KTextField kTextField3;
-    private br.com.cyber.componente.KTextField kTextField4;
-    private br.com.cyber.componente.KTextField kTextField5;
+    private javax.swing.JScrollPane jScrollPane1;
+    private br.com.cyber.componente.Ktable ktableProduto;
+    private br.com.cyber.componente.KTextField txtCod;
+    private br.com.cyber.componente.KTextField txtNome;
+    private br.com.cyber.componente.KTextField txtPesq;
     // End of variables declaration//GEN-END:variables
 }

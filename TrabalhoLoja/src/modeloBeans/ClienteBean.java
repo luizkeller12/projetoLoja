@@ -10,31 +10,41 @@ package modeloBeans;
  * @author luizk
  */
 public class ClienteBean {
-    
-    private int cpf;
+
+    private long cpf;
     private String endereco;
     private int telefone;
     private String nome;
     private int codigo;
     private int cod_cidade;
-    private String pesquisa;
-    
-    public String getPesquisa() {
-        return pesquisa;
+    private String Clientepesquisa;
+
+    public ClienteBean(String pesquisa) {
+        this.Clientepesquisa = pesquisa;
     }
-    public ClienteBean(){
-    
+
+    public void setClientePesquisa(String pesquisa) {
+        this.Clientepesquisa = pesquisa;
     }
+
+    public String getClientePesquisa() {
+        return Clientepesquisa;
+    }
+
+    public ClienteBean() {
+
+    }
+
     public ClienteBean(int codigo, String nome) {
         this.codigo = codigo;
         this.nome = nome;
     }
-    
-    public int getCpf() {
+
+    public long getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(long cpf) {
         this.cpf = cpf;
     }
 
@@ -77,6 +87,5 @@ public class ClienteBean {
     public void setCod_cidade(int cod_cidade) {
         this.cod_cidade = cod_cidade;
     }
-    
-    
+
 }
