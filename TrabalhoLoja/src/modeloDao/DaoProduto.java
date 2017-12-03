@@ -62,5 +62,21 @@ public class DaoProduto {
         conex.desconecta();
     }
     
+    public ProdutoBean buscaProduto(ProdutoBean mod){    
+        conex.conexao();
+        
+        conex.executaSql("SELECT * FROM produto WHERE nome LIKE '%"+mod.getPesquisa()+"%'");
+        try {
+            conex.rs.first();            
+            mod.setNome(conex.rs.getString("nome"));
+            mod.setCodigo(conex.rs.getInt("codigo"));
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Produto não cadastrado!");            
+        }
+        
+        conex.desconecta();
+        return mod;
+    }
+    
     
 }

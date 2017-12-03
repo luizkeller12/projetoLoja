@@ -22,12 +22,14 @@ public class TelaBuscaCliente extends javax.swing.JFrame {
 
     ConexaoBD conex = new ConexaoBD();
     DaoCliente control = new DaoCliente();
-    ClienteBean mod =  new ClienteBean();
+    ClienteBean mod = new ClienteBean();
+
     /**
      * Creates new form TelaBuscaLoja
      */
     public TelaBuscaCliente() {
         initComponents();
+        preencherTabelaCliente("select * from cliente order by nome");
     }
 
     /**
@@ -42,9 +44,9 @@ public class TelaBuscaCliente extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jtableCliente = new br.com.cyber.componente.Ktable();
+        ktableCliente = new br.com.cyber.componente.Ktable();
         jButton1 = new javax.swing.JButton();
-        jTextFieldPesquisa = new br.com.cyber.componente.KTextField();
+        txtPesq = new br.com.cyber.componente.KTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -71,8 +73,8 @@ public class TelaBuscaCliente extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel2.setLayout(null);
 
-        jtableCliente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jtableCliente.setModel(new javax.swing.table.DefaultTableModel(
+        ktableCliente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        ktableCliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -83,7 +85,12 @@ public class TelaBuscaCliente extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(jtableCliente);
+        ktableCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ktableClienteMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(ktableCliente);
 
         jPanel2.add(jScrollPane1);
         jScrollPane1.setBounds(310, 10, 600, 390);
@@ -98,23 +105,31 @@ public class TelaBuscaCliente extends javax.swing.JFrame {
         });
         jPanel2.add(jButton1);
         jButton1.setBounds(20, 360, 170, 40);
-        jPanel2.add(jTextFieldPesquisa);
-        jTextFieldPesquisa.setBounds(20, 30, 260, 40);
 
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtPesq.setK_back_focus_gained(new java.awt.Color(51, 204, 255));
+        txtPesq.setK_bord_color_change_text(new java.awt.Color(0, 102, 153));
+        txtPesq.setK_bord_error(new java.awt.Color(0, 102, 102));
+        txtPesq.setK_bord_focus_gained(new java.awt.Color(51, 204, 255));
+        jPanel2.add(txtPesq);
+        txtPesq.setBounds(20, 30, 260, 40);
+
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel1.setText("Código:");
         jPanel2.add(jLabel1);
-        jLabel1.setBounds(20, 290, 80, 20);
+        jLabel1.setBounds(30, 290, 100, 20);
 
-        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("Endereço:");
         jPanel2.add(jLabel3);
-        jLabel3.setBounds(20, 200, 80, 20);
+        jLabel3.setBounds(30, 200, 100, 20);
 
-        jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel4.setText("Telefone:");
         jPanel2.add(jLabel4);
-        jLabel4.setBounds(20, 230, 80, 20);
+        jLabel4.setBounds(30, 230, 100, 20);
 
         jButton2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/buscar.png"))); // NOI18N
@@ -127,32 +142,47 @@ public class TelaBuscaCliente extends javax.swing.JFrame {
         jPanel2.add(jButton2);
         jButton2.setBounds(70, 80, 170, 40);
 
-        jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel5.setText("Nome:");
         jPanel2.add(jLabel5);
-        jLabel5.setBounds(20, 260, 80, 20);
+        jLabel5.setBounds(40, 170, 90, 20);
 
-        jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel6.setText("CPF:");
         jPanel2.add(jLabel6);
-        jLabel6.setBounds(20, 170, 80, 20);
-        jPanel2.add(lblCod);
-        lblCod.setBounds(110, 290, 120, 20);
-        jPanel2.add(lblNome);
-        lblNome.setBounds(110, 260, 120, 20);
-        jPanel2.add(lblEnd);
-        lblEnd.setBounds(110, 200, 120, 20);
-        jPanel2.add(lblTel);
-        lblTel.setBounds(110, 230, 120, 20);
-        jPanel2.add(lblCpf);
-        lblCpf.setBounds(110, 170, 120, 20);
+        jLabel6.setBounds(30, 260, 100, 20);
 
-        jLabel7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel7.setText("Cidade:");
+        lblCod.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jPanel2.add(lblCod);
+        lblCod.setBounds(140, 290, 120, 20);
+
+        lblNome.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jPanel2.add(lblNome);
+        lblNome.setBounds(140, 170, 120, 20);
+
+        lblEnd.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jPanel2.add(lblEnd);
+        lblEnd.setBounds(140, 200, 120, 20);
+
+        lblTel.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jPanel2.add(lblTel);
+        lblTel.setBounds(140, 230, 120, 20);
+
+        lblCpf.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jPanel2.add(lblCpf);
+        lblCpf.setBounds(140, 260, 120, 20);
+
+        jLabel7.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel7.setText("Cod-Cidade:");
         jPanel2.add(jLabel7);
-        jLabel7.setBounds(20, 320, 80, 20);
+        jLabel7.setBounds(20, 320, 110, 20);
+
+        lblCid.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jPanel2.add(lblCid);
-        lblCid.setBounds(110, 320, 120, 20);
+        lblCid.setBounds(140, 320, 120, 20);
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(120, 50, 920, 410);
@@ -176,49 +206,65 @@ public class TelaBuscaCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        
-        mod.setClientePesquisa(jTextFieldPesquisa.getText());
-        ClienteBean model = control.buscaCliente(mod);
-        lblCpf.setText(String.valueOf(model.getCpf()));
-        lblEnd.setText(model.getEndereco());
-        lblTel.setText(String.valueOf(model.getTelefone()));
-        lblNome.setText(model.getNome());
-        lblCod.setText(String.valueOf(model.getCodigo()));
-        lblCid.setText(String.valueOf(model.getCod_cidade()));
-        
-        
+        mod.setPesquisa(txtPesq.getText());
+        preencherTabelaCliente("SELECT * FROM cliente WHERE nome LIKE '%" + mod.getPesquisa() + "%'");
+
+
     }//GEN-LAST:event_jButton2ActionPerformed
-    public void preencherTabela(String Sql) {
+
+    private void ktableClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ktableClienteMouseClicked
+        // TODO add your handling code here:
+        int indice = ktableCliente.getSelectedRow();
+        lblCpf.setText(ktableCliente.getValueAt(indice, 0).toString());
+        lblEnd.setText(ktableCliente.getValueAt(indice, 1).toString());
+        lblTel.setText(ktableCliente.getValueAt(indice, 2).toString());
+        lblNome.setText(ktableCliente.getValueAt(indice, 3).toString());
+        lblCod.setText(ktableCliente.getValueAt(indice, 4).toString());
+        lblCid.setText(ktableCliente.getValueAt(indice, 5).toString());
+
+    }//GEN-LAST:event_ktableClienteMouseClicked
+    public void preencherTabelaCliente(String Sql) {
         ArrayList dados = new ArrayList();
-        String[] colunas = new String[]{"nome", "cep", "uf", "codigo"};
+        String[] colunas = new String[]{"cpf", "endereço", "telefone", "nome", "codigo", "cod_cidade"};
         conex.conexao();
         conex.executaSql(Sql);
 
         try {
             conex.rs.first();
             do {
-                dados.add(new Object[]{conex.rs.getString("nome"), conex.rs.getInt("Telefone"), conex.rs.getString("Telefone"), conex.rs.getInt("codigo")});
+                dados.add(new Object[]{
+                    conex.rs.getLong("cpf"),
+                    conex.rs.getString("endereço"),
+                    conex.rs.getLong("telefone"),
+                    conex.rs.getString("nome"),
+                    conex.rs.getInt("codigo"),
+                    conex.rs.getInt("cod_cidade")
+                });
             } while (conex.rs.next());
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(rootPane, "Busque outra cidade na tabela");
+            JOptionPane.showMessageDialog(rootPane, "Busque outro cliente na tabela" + ex);
 
         }
         ModeloTabela modelo = new ModeloTabela(dados, colunas);
 
-        jtableCliente.setModel(modelo);
-        jtableCliente.getColumnModel().getColumn(0).setPreferredWidth(215);
-        jtableCliente.getColumnModel().getColumn(0).setResizable(false);
-        jtableCliente.getColumnModel().getColumn(1).setPreferredWidth(150);
-        jtableCliente.getColumnModel().getColumn(1).setResizable(false);
-        jtableCliente.getColumnModel().getColumn(2).setPreferredWidth(80);
-        jtableCliente.getColumnModel().getColumn(2).setResizable(false);
-        jtableCliente.getColumnModel().getColumn(3).setPreferredWidth(80);
-        jtableCliente.getColumnModel().getColumn(3).setResizable(false);
-        jtableCliente.getTableHeader().setReorderingAllowed(false);
+        ktableCliente.setModel(modelo);
+        ktableCliente.getColumnModel().getColumn(0).setPreferredWidth(120);
+        ktableCliente.getColumnModel().getColumn(0).setResizable(false);
+        ktableCliente.getColumnModel().getColumn(1).setPreferredWidth(120);
+        ktableCliente.getColumnModel().getColumn(1).setResizable(false);
+        ktableCliente.getColumnModel().getColumn(2).setPreferredWidth(120);
+        ktableCliente.getColumnModel().getColumn(2).setResizable(false);
+        ktableCliente.getColumnModel().getColumn(3).setPreferredWidth(120);
+        ktableCliente.getColumnModel().getColumn(3).setResizable(false);
+        ktableCliente.getColumnModel().getColumn(4).setPreferredWidth(80);
+        ktableCliente.getColumnModel().getColumn(4).setResizable(false);
+        ktableCliente.getColumnModel().getColumn(5).setPreferredWidth(80);
+        ktableCliente.getColumnModel().getColumn(5).setResizable(false);
 
-        jtableCliente.setAutoResizeMode(jtableCliente.AUTO_RESIZE_OFF);
-        jtableCliente.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        ktableCliente.getTableHeader().setReorderingAllowed(false);
+
+        ktableCliente.setAutoResizeMode(ktableCliente.AUTO_RESIZE_OFF);
+        ktableCliente.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         conex.desconecta();
     }
 
@@ -271,13 +317,13 @@ public class TelaBuscaCliente extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private br.com.cyber.componente.KTextField jTextFieldPesquisa;
-    private br.com.cyber.componente.Ktable jtableCliente;
+    private br.com.cyber.componente.Ktable ktableCliente;
     private javax.swing.JLabel lblCid;
     private javax.swing.JLabel lblCod;
     private javax.swing.JLabel lblCpf;
     private javax.swing.JLabel lblEnd;
     private javax.swing.JLabel lblNome;
     private javax.swing.JLabel lblTel;
+    private br.com.cyber.componente.KTextField txtPesq;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,7 +5,11 @@
  */
 package visao;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.ListSelectionModel;
+import modeloBeans.ModeloTabela;
 import modeloBeans.ProdutoBean;
 import modeloConnection.ConexaoBD;
 import modeloDao.DaoProduto;
@@ -26,6 +30,7 @@ public class CadProduto extends javax.swing.JFrame {
      */
     public CadProduto() {
         initComponents();
+        preencherTabela("select * from produto order by nome");
     }
 
     /**
@@ -84,6 +89,7 @@ public class CadProduto extends javax.swing.JFrame {
         jLabel3.setBounds(60, 110, 70, 40);
 
         txtNome.setEnabled(false);
+        txtNome.setK_back_focus_gained(new java.awt.Color(255, 108, 108));
         txtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNomeActionPerformed(evt);
@@ -95,6 +101,7 @@ public class CadProduto extends javax.swing.JFrame {
         btnSalvar.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_save_1608823 (1).png"))); // NOI18N
         btnSalvar.setText("SALVAR");
+        btnSalvar.setEnabled(false);
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalvarActionPerformed(evt);
@@ -106,6 +113,7 @@ public class CadProduto extends javax.swing.JFrame {
         jButtonApagar.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jButtonApagar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_Streamline-70_185090.png"))); // NOI18N
         jButtonApagar.setText("APAGAR");
+        jButtonApagar.setEnabled(false);
         jButtonApagar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonApagarActionPerformed(evt);
@@ -128,6 +136,7 @@ public class CadProduto extends javax.swing.JFrame {
         jButtonCancelar.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jButtonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_cancel-2_309095.png"))); // NOI18N
         jButtonCancelar.setText("CANCELAR");
+        jButtonCancelar.setEnabled(false);
         jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCancelarActionPerformed(evt);
@@ -139,6 +148,7 @@ public class CadProduto extends javax.swing.JFrame {
         jButtonEditar.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jButtonEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_edit_2561427.png"))); // NOI18N
         jButtonEditar.setText("EDITAR");
+        jButtonEditar.setEnabled(false);
         jButtonEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonEditarActionPerformed(evt);
@@ -159,12 +169,29 @@ public class CadProduto extends javax.swing.JFrame {
 
             }
         ));
+        ktableProduto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ktableProdutoMouseClicked(evt);
+            }
+        });
+        ktableProduto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                ktableProdutoKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                ktableProdutoKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                ktableProdutoKeyTyped(evt);
+            }
+        });
         jScrollPane1.setViewportView(ktableProduto);
 
         jPanel2.add(jScrollPane1);
         jScrollPane1.setBounds(530, 92, 450, 310);
 
         txtCod.setEnabled(false);
+        txtCod.setK_back_focus_gained(new java.awt.Color(102, 102, 255));
         jPanel2.add(txtCod);
         txtCod.setBounds(130, 110, 100, 40);
 
@@ -220,21 +247,23 @@ public class CadProduto extends javax.swing.JFrame {
                 txtNome.setText("");
                 txtCod.setText("");
                 btnSalvar.setEnabled(false);
+                preencherTabela("select * from produto order by nome");
             } else if (flag == 2) {
                 mod.setNome(txtNome.getText());
-                
+
                 mod.setCodigo(Integer.parseInt(txtCod.getText()));
                 control.Editar(mod);
                 txtCod.setEnabled(false);
                 txtNome.setEnabled(false);
-                
+
                 txtCod.setText("");
                 txtNome.setText("");
-             btnBuscar.setEnabled(true);
-             txtPesq.setEnabled(true);
-                
+                btnBuscar.setEnabled(true);
+                txtPesq.setEnabled(true);
+
                 btnSalvar.setEnabled(false);
                 ktableProduto.setEnabled(true);
+                preencherTabela("select * from produto order by nome");
             }
         }
     }//GEN-LAST:event_btnSalvarActionPerformed
@@ -250,19 +279,18 @@ public class CadProduto extends javax.swing.JFrame {
             jButtonApagar.setEnabled(false);
             jButtonCancelar.setEnabled(false);
             txtNome.setEnabled(false);
-           
+
             txtNome.setText("");
             txtCod.setText("");
-            
-            
-            //preencherTabela("select * from cidade order by nome");
+
+            preencherTabela("select * from produto order by nome");
             jButtonNovo.setEnabled(true);
             btnBuscar.setEnabled(true);
             txtPesq.setEnabled(true);
             
-            
+
         }
-        
+
     }//GEN-LAST:event_jButtonApagarActionPerformed
 
     private void jButtonNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNovoActionPerformed
@@ -286,8 +314,9 @@ public class CadProduto extends javax.swing.JFrame {
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
         // TODO add your handling code here:
+        flag = 0;
         txtNome.setEnabled(!true);
-        
+
         btnSalvar.setEnabled(!true);
         jButtonCancelar.setEnabled(!true);
         jButtonNovo.setEnabled(true);
@@ -299,15 +328,14 @@ public class CadProduto extends javax.swing.JFrame {
         txtNome.setText("");
         txtPesq.setText("");
         ktableProduto.setEnabled(true);
-        
-        
-        
+
+
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
         // TODO add your handling code here:
         flag = 2;
-        txtCod.setEnabled(true);
+        txtCod.setEnabled(false);
         txtNome.setEnabled(true);
         btnSalvar.setEnabled(true);
         jButtonCancelar.setEnabled(true);
@@ -320,11 +348,77 @@ public class CadProduto extends javax.swing.JFrame {
     private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNomeActionPerformed
+    public void setaTextFields() {
+        int indice = ktableProduto.getSelectedRow();
+        txtNome.setText(ktableProduto.getValueAt(indice, 0).toString());
+        txtCod.setText(ktableProduto.getValueAt(indice, 1).toString());
+        jButtonEditar.setEnabled(true);
+        jButtonApagar.setEnabled(true);
+        jButtonNovo.setEnabled(false);
+        jButtonCancelar.setEnabled(true);
+    }
+
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
+        mod.setPesquisa(txtPesq.getText());
+        
+        preencherTabela("SELECT * FROM produto WHERE nome LIKE '%"+mod.getPesquisa()+"%'");
+        
+
+
     }//GEN-LAST:event_btnBuscarActionPerformed
 
+    private void ktableProdutoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ktableProdutoMouseClicked
+        // TODO add your handling code here:
+        setaTextFields();
+    }//GEN-LAST:event_ktableProdutoMouseClicked
+
+    private void ktableProdutoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ktableProdutoKeyReleased
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_ktableProdutoKeyReleased
+
+    private void ktableProdutoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ktableProdutoKeyTyped
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_ktableProdutoKeyTyped
+
+    private void ktableProdutoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ktableProdutoKeyPressed
+        // TODO add your handling code here:
+        setaTextFields();
+    }//GEN-LAST:event_ktableProdutoKeyPressed
+
+    public void preencherTabela(String Sql) {
+        ArrayList dados = new ArrayList();
+        String[] colunas = new String[]{"nome", "codigo"};
+        conex.conexao();
+        conex.executaSql(Sql);
+
+        try {
+            conex.rs.first();
+            do {
+                dados.add(new Object[]{conex.rs.getString("nome"), conex.rs.getInt("codigo")});
+            } while (conex.rs.next());
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(rootPane, "Busque outro produto na tabela");
+            
+        }
+        ModeloTabela modelo = new ModeloTabela(dados, colunas);
+
+        ktableProduto.setModel(modelo);
+        ktableProduto.getColumnModel().getColumn(0).setPreferredWidth(260);
+        ktableProduto.getColumnModel().getColumn(0).setResizable(false);
+        ktableProduto.getColumnModel().getColumn(1).setPreferredWidth(170);
+        ktableProduto.getColumnModel().getColumn(1).setResizable(false);
+
+        ktableProduto.setAutoResizeMode(ktableProduto.AUTO_RESIZE_OFF);
+        ktableProduto.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        conex.desconecta();
+    }
+    
+    
+    
     /**
      * @param args the command line arguments
      */

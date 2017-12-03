@@ -345,9 +345,6 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButtonCadCli">
       <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-        </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/imagens/if_icon-ios7-people_211793.png"/>
         </Property>

@@ -354,6 +354,7 @@ public class CadCidade extends javax.swing.JFrame {
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
         // TODO add your handling code here:
+        flag = 0;
         jTextFieldCep.setEnabled(!true);
         jTextFieldNome.setEnabled(!true);
         kComboBoXUf.setEnabled(!true);
@@ -442,11 +443,7 @@ public class CadCidade extends javax.swing.JFrame {
 
     private void jButtonPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPesquisaActionPerformed
         mod.setPesquisa(jTextFieldPesquisa.getText());
-        BeansCidade model = control.buscaCidade(mod);
-        jTextFieldNome.setText(model.getNome());
-        jTextFieldCep.setText(String.valueOf(model.getCep()));
-        kComboBoXUf.setSelectedItem(model.getUf());
-        jTextFieldCodigo.setText(String.valueOf(model.getCodigo()));
+        
         preencherTabela("SELECT * FROM cidade WHERE nome LIKE '%"+mod.getPesquisa()+"%'");
 
     }//GEN-LAST:event_jButtonPesquisaActionPerformed

@@ -99,7 +99,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         getContentPane().add(jButtonConPro);
         jButtonConPro.setBounds(740, 110, 190, 160);
 
-        jButtonCadCli.setBackground(new java.awt.Color(255, 255, 255));
         jButtonCadCli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_icon-ios7-people_211793.png"))); // NOI18N
         jButtonCadCli.setToolTipText("Clientes");
         jButtonCadCli.addActionListener(new java.awt.event.ActionListener() {
@@ -383,7 +382,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void jMenuItemBusProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemBusProdActionPerformed
         // TODO add your handling code here:
-        TelaBuscaCadProduto tela = new TelaBuscaCadProduto();
+        TelaBuscaProduto tela = new TelaBuscaProduto();
         tela.setVisible(true);
     }//GEN-LAST:event_jMenuItemBusProdActionPerformed
 

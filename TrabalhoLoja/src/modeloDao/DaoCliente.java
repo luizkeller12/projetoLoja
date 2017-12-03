@@ -22,10 +22,10 @@ public class DaoCliente {
     public void Salvar(ClienteBean cid){
         conex.conexao();
         try {
-            PreparedStatement pst = conex.con.prepareStatement("INSERT INTO cliente(cpf,endereco,telefone,nome,cod_cidade)VALUES(?,?,?)");
+            PreparedStatement pst = conex.con.prepareStatement("INSERT INTO cliente(cpf,endereço,telefone,nome,cod_cidade)VALUES(?,?,?,?,?)");
             pst.setLong(1,cid.getCpf());
-            pst.setString(2, cid.getEndereco());
-            pst.setInt(3,cid.getTelefone());
+            pst.setString(2, cid.getEndereço());
+            pst.setLong(3,cid.getTelefone());
             pst.setString(4, cid.getNome());
             pst.setInt(5, cid.getCod_cidade());
             
@@ -40,10 +40,10 @@ public class DaoCliente {
     public void Editar(ClienteBean cid ) {
         conex.conexao();    
         try {
-            PreparedStatement pst = conex.con.prepareStatement("update cliente set cpf=?,endereco=?,telefone=?, nome=?,cod_cidade=? where codigo=?");
+            PreparedStatement pst = conex.con.prepareStatement("update cliente set cpf=?,endereço=?,telefone=?, nome=?,cod_cidade=? where codigo=?");
             pst.setLong(1,cid.getCpf());
-            pst.setString(2, cid.getEndereco());
-            pst.setInt(3,cid.getTelefone());
+            pst.setString(2, cid.getEndereço());
+            pst.setLong(3,cid.getTelefone());
             pst.setString(4, cid.getNome());
             pst.setInt(5, cid.getCod_cidade());
             pst.setInt(6, cid.getCodigo());
@@ -71,13 +71,13 @@ public class DaoCliente {
     public ClienteBean buscaCliente(ClienteBean mod){    
         conex.conexao();
         
-        conex.executaSql("SELECT * FROM cliente WHERE nome LIKE '%"+mod.getClientePesquisa()+"%'");
+        conex.executaSql("SELECT * FROM cliente WHERE nome LIKE '%"+mod.getPesquisa()+"%'");
         try {
             conex.rs.first();    
             
             mod.setCpf(conex.rs.getLong("cpf"));
-            mod.setEndereco(conex.rs.getString("endereco"));
-            mod.setTelefone(conex.rs.getInt("telefone"));
+            mod.setEndereço(conex.rs.getString("endereço"));
+            mod.setTelefone(conex.rs.getLong("telefone"));
             mod.setNome(conex.rs.getString("nome"));
             mod.setCodigo(conex.rs.getInt("codigo"));
             mod.setCod_cidade(conex.rs.getInt("cod_cidade"));

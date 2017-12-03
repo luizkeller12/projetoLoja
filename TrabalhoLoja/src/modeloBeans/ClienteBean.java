@@ -12,23 +12,23 @@ package modeloBeans;
 public class ClienteBean {
 
     private long cpf;
-    private String endereco;
-    private int telefone;
+    private String endereço;
+    private long telefone;
     private String nome;
     private int codigo;
     private int cod_cidade;
-    private String Clientepesquisa;
+    private String pesquisa;
 
     public ClienteBean(String pesquisa) {
-        this.Clientepesquisa = pesquisa;
+        this.pesquisa = pesquisa;
     }
 
-    public void setClientePesquisa(String pesquisa) {
-        this.Clientepesquisa = pesquisa;
+    public void setPesquisa(String pesquisa) {
+        this.pesquisa = pesquisa;
     }
 
-    public String getClientePesquisa() {
-        return Clientepesquisa;
+    public String getPesquisa() {
+        return pesquisa;
     }
 
     public ClienteBean() {
@@ -48,19 +48,19 @@ public class ClienteBean {
         this.cpf = cpf;
     }
 
-    public String getEndereco() {
-        return endereco;
+    public String getEndereço() {
+        return endereço;
     }
 
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
+    public void setEndereço(String endereço) {
+        this.endereço = endereço;
     }
 
-    public int getTelefone() {
+    public long getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(int telefone) {
+    public void setTelefone(long telefone) {
         this.telefone = telefone;
     }
 

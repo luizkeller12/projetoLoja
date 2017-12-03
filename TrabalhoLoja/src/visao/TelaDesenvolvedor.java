@@ -58,15 +58,14 @@ public class TelaDesenvolvedor extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JSeparator();
         jLabel5 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        jLabel17 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
         jPanel8 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel39 = new javax.swing.JLabel();
+        jLabel42 = new javax.swing.JLabel();
         jPanel13 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -92,7 +91,6 @@ public class TelaDesenvolvedor extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Desenvolvedor");
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(700, 515));
         getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
@@ -244,11 +242,6 @@ public class TelaDesenvolvedor extends javax.swing.JFrame {
         jPanel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel5.setLayout(null);
 
-        jLabel17.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jLabel17.setText("IReport");
-        jPanel5.add(jLabel17);
-        jLabel17.setBounds(280, 0, 60, 30);
-
         jLabel30.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel30.setText("Banco de Dados");
         jPanel5.add(jLabel30);
@@ -257,12 +250,7 @@ public class TelaDesenvolvedor extends javax.swing.JFrame {
         jLabel41.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel41.setText("Programador");
         jPanel5.add(jLabel41);
-        jLabel41.setBounds(170, 0, 90, 30);
-
-        jSeparator1.setForeground(new java.awt.Color(153, 153, 153));
-        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jPanel5.add(jSeparator1);
-        jSeparator1.setBounds(260, 0, 10, 30);
+        jLabel41.setBounds(250, 0, 90, 30);
 
         jPanel2.add(jPanel5);
         jPanel5.setBounds(10, 60, 360, 60);
@@ -286,9 +274,14 @@ public class TelaDesenvolvedor extends javax.swing.JFrame {
         jLabel11.setBounds(10, 30, 50, 30);
 
         jLabel39.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jLabel39.setText("Relatório");
+        jLabel39.setText("ER");
         jPanel8.add(jLabel39);
-        jLabel39.setBounds(240, 0, 60, 30);
+        jLabel39.setBounds(180, 0, 60, 30);
+
+        jLabel42.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel42.setText("Relatório");
+        jPanel8.add(jLabel42);
+        jLabel42.setBounds(240, 0, 60, 30);
 
         jPanel2.add(jPanel8);
         jPanel8.setBounds(10, 240, 310, 60);
@@ -473,7 +466,6 @@ public class TelaDesenvolvedor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
@@ -500,6 +492,7 @@ public class TelaDesenvolvedor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -521,7 +514,6 @@ public class TelaDesenvolvedor extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     // End of variables declaration//GEN-END:variables
 }
