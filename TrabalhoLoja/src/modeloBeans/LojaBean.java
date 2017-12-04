@@ -10,10 +10,10 @@ package modeloBeans;
  * @author luizk
  */
 public class LojaBean {
-    private String endereco;
-    private int telefone;
+    private String endereço;
+    private Long telefone;
     private String nome;
-    private int cnpj;
+    private Long cnpj;
     private int codigo;
     private int cod_cidade;
     private String pesquisa;
@@ -34,19 +34,19 @@ public class LojaBean {
         this.nome = nome;
     }
 
-    public String getEndereco() {
-        return endereco;
+    public String getEndereço() {
+        return endereço;
     }
 
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
+    public void setEndereço(String endereço) {
+        this.endereço = endereço;
     }
 
-    public int getTelefone() {
+    public Long getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(int telefone) {
+    public void setTelefone(Long telefone) {
         this.telefone = telefone;
     }
 
@@ -58,11 +58,11 @@ public class LojaBean {
         this.nome = nome;
     }
 
-    public int getCnpj() {
+    public Long getCnpj() {
         return cnpj;
     }
 
-    public void setCnpj(int cnpj) {
+    public void setCnpj(Long cnpj) {
         this.cnpj = cnpj;
     }
 
