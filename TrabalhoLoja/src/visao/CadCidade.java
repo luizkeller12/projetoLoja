@@ -56,11 +56,9 @@ public class CadCidade extends javax.swing.JFrame {
         jButtonCancelar = new javax.swing.JButton();
         jButtonEditar = new javax.swing.JButton();
         jButtonApagar = new javax.swing.JButton();
-        jTextFieldPesquisa = new javax.swing.JTextField();
         jButtonPesquisa = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jTextFieldCodigo = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jTextFieldCep = new javax.swing.JFormattedTextField();
@@ -69,6 +67,7 @@ public class CadCidade extends javax.swing.JFrame {
         kComboBoXUf = new br.com.cyber.componente.KComboBox();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableCidade = new br.com.cyber.componente.Ktable();
+        jTextFieldPesquisa = new br.com.cyber.componente.KTextField();
         jLabel1 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
@@ -167,8 +166,6 @@ public class CadCidade extends javax.swing.JFrame {
         });
         jPanel1.add(jButtonApagar);
         jButtonApagar.setBounds(570, 410, 135, 40);
-        jPanel1.add(jTextFieldPesquisa);
-        jTextFieldPesquisa.setBounds(440, 50, 219, 33);
 
         jButtonPesquisa.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jButtonPesquisa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_search_126577.png"))); // NOI18N
@@ -179,7 +176,7 @@ public class CadCidade extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButtonPesquisa);
-        jButtonPesquisa.setBounds(660, 50, 163, 35);
+        jButtonPesquisa.setBounds(810, 60, 163, 40);
 
         jLabel5.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel5.setText("Código:");
@@ -194,11 +191,6 @@ public class CadCidade extends javax.swing.JFrame {
         });
         jPanel1.add(jTextFieldCodigo);
         jTextFieldCodigo.setBounds(12, 327, 97, 34);
-
-        jLabel6.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jLabel6.setText("Ex: \"Ibirubá\"");
-        jPanel1.add(jLabel6);
-        jLabel6.setBounds(450, 84, 58, 14);
 
         jLabel8.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel8.setText("Ex: \"98200000\"");
@@ -226,6 +218,9 @@ public class CadCidade extends javax.swing.JFrame {
 
         jTextFieldNome.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jTextFieldNome.setEnabled(false);
+        jTextFieldNome.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jTextFieldNome.setK_back_focus_gained(new java.awt.Color(255, 255, 255));
+        jTextFieldNome.setK_placeholder_text("digite o nome da cidade");
         jPanel1.add(jTextFieldNome);
         jTextFieldNome.setBounds(12, 47, 285, 35);
 
@@ -275,6 +270,13 @@ public class CadCidade extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1);
         jScrollPane1.setBounds(440, 110, 540, 260);
+
+        jTextFieldPesquisa.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jTextFieldPesquisa.setK_back_focus_gained(new java.awt.Color(255, 255, 255));
+        jTextFieldPesquisa.setK_placeholder_text("Nome da cidade ex: \"Ibirubá\"");
+        jTextFieldPesquisa.setK_placeholder_text_color(new java.awt.Color(102, 102, 102));
+        jPanel1.add(jTextFieldPesquisa);
+        jTextFieldPesquisa.setBounds(440, 60, 340, 40);
 
         jPanel2.add(jPanel1);
         jPanel1.setBounds(30, 90, 1010, 460);
@@ -451,6 +453,7 @@ public class CadCidade extends javax.swing.JFrame {
     private void jTableCidadeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableCidadeMouseClicked
         // TODO add your handling code here:
         setaTextFields();
+        jButtonCancelar.setEnabled(true);
     }//GEN-LAST:event_jTableCidadeMouseClicked
 
     private void jTableCidadeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTableCidadeKeyPressed
@@ -543,7 +546,6 @@ public class CadCidade extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
@@ -554,7 +556,7 @@ public class CadCidade extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField jTextFieldCep;
     private javax.swing.JTextField jTextFieldCodigo;
     private br.com.cyber.componente.KTextField jTextFieldNome;
-    private javax.swing.JTextField jTextFieldPesquisa;
+    private br.com.cyber.componente.KTextField jTextFieldPesquisa;
     private br.com.cyber.componente.KComboBox kComboBoXUf;
     // End of variables declaration//GEN-END:variables
 }

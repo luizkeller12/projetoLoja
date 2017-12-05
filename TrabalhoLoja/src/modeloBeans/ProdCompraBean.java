@@ -12,6 +12,42 @@ package modeloBeans;
 public class ProdCompraBean {
     private int cod_prod;
     private int cod_compra;
+    private int valor;
+    private int quantidade;
+    private String pesquisa;
+
+    public ProdCompraBean(int cod_prod, int cod_compra, int valor, int quantidade, String pesquisa) {
+        this.cod_prod = cod_prod;
+        this.cod_compra = cod_compra;
+        this.valor = valor;
+        this.quantidade = quantidade;
+        this.pesquisa = pesquisa;
+    }
+
+    public int getValor() {
+        return valor;
+    }
+
+    public void setValor(int valor) {
+        this.valor = valor;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public String getPesquisa() {
+        return pesquisa;
+    }
+
+    public void setPesquisa(String pesquisa) {
+        this.pesquisa = pesquisa;
+    }
+    
     
     public ProdCompraBean(){
     

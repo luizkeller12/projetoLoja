@@ -16,8 +16,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     public TelaPrincipal() {
         initComponents();
         conecta.conexao();
-        JOptionPane.showMessageDialog(null, "Conexão Estabelecida,SEJA BEM VINDO!");
-        
+        JOptionPane.showMessageDialog(null, "SEJA BEM VINDO!");
 
     }
     
@@ -36,19 +35,26 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jButtonConPro = new javax.swing.JButton();
         jButtonCadCli = new javax.swing.JButton();
         jButtonCadLoja = new javax.swing.JButton();
+        jButtonCompra = new javax.swing.JButton();
+        jButtonVendas = new javax.swing.JButton();
+        jButtonSla = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuCadastro = new javax.swing.JMenu();
         jMenuItemCadCid = new javax.swing.JMenuItem();
         jMenuItemCadCLi = new javax.swing.JMenuItem();
         jMenuItemCadLoja = new javax.swing.JMenuItem();
-        jMenuItemCadUsu = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
+        jMenuItem10 = new javax.swing.JMenuItem();
         jMenuBuscar = new javax.swing.JMenu();
         jMenuItemBusProd = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
+        jMenuItem11 = new javax.swing.JMenuItem();
         jMenuOpcoes = new javax.swing.JMenu();
+        jMenuItem9 = new javax.swing.JMenuItem();
         jMenuSobre = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuSair = new javax.swing.JMenu();
@@ -87,7 +93,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonCadCid);
-        jButtonCadCid.setBounds(50, 110, 190, 160);
+        jButtonCadCid.setBounds(110, 110, 190, 160);
 
         jButtonConPro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_box_196757.png"))); // NOI18N
         jButtonConPro.setToolTipText("Produtos");
@@ -97,7 +103,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonConPro);
-        jButtonConPro.setBounds(740, 110, 190, 160);
+        jButtonConPro.setBounds(1030, 110, 190, 160);
 
         jButtonCadCli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_icon-ios7-people_211793.png"))); // NOI18N
         jButtonCadCli.setToolTipText("Clientes");
@@ -107,9 +113,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonCadCli);
-        jButtonCadCli.setBounds(510, 110, 190, 160);
+        jButtonCadCli.setBounds(710, 110, 190, 160);
 
-        jButtonCadLoja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_grocery-store_103257.png"))); // NOI18N
+        jButtonCadLoja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_thefreeforty_shop_1243706.png"))); // NOI18N
         jButtonCadLoja.setToolTipText("Lojas");
         jButtonCadLoja.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,7 +123,40 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonCadLoja);
-        jButtonCadLoja.setBounds(280, 110, 190, 160);
+        jButtonCadLoja.setBounds(410, 110, 190, 160);
+
+        jButtonCompra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_Cart_877015.png"))); // NOI18N
+        jButtonCompra.setToolTipText("Compras");
+        jButtonCompra.setName("Compras"); // NOI18N
+        jButtonCompra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCompraActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonCompra);
+        jButtonCompra.setBounds(260, 370, 190, 160);
+
+        jButtonVendas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_shopping-cart-trolley-purchase_2205208.png"))); // NOI18N
+        jButtonVendas.setToolTipText("Vendas");
+        jButtonVendas.setName("Compras"); // NOI18N
+        jButtonVendas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVendasActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonVendas);
+        jButtonVendas.setBounds(560, 370, 190, 160);
+
+        jButtonSla.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_shopping-cart-trolley-purchase_2205208.png"))); // NOI18N
+        jButtonSla.setToolTipText("Produtos");
+        jButtonSla.setName("Compras"); // NOI18N
+        jButtonSla.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSlaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonSla);
+        jButtonSla.setBounds(880, 370, 190, 160);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/fundo.png"))); // NOI18N
         jLabel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -162,16 +201,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenuCadastro.add(jMenuItemCadLoja);
 
-        jMenuItemCadUsu.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jMenuItemCadUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/usuario.png"))); // NOI18N
-        jMenuItemCadUsu.setText("Usuários");
-        jMenuItemCadUsu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemCadUsuActionPerformed(evt);
-            }
-        });
-        jMenuCadastro.add(jMenuItemCadUsu);
-
         jMenuItem6.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/prodtuos.png"))); // NOI18N
         jMenuItem6.setText("Produtos");
@@ -181,6 +210,26 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         jMenuCadastro.add(jMenuItem6);
+
+        jMenuItem7.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_Cart_877015 (1).png"))); // NOI18N
+        jMenuItem7.setText("Compra");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
+        jMenuCadastro.add(jMenuItem7);
+
+        jMenuItem10.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jMenuItem10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_shopping-cart-trolley-purchase_2205208 (1).png"))); // NOI18N
+        jMenuItem10.setText("Vendas");
+        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem10ActionPerformed(evt);
+            }
+        });
+        jMenuCadastro.add(jMenuItem10);
 
         jMenuBar1.add(jMenuCadastro);
 
@@ -218,11 +267,42 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenuBuscar.add(jMenuItem4);
 
+        jMenuItem8.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jMenuItem8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_Cart_877015 (1).png"))); // NOI18N
+        jMenuItem8.setText("Compra");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
+        jMenuBuscar.add(jMenuItem8);
+
+        jMenuItem11.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jMenuItem11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_shopping-cart-trolley-purchase_2205208 (1).png"))); // NOI18N
+        jMenuItem11.setText("Vendas");
+        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem11ActionPerformed(evt);
+            }
+        });
+        jMenuBuscar.add(jMenuItem11);
+
         jMenuBar1.add(jMenuBuscar);
 
         jMenuOpcoes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/opçoes2.png"))); // NOI18N
         jMenuOpcoes.setText("Opções");
         jMenuOpcoes.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
+
+        jMenuItem9.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jMenuItem9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_basics-11_296822 (1).png"))); // NOI18N
+        jMenuItem9.setText("Relatar Erros");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
+        jMenuOpcoes.add(jMenuItem9);
+
         jMenuBar1.add(jMenuOpcoes);
 
         jMenuSobre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_basics-11_296822 (1).png"))); // NOI18N
@@ -314,14 +394,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
-    private void jMenuItemCadUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadUsuActionPerformed
-        // TODO add your handling code here:
-        CadUsuario tela = new CadUsuario();
-       
-        tela.setVisible(true);
-
-    }//GEN-LAST:event_jMenuItemCadUsuActionPerformed
-
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         this.setExtendedState(MAXIMIZED_BOTH);
     }//GEN-LAST:event_formWindowOpened
@@ -386,6 +458,52 @@ public class TelaPrincipal extends javax.swing.JFrame {
         tela.setVisible(true);
     }//GEN-LAST:event_jMenuItemBusProdActionPerformed
 
+    private void jButtonCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCompraActionPerformed
+        // TODO add your handling code here:
+        TelaBuscaCadCompra tela = new TelaBuscaCadCompra();
+        tela.setVisible(true);
+    }//GEN-LAST:event_jButtonCompraActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        // TODO add your handling code here:
+        TelaBuscaCompra tela =  new TelaBuscaCompra();
+        tela.setVisible(true);
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        // TODO add your handling code here:
+       CadCompra tela =  new CadCompra();
+        tela.setVisible(true);
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+        // TODO add your handling code here:
+        TelaRelatos tela = new TelaRelatos();
+        tela.setVisible(true);
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
+
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+        // TODO add your handling code here:
+        CadProdCompra tela =  new CadProdCompra();
+        tela.setVisible(true);
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
+
+    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
+        // TODO add your handling code here:
+        TelaBuscaProdutoCompra tela =  new TelaBuscaProdutoCompra();
+        tela.setVisible(true);
+    }//GEN-LAST:event_jMenuItem11ActionPerformed
+
+    private void jButtonVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVendasActionPerformed
+        // TODO add your handling code here:
+        TelaBuscaCadCompraProduto tela =  new TelaBuscaCadCompraProduto();
+        tela.setVisible(true);
+    }//GEN-LAST:event_jButtonVendasActionPerformed
+
+    private void jButtonSlaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSlaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonSlaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -427,7 +545,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButtonCadCid;
     private javax.swing.JButton jButtonCadCli;
     private javax.swing.JButton jButtonCadLoja;
+    private javax.swing.JButton jButtonCompra;
     private javax.swing.JButton jButtonConPro;
+    private javax.swing.JButton jButtonSla;
+    private javax.swing.JButton jButtonVendas;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
@@ -438,16 +559,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuBuscar;
     private javax.swing.JMenu jMenuCadastro;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem10;
+    private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JMenuItem jMenuItemBusProd;
     private javax.swing.JMenuItem jMenuItemCadCLi;
     private javax.swing.JMenuItem jMenuItemCadCid;
     private javax.swing.JMenuItem jMenuItemCadLoja;
-    private javax.swing.JMenuItem jMenuItemCadUsu;
     private javax.swing.JMenuItem jMenuItemSair;
     private javax.swing.JMenu jMenuOpcoes;
     private javax.swing.JMenu jMenuSair;

@@ -10,11 +10,20 @@ package modeloBeans;
  * @author luizk
  */
 public class CompraBean {
-    private String forma_pag;
+    private int cod_formapag;
     private int total;
-    private int data;
+    private String data_;
     private int codigo;
     private int cod_cl;
+    private String pesquisa;
+
+    public String getPesquisa() {
+        return pesquisa;
+    }
+
+    public void setPesquisa(String pesquisa) {
+        this.pesquisa = pesquisa;
+    }
     
     public CompraBean(){
     
@@ -24,13 +33,23 @@ public class CompraBean {
         
     }
 
-    public String getForma_pag() {
-        return forma_pag;
+    public int getCod_formapag() {
+        return cod_formapag;
     }
 
-    public void setForma_pag(String forma_pag) {
-        this.forma_pag = forma_pag;
+    public void setCod_formapag(int cod_formapag) {
+        this.cod_formapag = cod_formapag;
     }
+
+    public String getData_() {
+        return data_;
+    }
+
+    public void setData_(String data_) {
+        this.data_ = data_;
+    }
+
+    
 
     public int getTotal() {
         return total;
@@ -40,13 +59,6 @@ public class CompraBean {
         this.total = total;
     }
 
-    public int getData() {
-        return data;
-    }
-
-    public void setData(int data) {
-        this.data = data;
-    }
 
     public int getCodigo() {
         return codigo;

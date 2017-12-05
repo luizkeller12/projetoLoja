@@ -72,7 +72,7 @@
               </AuxValues>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="330" y="10" width="580" height="430"/>
+                  <AbsoluteConstraints x="330" y="30" width="580" height="400"/>
                 </Constraint>
               </Constraints>
 
@@ -122,11 +122,18 @@
             </Component>
             <Component class="br.com.cyber.componente.KTextField" name="txtPesq">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Arial" size="14" style="0"/>
+                </Property>
                 <Property name="k_back_focus_gained" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="cc" red="33" type="rgb"/>
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="k_bord_focus_gained" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="cc" red="33" type="rgb"/>
+                </Property>
+                <Property name="k_placeholder_text" type="java.lang.String" value="Digite o nome da Loja"/>
+                <Property name="k_placeholder_text_color" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="66" green="66" red="66" type="rgb"/>
                 </Property>
               </Properties>
               <Constraints>

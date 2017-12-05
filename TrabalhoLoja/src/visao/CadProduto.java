@@ -89,7 +89,11 @@ public class CadProduto extends javax.swing.JFrame {
         jLabel3.setBounds(60, 110, 70, 40);
 
         txtNome.setEnabled(false);
-        txtNome.setK_back_focus_gained(new java.awt.Color(255, 108, 108));
+        txtNome.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        txtNome.setK_back_error(null);
+        txtNome.setK_back_focus_gained(new java.awt.Color(255, 255, 255));
+        txtNome.setK_placeholder_text("Descrição do produto");
+        txtNome.setK_placeholder_text_color(new java.awt.Color(102, 102, 102));
         txtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNomeActionPerformed(evt);
@@ -200,6 +204,12 @@ public class CadProduto extends javax.swing.JFrame {
         jLabel4.setText("Nome:");
         jPanel2.add(jLabel4);
         jLabel4.setBounds(60, 50, 70, 40);
+
+        txtPesq.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        txtPesq.setK_alert_change_text(false);
+        txtPesq.setK_back_error(null);
+        txtPesq.setK_placeholder_text("Nome do Produto");
+        txtPesq.setK_placeholder_text_color(new java.awt.Color(102, 102, 102));
         jPanel2.add(txtPesq);
         txtPesq.setBounds(530, 50, 240, 40);
 

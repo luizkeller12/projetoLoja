@@ -53,13 +53,11 @@ public class CadLoja extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txtCnpj = new br.com.cyber.componente.KTextField();
         txtEnd = new br.com.cyber.componente.KTextField();
         txtCodcid = new br.com.cyber.componente.KTextField();
         txtNome = new br.com.cyber.componente.KTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         ktableLoja = new br.com.cyber.componente.Ktable();
-        txtTel = new br.com.cyber.componente.KTextField();
         txtCod = new br.com.cyber.componente.KTextField();
         btnBuscar = new javax.swing.JButton();
         txtPesq = new br.com.cyber.componente.KTextField();
@@ -74,6 +72,8 @@ public class CadLoja extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         btnBuscarCid = new javax.swing.JButton();
         jButtonVoltar = new javax.swing.JButton();
+        txtTel = new javax.swing.JFormattedTextField();
+        txtCnpj = new javax.swing.JFormattedTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -125,11 +125,10 @@ public class CadLoja extends javax.swing.JFrame {
         jPanel2.add(jLabel5);
         jLabel5.setBounds(10, 50, 90, 40);
 
-        txtCnpj.setEnabled(false);
-        jPanel2.add(txtCnpj);
-        txtCnpj.setBounds(110, 200, 250, 40);
-
         txtEnd.setEnabled(false);
+        txtEnd.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        txtEnd.setK_placeholder_text("Digite seu endereço");
+        txtEnd.setK_placeholder_text_color(new java.awt.Color(102, 102, 102));
         jPanel2.add(txtEnd);
         txtEnd.setBounds(110, 50, 250, 40);
 
@@ -138,6 +137,9 @@ public class CadLoja extends javax.swing.JFrame {
         txtCodcid.setBounds(450, 100, 70, 40);
 
         txtNome.setEnabled(false);
+        txtNome.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        txtNome.setK_placeholder_text("Digite Nome da Loja");
+        txtNome.setK_placeholder_text_color(new java.awt.Color(102, 102, 102));
         jPanel2.add(txtNome);
         txtNome.setBounds(110, 150, 250, 40);
 
@@ -162,10 +164,6 @@ public class CadLoja extends javax.swing.JFrame {
         jPanel2.add(jScrollPane1);
         jScrollPane1.setBounds(570, 100, 452, 320);
 
-        txtTel.setEnabled(false);
-        jPanel2.add(txtTel);
-        txtTel.setBounds(110, 100, 250, 40);
-
         txtCod.setEnabled(false);
         jPanel2.add(txtCod);
         txtCod.setBounds(450, 50, 70, 40);
@@ -180,6 +178,10 @@ public class CadLoja extends javax.swing.JFrame {
         });
         jPanel2.add(btnBuscar);
         btnBuscar.setBounds(810, 50, 210, 40);
+
+        txtPesq.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        txtPesq.setK_placeholder_text("Digite o nome da Loja");
+        txtPesq.setK_placeholder_text_color(new java.awt.Color(102, 102, 102));
         jPanel2.add(txtPesq);
         txtPesq.setBounds(570, 50, 230, 40);
 
@@ -266,6 +268,9 @@ public class CadLoja extends javax.swing.JFrame {
         jScrollPane2.setBounds(40, 320, 320, 120);
 
         txtCidade.setEnabled(false);
+        txtCidade.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        txtCidade.setK_placeholder_text("Nome da cidade");
+        txtCidade.setK_placeholder_text_color(new java.awt.Color(102, 102, 102));
         jPanel2.add(txtCidade);
         txtCidade.setBounds(110, 270, 140, 40);
 
@@ -295,6 +300,24 @@ public class CadLoja extends javax.swing.JFrame {
         });
         jPanel2.add(jButtonVoltar);
         jButtonVoltar.setBounds(890, 470, 152, 34);
+
+        try {
+            txtTel.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("############")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txtTel.setEnabled(false);
+        jPanel2.add(txtTel);
+        txtTel.setBounds(110, 100, 250, 40);
+
+        try {
+            txtCnpj.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##############")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txtCnpj.setEnabled(false);
+        jPanel2.add(txtCnpj);
+        txtCnpj.setBounds(110, 200, 250, 40);
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(40, 70, 1050, 510);
@@ -494,16 +517,17 @@ public class CadLoja extends javax.swing.JFrame {
             txtCidade.setEnabled(false);
             txtCod.setEnabled(false);
             txtCodcid.setEnabled(false);
+            txtNome.setText("");
             txtCidade.setText("");
             txtCodcid.setText("");
             txtCod.setText("");
             txtCnpj.setText("");
             txtEnd.setText("");
-            txtTel.setText("");
-            preencherTabelaLoja("select * from loja order by nome");
+            txtTel.setText("");           
             btnNovo.setEnabled(true);
             btnBuscar.setEnabled(true);
             txtPesq.setEnabled(true);
+            preencherTabelaLoja("select * from loja order by nome");
         }
     }//GEN-LAST:event_btnApagarActionPerformed
 
@@ -534,8 +558,8 @@ public class CadLoja extends javax.swing.JFrame {
         txtEnd.setText(ktableLoja.getValueAt(indice, 0).toString());
         txtTel.setText(ktableLoja.getValueAt(indice, 1).toString());
         txtNome.setText(ktableLoja.getValueAt(indice, 2).toString());
-        txtCod.setText(ktableLoja.getValueAt(indice, 5).toString());
-        txtCodcid.setText(ktableLoja.getValueAt(indice, 4).toString());
+        txtCodcid.setText(ktableLoja.getValueAt(indice, 5).toString());
+        txtCod.setText(ktableLoja.getValueAt(indice, 4).toString());
         btnEditar.setEnabled(true);
         btnApagar.setEnabled(true);
         btnNovo.setEnabled(false);
@@ -672,12 +696,12 @@ public class CadLoja extends javax.swing.JFrame {
     private br.com.cyber.componente.Ktable ktableCidade;
     private br.com.cyber.componente.Ktable ktableLoja;
     private br.com.cyber.componente.KTextField txtCidade;
-    private br.com.cyber.componente.KTextField txtCnpj;
+    private javax.swing.JFormattedTextField txtCnpj;
     private br.com.cyber.componente.KTextField txtCod;
     private br.com.cyber.componente.KTextField txtCodcid;
     private br.com.cyber.componente.KTextField txtEnd;
     private br.com.cyber.componente.KTextField txtNome;
     private br.com.cyber.componente.KTextField txtPesq;
-    private br.com.cyber.componente.KTextField txtTel;
+    private javax.swing.JFormattedTextField txtTel;
     // End of variables declaration//GEN-END:variables
 }

@@ -98,6 +98,10 @@ public class TelaBuscaProduto extends javax.swing.JFrame {
         });
         jPanel2.add(jButton1);
         jButton1.setBounds(20, 360, 170, 40);
+
+        txtPesq.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        txtPesq.setK_back_focus_gained(new java.awt.Color(255, 255, 255));
+        txtPesq.setK_placeholder_text("Digite o nome do Produto");
         jPanel2.add(txtPesq);
         txtPesq.setBounds(20, 30, 350, 40);
 

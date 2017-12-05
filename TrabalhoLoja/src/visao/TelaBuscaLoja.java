@@ -94,7 +94,7 @@ public class TelaBuscaLoja extends javax.swing.JFrame {
         jScrollPane1.setViewportView(ktableLoja);
 
         jPanel2.add(jScrollPane1);
-        jScrollPane1.setBounds(330, 10, 580, 430);
+        jScrollPane1.setBounds(330, 30, 580, 400);
 
         jButton1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_ic_keyboard_return_48px_352473.png"))); // NOI18N
@@ -107,8 +107,11 @@ public class TelaBuscaLoja extends javax.swing.JFrame {
         jPanel2.add(jButton1);
         jButton1.setBounds(20, 430, 170, 40);
 
-        txtPesq.setK_back_focus_gained(new java.awt.Color(51, 204, 255));
+        txtPesq.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        txtPesq.setK_back_focus_gained(new java.awt.Color(255, 255, 255));
         txtPesq.setK_bord_focus_gained(new java.awt.Color(51, 204, 255));
+        txtPesq.setK_placeholder_text("Digite o nome da Loja");
+        txtPesq.setK_placeholder_text_color(new java.awt.Color(102, 102, 102));
         jPanel2.add(txtPesq);
         txtPesq.setBounds(20, 30, 290, 40);
 

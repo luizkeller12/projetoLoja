@@ -5,6 +5,8 @@
  */
 package visao;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author luizk
@@ -32,8 +34,8 @@ public class TelaLogin extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jTextFieldUsuario = new javax.swing.JTextField();
-        jPasswordFieldSenha = new javax.swing.JPasswordField();
+        jTextFieldUsuario = new br.com.cyber.componente.KTextField();
+        jPasswordFieldSenha = new br.com.cyber.componente.KPasswordField();
         jLabelFundoLogin = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -81,10 +83,20 @@ public class TelaLogin extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/latlojadacerto.png"))); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(70, 40, 170, 200);
+
+        jTextFieldUsuario.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jTextFieldUsuario.setK_back_focus_gained(new java.awt.Color(255, 255, 255));
+        jTextFieldUsuario.setK_placeholder_text("Insira seu  usuário aqui");
+        jTextFieldUsuario.setK_placeholder_text_color(new java.awt.Color(102, 102, 102));
         getContentPane().add(jTextFieldUsuario);
-        jTextFieldUsuario.setBounds(350, 60, 240, 40);
+        jTextFieldUsuario.setBounds(360, 60, 230, 35);
+
+        jPasswordFieldSenha.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jPasswordFieldSenha.setK_back_focus_gained(new java.awt.Color(255, 255, 255));
+        jPasswordFieldSenha.setK_placeholder_text("Insira Sua senha aqui");
+        jPasswordFieldSenha.setK_placeholder_text_color(new java.awt.Color(102, 102, 102));
         getContentPane().add(jPasswordFieldSenha);
-        jPasswordFieldSenha.setBounds(350, 110, 240, 40);
+        jPasswordFieldSenha.setBounds(360, 110, 230, 35);
 
         jLabelFundoLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/713.png"))); // NOI18N
         jLabelFundoLogin.setText("Login");
@@ -96,7 +108,7 @@ public class TelaLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAcessar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAcessar1ActionPerformed
-       //if(jTextFieldUsuario.getText().equals("admin")&&(jPasswordFieldSenha.getText().equals("1234"))){
+       if(jTextFieldUsuario.getText().equals("admin")&&(jPasswordFieldSenha.getText().equals("admin"))){
         TelaPrincipal tela =  new TelaPrincipal();  
         
         
@@ -107,9 +119,9 @@ public class TelaLogin extends javax.swing.JFrame {
         
         
                                  
-      // }else{
-       //    JOptionPane.showMessageDialog(rootPane, "Usuário ou Senha Incorretos");
-      // }
+       }else{
+           JOptionPane.showMessageDialog(rootPane, "Usuário ou Senha Incorretos");
+      }
        
     }//GEN-LAST:event_jButtonAcessar1ActionPerformed
     
@@ -159,7 +171,7 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelFundoLogin;
-    private javax.swing.JPasswordField jPasswordFieldSenha;
-    private javax.swing.JTextField jTextFieldUsuario;
+    private br.com.cyber.componente.KPasswordField jPasswordFieldSenha;
+    private br.com.cyber.componente.KTextField jTextFieldUsuario;
     // End of variables declaration//GEN-END:variables
 }

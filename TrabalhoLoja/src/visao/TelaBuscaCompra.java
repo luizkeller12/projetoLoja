@@ -18,7 +18,7 @@ import modeloDao.DaoCliente;
  *
  * @author luizk
  */
-public class TelaBuscaCliente extends javax.swing.JFrame {
+public class TelaBuscaCompra extends javax.swing.JFrame {
 
     ConexaoBD conex = new ConexaoBD();
     DaoCliente control = new DaoCliente();
@@ -27,9 +27,9 @@ public class TelaBuscaCliente extends javax.swing.JFrame {
     /**
      * Creates new form TelaBuscaLoja
      */
-    public TelaBuscaCliente() {
+    public TelaBuscaCompra() {
         initComponents();
-        preencherTabelaCliente("select * from cliente order by nome");
+        preencherTabelaCompra("select * from compra order by codigo");
     }
 
     /**
@@ -44,22 +44,23 @@ public class TelaBuscaCliente extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        ktableCliente = new br.com.cyber.componente.Ktable();
+        ktableCompra = new br.com.cyber.componente.Ktable();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        lblCodpag = new javax.swing.JLabel();
+        lvlTotal = new javax.swing.JLabel();
+        lblData = new javax.swing.JLabel();
         lblCod = new javax.swing.JLabel();
-        lblNome = new javax.swing.JLabel();
-        lblEnd = new javax.swing.JLabel();
-        lblTel = new javax.swing.JLabel();
-        lblCpf = new javax.swing.JLabel();
+        lblCodCli = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        lblCid = new javax.swing.JLabel();
-        txtPesq = new br.com.cyber.componente.KTextField();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -73,8 +74,8 @@ public class TelaBuscaCliente extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel2.setLayout(null);
 
-        ktableCliente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        ktableCliente.setModel(new javax.swing.table.DefaultTableModel(
+        ktableCompra.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        ktableCompra.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -85,15 +86,15 @@ public class TelaBuscaCliente extends javax.swing.JFrame {
 
             }
         ));
-        ktableCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+        ktableCompra.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ktableClienteMouseClicked(evt);
+                ktableCompraMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(ktableCliente);
+        jScrollPane1.setViewportView(ktableCompra);
 
         jPanel2.add(jScrollPane1);
-        jScrollPane1.setBounds(310, 10, 600, 390);
+        jScrollPane1.setBounds(340, 10, 590, 390);
 
         jButton1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_ic_keyboard_return_48px_352473.png"))); // NOI18N
@@ -108,84 +109,93 @@ public class TelaBuscaCliente extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel1.setText("Código:");
+        jLabel1.setText("Código Pagamento:");
         jPanel2.add(jLabel1);
-        jLabel1.setBounds(30, 290, 100, 20);
+        jLabel1.setBounds(33, 300, 173, 20);
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel3.setText("Endereço:");
+        jLabel3.setText("Data:");
         jPanel2.add(jLabel3);
-        jLabel3.setBounds(30, 200, 100, 20);
+        jLabel3.setBounds(40, 190, 160, 20);
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel4.setText("Telefone:");
+        jLabel4.setText("Código Compra:");
         jPanel2.add(jLabel4);
-        jLabel4.setBounds(30, 230, 100, 20);
+        jLabel4.setBounds(50, 220, 150, 20);
+
+        jLabel5.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel5.setText("Total: (R$)");
+        jPanel2.add(jLabel5);
+        jLabel5.setBounds(50, 150, 150, 20);
+
+        jLabel6.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel6.setText("Código Cliente:");
+        jPanel2.add(jLabel6);
+        jLabel6.setBounds(40, 260, 160, 20);
+
+        lblCodpag.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jPanel2.add(lblCodpag);
+        lblCodpag.setBounds(220, 300, 100, 20);
+
+        lvlTotal.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jPanel2.add(lvlTotal);
+        lvlTotal.setBounds(210, 150, 110, 20);
+
+        lblData.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jPanel2.add(lblData);
+        lblData.setBounds(210, 190, 110, 20);
+
+        lblCod.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jPanel2.add(lblCod);
+        lblCod.setBounds(210, 220, 110, 20);
+
+        lblCodCli.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jPanel2.add(lblCodCli);
+        lblCodCli.setBounds(210, 260, 110, 20);
 
         jButton2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/buscar.png"))); // NOI18N
-        jButton2.setText("PESQUISAR");
+        jButton2.setText("DESCRESCENTE");
+        jButton2.setToolTipText("maior para menor");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
         jPanel2.add(jButton2);
-        jButton2.setBounds(70, 80, 170, 40);
+        jButton2.setBounds(110, 70, 200, 50);
 
-        jLabel5.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel5.setText("Nome:");
-        jPanel2.add(jLabel5);
-        jLabel5.setBounds(40, 170, 90, 20);
+        jButton3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jButton3.setText("CRESCENTE ");
+        jButton3.setToolTipText("menor para maior");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton3);
+        jButton3.setBounds(110, 10, 200, 50);
 
-        jLabel6.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel6.setText("CPF:");
-        jPanel2.add(jLabel6);
-        jLabel6.setBounds(30, 260, 100, 20);
-
-        lblCod.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jPanel2.add(lblCod);
-        lblCod.setBounds(140, 290, 120, 20);
-
-        lblNome.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jPanel2.add(lblNome);
-        lblNome.setBounds(140, 170, 120, 20);
-
-        lblEnd.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jPanel2.add(lblEnd);
-        lblEnd.setBounds(140, 200, 120, 20);
-
-        lblTel.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jPanel2.add(lblTel);
-        lblTel.setBounds(140, 230, 120, 20);
-
-        lblCpf.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jPanel2.add(lblCpf);
-        lblCpf.setBounds(140, 260, 120, 20);
-
-        jLabel7.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel7.setText("Cod-Cidade:");
+        jLabel7.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel7.setText("     Código:");
         jPanel2.add(jLabel7);
-        jLabel7.setBounds(20, 320, 110, 20);
+        jLabel7.setBounds(10, 60, 90, 22);
 
-        lblCid.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jPanel2.add(lblCid);
-        lblCid.setBounds(140, 320, 120, 20);
+        jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel4.setLayout(null);
+        jPanel2.add(jPanel4);
+        jPanel4.setBounds(20, 130, 310, 200);
 
-        txtPesq.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        txtPesq.setK_back_focus_gained(new java.awt.Color(255, 255, 255));
-        txtPesq.setK_placeholder_text("Digite o nome do Cliente");
-        txtPesq.setK_placeholder_text_color(new java.awt.Color(102, 102, 102));
-        jPanel2.add(txtPesq);
-        txtPesq.setBounds(20, 30, 280, 40);
+        jLabel8.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel8.setText("Organizar");
+        jPanel2.add(jLabel8);
+        jLabel8.setBounds(10, 40, 90, 22);
 
         jPanel1.add(jPanel2);
-        jPanel2.setBounds(120, 50, 920, 410);
+        jPanel2.setBounds(110, 50, 940, 410);
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -205,66 +215,67 @@ public class TelaBuscaCliente extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void ktableCompraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ktableCompraMouseClicked
+        // TODO add your handling code here:
+        int indice = ktableCompra.getSelectedRow();
+        lvlTotal.setText(ktableCompra.getValueAt(indice, 0).toString());
+        lblData.setText(ktableCompra.getValueAt(indice, 1).toString());
+        lblCod.setText(ktableCompra.getValueAt(indice, 2).toString());
+        lblCodCli.setText(ktableCompra.getValueAt(indice, 3).toString());
+        lblCodpag.setText(ktableCompra.getValueAt(indice, 4).toString());
+        
+
+    }//GEN-LAST:event_ktableCompraMouseClicked
+
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        mod.setPesquisa(txtPesq.getText());
-        preencherTabelaCliente("SELECT * FROM cliente WHERE nome LIKE '%" + mod.getPesquisa() + "%'");
-
-
+preencherTabelaCompra("select * from compra order by codigo desc");
+ 
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void ktableClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ktableClienteMouseClicked
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        int indice = ktableCliente.getSelectedRow();
-        lblCpf.setText(ktableCliente.getValueAt(indice, 0).toString());
-        lblEnd.setText(ktableCliente.getValueAt(indice, 1).toString());
-        lblTel.setText(ktableCliente.getValueAt(indice, 2).toString());
-        lblNome.setText(ktableCliente.getValueAt(indice, 3).toString());
-        lblCod.setText(ktableCliente.getValueAt(indice, 4).toString());
-        lblCid.setText(ktableCliente.getValueAt(indice, 5).toString());
+        preencherTabelaCompra("select * from compra order by codigo asc");
 
-    }//GEN-LAST:event_ktableClienteMouseClicked
-    public void preencherTabelaCliente(String Sql) {
+    }//GEN-LAST:event_jButton3ActionPerformed
+    public void preencherTabelaCompra(String Sql) {
         ArrayList dados = new ArrayList();
-        String[] colunas = new String[]{"cpf", "endereço", "telefone", "nome", "codigo", "cod_cidade"};
-        conex.conexao();
+        String[] colunas = new String[]{"total", "data_", "codigo", "cod_cl", "cod_formapag"};
+        conex.conexao();                  
         conex.executaSql(Sql);
 
         try {
             conex.rs.first();
             do {
                 dados.add(new Object[]{
-                    conex.rs.getLong("cpf"),
-                    conex.rs.getString("endereço"),
-                    conex.rs.getLong("telefone"),
-                    conex.rs.getString("nome"),
+                    conex.rs.getInt("total"),
+                    conex.rs.getString("data_"),
                     conex.rs.getInt("codigo"),
-                    conex.rs.getInt("cod_cidade")
+                    conex.rs.getInt("cod_cl"),
+                    conex.rs.getInt("cod_formapag")
                 });
             } while (conex.rs.next());
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(rootPane, "Busque outro cliente na tabela" + ex);
+            JOptionPane.showMessageDialog(rootPane, "Busque outro codigo de compra na tabela" + ex);
 
         }
         ModeloTabela modelo = new ModeloTabela(dados, colunas);
 
-        ktableCliente.setModel(modelo);
-        ktableCliente.getColumnModel().getColumn(0).setPreferredWidth(120);
-        ktableCliente.getColumnModel().getColumn(0).setResizable(false);
-        ktableCliente.getColumnModel().getColumn(1).setPreferredWidth(120);
-        ktableCliente.getColumnModel().getColumn(1).setResizable(false);
-        ktableCliente.getColumnModel().getColumn(2).setPreferredWidth(120);
-        ktableCliente.getColumnModel().getColumn(2).setResizable(false);
-        ktableCliente.getColumnModel().getColumn(3).setPreferredWidth(120);
-        ktableCliente.getColumnModel().getColumn(3).setResizable(false);
-        ktableCliente.getColumnModel().getColumn(4).setPreferredWidth(80);
-        ktableCliente.getColumnModel().getColumn(4).setResizable(false);
-        ktableCliente.getColumnModel().getColumn(5).setPreferredWidth(80);
-        ktableCliente.getColumnModel().getColumn(5).setResizable(false);
+        ktableCompra.setModel(modelo);
+        ktableCompra.getColumnModel().getColumn(0).setPreferredWidth(120);
+        ktableCompra.getColumnModel().getColumn(0).setResizable(false);
+        ktableCompra.getColumnModel().getColumn(1).setPreferredWidth(120);
+        ktableCompra.getColumnModel().getColumn(1).setResizable(false);
+        ktableCompra.getColumnModel().getColumn(2).setPreferredWidth(120);
+        ktableCompra.getColumnModel().getColumn(2).setResizable(false);
+        ktableCompra.getColumnModel().getColumn(3).setPreferredWidth(120);
+        ktableCompra.getColumnModel().getColumn(3).setResizable(false);
+        ktableCompra.getColumnModel().getColumn(4).setPreferredWidth(120);
+        ktableCompra.getColumnModel().getColumn(4).setResizable(false);
 
-        ktableCliente.getTableHeader().setReorderingAllowed(false);
+        ktableCompra.getTableHeader().setReorderingAllowed(false);
 
-        ktableCliente.setAutoResizeMode(ktableCliente.AUTO_RESIZE_OFF);
-        ktableCliente.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        ktableCompra.setAutoResizeMode(ktableCompra.AUTO_RESIZE_OFF);
+        ktableCompra.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         conex.desconecta();
     }
 
@@ -285,21 +296,23 @@ public class TelaBuscaCliente extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaBuscaCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaBuscaCompra.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaBuscaCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaBuscaCompra.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaBuscaCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaBuscaCompra.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaBuscaCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaBuscaCompra.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaBuscaCliente().setVisible(true);
+                new TelaBuscaCompra().setVisible(true);
             }
         });
     }
@@ -307,6 +320,7 @@ public class TelaBuscaCliente extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -314,16 +328,16 @@ public class TelaBuscaCliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private br.com.cyber.componente.Ktable ktableCliente;
-    private javax.swing.JLabel lblCid;
+    private br.com.cyber.componente.Ktable ktableCompra;
     private javax.swing.JLabel lblCod;
-    private javax.swing.JLabel lblCpf;
-    private javax.swing.JLabel lblEnd;
-    private javax.swing.JLabel lblNome;
-    private javax.swing.JLabel lblTel;
-    private br.com.cyber.componente.KTextField txtPesq;
+    private javax.swing.JLabel lblCodCli;
+    private javax.swing.JLabel lblCodpag;
+    private javax.swing.JLabel lblData;
+    private javax.swing.JLabel lvlTotal;
     // End of variables declaration//GEN-END:variables
 }

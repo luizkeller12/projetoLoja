@@ -310,7 +310,7 @@ public class TelaDesenvolvedor extends javax.swing.JFrame {
         jLabel26.setBounds(200, 0, 90, 30);
 
         jPanel2.add(jPanel13);
-        jPanel13.setBounds(330, 240, 270, 60);
+        jPanel13.setBounds(370, 240, 270, 60);
 
         jPanel14.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel14.setLayout(null);
@@ -336,7 +336,7 @@ public class TelaDesenvolvedor extends javax.swing.JFrame {
         jLabel27.setBounds(200, 0, 60, 30);
 
         jPanel2.add(jPanel14);
-        jPanel14.setBounds(330, 320, 270, 60);
+        jPanel14.setBounds(370, 320, 270, 60);
 
         jPanel15.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel15.setLayout(null);
