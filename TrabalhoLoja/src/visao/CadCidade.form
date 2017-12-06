@@ -132,9 +132,6 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="18" style="1"/>
                 </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagens/if_new10_216291.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="NOVO"/>
               </Properties>
               <Events>
@@ -142,7 +139,7 @@
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="10" y="410" width="115" height="40"/>
+                  <AbsoluteConstraints x="20" y="410" width="115" height="40"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -150,9 +147,6 @@
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="18" style="1"/>
-                </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagens/if_save_1608823 (1).png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="SALVAR"/>
                 <Property name="enabled" type="boolean" value="false"/>
@@ -162,7 +156,7 @@
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="140" y="410" width="-1" height="40"/>
+                  <AbsoluteConstraints x="150" y="410" width="-1" height="40"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -170,9 +164,6 @@
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="18" style="1"/>
-                </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagens/if_cancel-2_309095.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="CANCELAR"/>
                 <Property name="enabled" type="boolean" value="false"/>
@@ -191,9 +182,6 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="18" style="1"/>
                 </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagens/if_edit_2561427.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="EDITAR"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
@@ -211,9 +199,6 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="18" style="1"/>
                 </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagens/if_Streamline-70_185090.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="APAGAR"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
@@ -230,9 +215,6 @@
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="18" style="1"/>
-                </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagens/if_search_126577.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="PESQUISAR"/>
               </Properties>
@@ -339,9 +321,6 @@
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="18" style="1"/>
-                </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagens/if_ic_keyboard_return_48px_352473.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="VOLTAR"/>
                 <Property name="toolTipText" type="java.lang.String" value="Voltar a tela principal"/>

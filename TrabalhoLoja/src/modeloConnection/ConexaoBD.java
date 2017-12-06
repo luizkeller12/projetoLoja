@@ -14,13 +14,13 @@ import javax.swing.JOptionPane;
  * @author luizk
  */
 public class ConexaoBD {
-    
+    boolean resposta = false;
     public Statement stm;
     public ResultSet rs;
     private final String driver = "org.postgresql.Driver";
-    private final String caminho = "jdbc:postgresql://localhost/trabalhobd";
+    private final String caminho = "jdbc:postgresql://localhost/teste";
     private final String usuario = "postgres";
-    private final String senha = "luizkeller";
+    private final String senha = "postgres";
     public Connection con;
     
     public void conexao (){
@@ -31,6 +31,7 @@ public class ConexaoBD {
             //JOptionPane.showMessageDialog(null, "Conectado com Sucesso");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Não Conectado Erro:\n"+ ex.getMessage());
+            System.exit(0);
         }
     }
     

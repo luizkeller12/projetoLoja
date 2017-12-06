@@ -31,6 +31,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
+        jLabel1 = new javax.swing.JLabel();
         jButtonCadCid = new javax.swing.JButton();
         jButtonConPro = new javax.swing.JButton();
         jButtonCadCli = new javax.swing.JButton();
@@ -38,7 +39,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jButtonCompra = new javax.swing.JButton();
         jButtonVendas = new javax.swing.JButton();
         jButtonSla = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuCadastro = new javax.swing.JMenu();
         jMenuItemCadCid = new javax.swing.JMenuItem();
@@ -73,6 +75,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenu3.setText("Edit");
         jMenuBar2.add(jMenu3);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/fundo.png"))); // NOI18N
+        jLabel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Principal");
@@ -158,10 +163,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         getContentPane().add(jButtonSla);
         jButtonSla.setBounds(890, 360, 190, 160);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/fundo.png"))); // NOI18N
-        jLabel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(-40, -640, 3310, 2020);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/fundo.png"))); // NOI18N
+        jLabel2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(1430, -610, 2410, 2020);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/fundo.png"))); // NOI18N
+        jLabel3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(-50, -620, 3630, 2020);
 
         jMenuBar1.setBackground(new java.awt.Color(255, 51, 204));
         jMenuBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -355,7 +365,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
-        setSize(new java.awt.Dimension(1316, 634));
+        setSize(new java.awt.Dimension(1608, 1627));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -551,6 +561,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButtonVendas;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;

@@ -130,14 +130,13 @@ public class CadLojaProduto extends javax.swing.JFrame {
         // TODO add your handling code here:
         int indice = ktableProduto.getSelectedRow();
 
-        txtCodProd.setText(ktableProduto.getValueAt(indice, 1).toString());
     }//GEN-LAST:event_ktableProdutoMouseClicked
 
     private void ktableCompraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ktableCompraMouseClicked
         // TODO add your handling code here:
         int indice = ktableCompra.getSelectedRow();
 
-        txtCodCompra.setText(ktableCompra.getValueAt(indice, 2).toString());
+        //txtCodCompra.setText(ktableCompra.getValueAt(indice, 2).toString());
     }//GEN-LAST:event_ktableCompraMouseClicked
 
     /**
