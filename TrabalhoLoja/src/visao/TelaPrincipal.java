@@ -113,7 +113,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonCadCli);
-        jButtonCadCli.setBounds(710, 110, 190, 160);
+        jButtonCadCli.setBounds(730, 110, 190, 160);
 
         jButtonCadLoja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_thefreeforty_shop_1243706.png"))); // NOI18N
         jButtonCadLoja.setToolTipText("Lojas");
@@ -134,7 +134,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonCompra);
-        jButtonCompra.setBounds(260, 370, 190, 160);
+        jButtonCompra.setBounds(260, 360, 190, 160);
 
         jButtonVendas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_shopping-cart-trolley-purchase_2205208.png"))); // NOI18N
         jButtonVendas.setToolTipText("Vendas");
@@ -145,7 +145,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonVendas);
-        jButtonVendas.setBounds(560, 370, 190, 160);
+        jButtonVendas.setBounds(570, 360, 190, 160);
 
         jButtonSla.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_shopping-cart-trolley-purchase_2205208.png"))); // NOI18N
         jButtonSla.setToolTipText("Produtos");
@@ -156,7 +156,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonSla);
-        jButtonSla.setBounds(880, 370, 190, 160);
+        jButtonSla.setBounds(890, 360, 190, 160);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/fundo.png"))); // NOI18N
         jLabel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));

@@ -12,6 +12,24 @@ package modeloBeans;
 public class LojaProdutoBean {
     private int cod_loja;
     private int cod_produto;
+    private int quant_estoque;
+    private String pesquisa;
+
+    public int getQuant_estoque() {
+        return quant_estoque;
+    }
+
+    public void setQuant_estoque(int quant_estoque) {
+        this.quant_estoque = quant_estoque;
+    }
+
+    public String getPesquisa() {
+        return pesquisa;
+    }
+
+    public void setPesquisa(String pesquisa) {
+        this.pesquisa = pesquisa;
+    }
     
     public LojaProdutoBean(){
     
