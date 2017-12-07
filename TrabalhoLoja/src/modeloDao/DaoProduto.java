@@ -6,13 +6,11 @@
 package modeloDao;
 
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import javax.naming.spi.DirStateFactory;
 import javax.swing.JOptionPane;
+import modeloBeans.BeansCidade;
 import modeloBeans.ProdutoBean;
 import modeloConnection.ConexaoBD;
-import static sun.util.calendar.CalendarUtils.mod;
 
 /**
  *
@@ -64,33 +62,12 @@ public class DaoProduto {
         conex.desconecta();
     }
     
-     public ProdutoBean buscaProduto(int codigo){    
-        conex.conexao();
-        ProdutoBean mod = new ProdutoBean();
-        try {
-            PreparedStatement pst = conex.con.prepareStatement("SELECT * FROM produto WHERE codigo=?");
-            pst.setInt(1, cid.getCodigo());
-            ResultSet rs = pst.executeQuery();
-            rs.first();            
-            mod.setNome(rs.getString("nome"));
-            mod.setCodigo(rs.getInt("codigo"));
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Produto não cadastrado!");            
-        }
-        
-        conex.desconecta();
-        return mod;
-    }
-    
     public ProdutoBean buscaProduto(ProdutoBean mod){    
         conex.conexao();
         
         conex.executaSql("SELECT * FROM produto WHERE nome LIKE '%"+mod.getPesquisa()+"%'");
         try {
-             PreparedStatement pst = conex.con.prepareStatement("SELECT * FROM produto WHERE codigo=?");
-            pst.setInt(1, cid.getCodigo());
-             conex.rs.first();            
-            
+            conex.rs.first();            
             mod.setNome(conex.rs.getString("nome"));
             mod.setCodigo(conex.rs.getInt("codigo"));
         } catch (SQLException ex) {

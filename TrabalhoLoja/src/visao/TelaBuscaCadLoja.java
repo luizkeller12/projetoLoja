@@ -117,6 +117,7 @@ public class TelaBuscaCadLoja extends javax.swing.JFrame {
         // TODO add your handling code here:
          CadLoja tela =  new CadLoja();
          tela.setVisible(true);
+         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

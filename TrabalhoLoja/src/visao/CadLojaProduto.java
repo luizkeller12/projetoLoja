@@ -5,17 +5,35 @@
  */
 package visao;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.ListSelectionModel;
+import modeloBeans.LojaProdutoBean;
+import modeloBeans.ModeloTabela;
+import modeloConnection.ConexaoBD;
+import modeloDao.DaoLojaProduto;
+
 /**
  *
  * @author luizk
  */
 public class CadLojaProduto extends javax.swing.JFrame {
 
+    DaoLojaProduto control = new DaoLojaProduto();
+    ConexaoBD conex = new ConexaoBD();
+    LojaProdutoBean mod = new LojaProdutoBean();
+
+    int flag = 0;
+
     /**
      * Creates new form CadLojaProduto
      */
     public CadLojaProduto() {
         initComponents();
+        preencherTabelaProduto("select * from produto order by nome");
+        preencherTabelaLoja("select * from loja order by nome");
+        preencherTabelaPL("select * from loja_produto order by quant_estoque");
     }
 
     /**
@@ -33,10 +51,24 @@ public class CadLojaProduto extends javax.swing.JFrame {
         ktableProduto = new br.com.cyber.componente.Ktable();
         txtProduto = new br.com.cyber.componente.KTextField();
         btnBuscarProd = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        ktableCompra = new br.com.cyber.componente.Ktable();
-        jButton2 = new javax.swing.JButton();
+        ktableLoja = new br.com.cyber.componente.Ktable();
+        txtLoja = new br.com.cyber.componente.KTextField();
+        btnBuscarLoja = new javax.swing.JButton();
+        txtQuantEstoque = new br.com.cyber.componente.KTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txtCodProd = new br.com.cyber.componente.KTextField();
+        txtCodLoja = new br.com.cyber.componente.KTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        ktablePL = new br.com.cyber.componente.Ktable();
+        btnNovo = new javax.swing.JButton();
+        btnEditar = new javax.swing.JButton();
+        btnSalvar = new javax.swing.JButton();
+        jButtonVoltar2 = new javax.swing.JButton();
+        btnApagar = new javax.swing.JButton();
+        btnCancelar1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -68,7 +100,7 @@ public class CadLojaProduto extends javax.swing.JFrame {
         jScrollPane1.setViewportView(ktableProduto);
 
         jPanel2.add(jScrollPane1);
-        jScrollPane1.setBounds(30, 250, 280, 170);
+        jScrollPane1.setBounds(20, 300, 380, 200);
 
         txtProduto.setEnabled(false);
         txtProduto.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -76,20 +108,20 @@ public class CadLojaProduto extends javax.swing.JFrame {
         txtProduto.setK_placeholder_text("Digite o nome do produto");
         txtProduto.setK_placeholder_text_color(new java.awt.Color(51, 51, 51));
         jPanel2.add(txtProduto);
-        txtProduto.setBounds(30, 200, 180, 40);
+        txtProduto.setBounds(20, 250, 270, 40);
 
         btnBuscarProd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/buscar.png"))); // NOI18N
         btnBuscarProd.setEnabled(false);
+        btnBuscarProd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarProdActionPerformed(evt);
+            }
+        });
         jPanel2.add(btnBuscarProd);
-        btnBuscarProd.setBounds(210, 200, 100, 40);
+        btnBuscarProd.setBounds(290, 250, 100, 40);
 
-        jLabel5.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jLabel5.setText("SELECIONA A COMPRA");
-        jPanel2.add(jLabel5);
-        jLabel5.setBounds(330, 200, 160, 40);
-
-        ktableCompra.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        ktableCompra.setModel(new javax.swing.table.DefaultTableModel(
+        ktableLoja.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        ktableLoja.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -100,29 +132,169 @@ public class CadLojaProduto extends javax.swing.JFrame {
 
             }
         ));
-        ktableCompra.setEnabled(false);
-        ktableCompra.addMouseListener(new java.awt.event.MouseAdapter() {
+        ktableLoja.setEnabled(false);
+        ktableLoja.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ktableCompraMouseClicked(evt);
+                ktableLojaMouseClicked(evt);
             }
         });
-        jScrollPane2.setViewportView(ktableCompra);
+        jScrollPane2.setViewportView(ktableLoja);
 
         jPanel2.add(jScrollPane2);
-        jScrollPane2.setBounds(330, 250, 270, 170);
+        jScrollPane2.setBounds(420, 300, 280, 200);
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/buscar.png"))); // NOI18N
-        jButton2.setEnabled(false);
-        jPanel2.add(jButton2);
-        jButton2.setBounds(490, 200, 110, 40);
+        txtLoja.setEnabled(false);
+        txtLoja.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        txtLoja.setK_back_focus_gained(new java.awt.Color(255, 255, 255));
+        txtLoja.setK_placeholder_text("Digite o nome da loja");
+        txtLoja.setK_placeholder_text_color(new java.awt.Color(51, 51, 51));
+        jPanel2.add(txtLoja);
+        txtLoja.setBounds(420, 250, 180, 40);
+
+        btnBuscarLoja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/buscar.png"))); // NOI18N
+        btnBuscarLoja.setEnabled(false);
+        jPanel2.add(btnBuscarLoja);
+        btnBuscarLoja.setBounds(600, 250, 100, 40);
+
+        txtQuantEstoque.setEnabled(false);
+        txtQuantEstoque.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        txtQuantEstoque.setK_back_focus_gained(new java.awt.Color(255, 255, 255));
+        txtQuantEstoque.setK_placeholder_text("digite a quantidade do produto");
+        txtQuantEstoque.setK_placeholder_text_color(new java.awt.Color(102, 102, 102));
+        jPanel2.add(txtQuantEstoque);
+        txtQuantEstoque.setBounds(180, 110, 290, 40);
+
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("código do produto:");
+        jPanel2.add(jLabel1);
+        jLabel1.setBounds(30, 170, 140, 40);
+
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Quantidade:");
+        jPanel2.add(jLabel2);
+        jLabel2.setBounds(30, 110, 150, 40);
+
+        txtCodProd.setEnabled(false);
+        txtCodProd.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        txtCodProd.setK_back_focus_gained(new java.awt.Color(255, 255, 255));
+        txtCodProd.setK_placeholder_text_color(new java.awt.Color(102, 102, 102));
+        jPanel2.add(txtCodProd);
+        txtCodProd.setBounds(180, 170, 60, 40);
+
+        txtCodLoja.setEnabled(false);
+        txtCodLoja.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        txtCodLoja.setK_back_focus_gained(new java.awt.Color(255, 255, 255));
+        txtCodLoja.setK_placeholder_text_color(new java.awt.Color(102, 102, 102));
+        jPanel2.add(txtCodLoja);
+        txtCodLoja.setBounds(620, 110, 60, 40);
+
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("código da loja:");
+        jPanel2.add(jLabel3);
+        jLabel3.setBounds(490, 110, 120, 40);
+
+        ktablePL.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        ktablePL.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        ktablePL.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ktablePLMouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(ktablePL);
+
+        jPanel2.add(jScrollPane3);
+        jScrollPane3.setBounds(710, 180, 410, 250);
+
+        btnNovo.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/cad.png"))); // NOI18N
+        btnNovo.setText("NOVO");
+        btnNovo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNovoActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnNovo);
+        btnNovo.setBounds(20, 20, 660, 70);
+
+        btnEditar.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_cancel-2_309095.png"))); // NOI18N
+        btnEditar.setText("EDITAR");
+        btnEditar.setEnabled(false);
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnEditar);
+        btnEditar.setBounds(930, 20, 190, 70);
+
+        btnSalvar.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_save_1608823 (1).png"))); // NOI18N
+        btnSalvar.setText("SALVAR");
+        btnSalvar.setEnabled(false);
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnSalvar);
+        btnSalvar.setBounds(710, 20, 190, 70);
+
+        jButtonVoltar2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jButtonVoltar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_ic_keyboard_return_48px_352473.png"))); // NOI18N
+        jButtonVoltar2.setText("VOLTAR");
+        jButtonVoltar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVoltar2jButtonVoltarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButtonVoltar2);
+        jButtonVoltar2.setBounds(930, 450, 170, 50);
+
+        btnApagar.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnApagar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_save_1608823 (1).png"))); // NOI18N
+        btnApagar.setText("APAGAR");
+        btnApagar.setEnabled(false);
+        btnApagar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnApagarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnApagar);
+        btnApagar.setBounds(930, 100, 190, 70);
+
+        btnCancelar1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnCancelar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_cancel-2_309095.png"))); // NOI18N
+        btnCancelar1.setText("CANCELAR");
+        btnCancelar1.setEnabled(false);
+        btnCancelar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelar1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnCancelar1);
+        btnCancelar1.setBounds(710, 100, 190, 70);
 
         jPanel1.add(jPanel2);
-        jPanel2.setBounds(30, 50, 1010, 520);
+        jPanel2.setBounds(30, 50, 1130, 520);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(-10, 0, 1080, 600);
+        jPanel1.setBounds(-10, 0, 1190, 600);
 
-        setSize(new java.awt.Dimension(1055, 588));
+        setSize(new java.awt.Dimension(1172, 588));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -130,14 +302,294 @@ public class CadLojaProduto extends javax.swing.JFrame {
         // TODO add your handling code here:
         int indice = ktableProduto.getSelectedRow();
 
+        txtCodProd.setText(ktableProduto.getValueAt(indice, 1).toString());
+
     }//GEN-LAST:event_ktableProdutoMouseClicked
 
-    private void ktableCompraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ktableCompraMouseClicked
-        // TODO add your handling code here:
-        int indice = ktableCompra.getSelectedRow();
+    private void ktableLojaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ktableLojaMouseClicked
 
-        //txtCodCompra.setText(ktableCompra.getValueAt(indice, 2).toString());
-    }//GEN-LAST:event_ktableCompraMouseClicked
+        int indice = ktableLoja.getSelectedRow();
+
+        txtCodLoja.setText(ktableLoja.getValueAt(indice, 2).toString());
+    }//GEN-LAST:event_ktableLojaMouseClicked
+
+    private void ktablePLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ktablePLMouseClicked
+        // TODO add your handling code here:
+
+        int indice = ktablePL.getSelectedRow();
+
+        txtQuantEstoque.setText(ktablePL.getValueAt(indice, 0).toString());
+        txtCodLoja.setText(ktablePL.getValueAt(indice, 1).toString());
+        txtCodProd.setText(ktablePL.getValueAt(indice, 2).toString());
+        btnApagar.setEnabled(true);
+        btnEditar.setEnabled(true);
+        btnNovo.setEnabled(false);
+        btnCancelar1.setEnabled(true);
+    }//GEN-LAST:event_ktablePLMouseClicked
+
+    private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
+        flag = 1;
+        ktablePL.setEnabled(true);
+        ktableLoja.setEnabled(true);
+        btnNovo.setEnabled(false);
+        txtQuantEstoque.setEnabled(true);
+        txtProduto.setEnabled(true);
+        txtLoja.setEnabled(true);
+        btnBuscarProd.setEnabled(true);
+        btnBuscarLoja.setEnabled(true);
+        btnSalvar.setEnabled(true);
+        txtQuantEstoque.setText("");
+        txtCodProd.setText("");
+        txtProduto.setText("");
+        txtLoja.setText("");
+btnCancelar1.setEnabled(true);
+        ktablePL.setEnabled(true);
+        ktableProduto.setEnabled(true);
+    }//GEN-LAST:event_btnNovoActionPerformed
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        flag = 2;
+        txtLoja.setEnabled(true);
+        txtProduto.setEnabled(true);
+        txtQuantEstoque.setEnabled(true);
+
+        btnSalvar.setEnabled(true);
+        btnCancelar1.setEnabled(true);
+        btnEditar.setEnabled(false);
+        btnNovo.setEnabled(false);
+        btnApagar.setEnabled(false);
+
+        ktableLoja.setEnabled(true);
+        ktableProduto.setEnabled(true);
+        ktablePL.setEnabled(false);
+
+
+    }//GEN-LAST:event_btnEditarActionPerformed
+
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+
+        if (txtQuantEstoque.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos para continuar!");
+            txtQuantEstoque.requestFocus();
+        } else if (txtCodLoja.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos para continuar!");
+            ktableLoja.requestFocus();
+        } else if (txtCodProd.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos para continuar!");
+            ktableProduto.requestFocus();
+        } else {
+            if (flag == 1) {
+                mod.setQuant_estoque(Integer.parseInt(txtQuantEstoque.getText()));
+                mod.setCod_loja(Integer.parseInt(txtCodLoja.getText()));
+                mod.setCod_produto(Integer.parseInt(txtCodProd.getText()));
+                control.Salvar(mod);
+
+                txtCodLoja.setText("");
+                txtCodProd.setText("");
+                txtQuantEstoque.setText("");
+                btnNovo.setEnabled(true);
+                txtLoja.setEnabled(true);
+                txtQuantEstoque.setEnabled(true);
+                txtProduto.setEnabled(false);
+                btnSalvar.setEnabled(false);
+                btnEditar.setEnabled(false);
+                ktablePL.setEnabled(true);
+                ktableLoja.setEnabled(false);
+                ktableProduto.setEnabled(false);
+                preencherTabelaProduto("select * from produto order by nome");
+                preencherTabelaLoja("select * from loja order by codigo");
+                preencherTabelaPL("select * from loja_produto order by quant_estoque ");
+            } else {
+                mod.setQuant_estoque(Integer.parseInt(txtQuantEstoque.getText()));
+                mod.setCod_loja(Integer.parseInt(txtCodLoja.getText()));
+                mod.setCod_produto(Integer.parseInt(txtCodProd.getText()));
+                control.Editar(mod);
+                txtCodLoja.setText("");
+                txtCodProd.setText("");
+                txtQuantEstoque.setText("");
+                btnNovo.setEnabled(true);
+                txtLoja.setEnabled(true);
+                txtProduto.setEnabled(false);
+                btnSalvar.setEnabled(false);
+                btnEditar.setEnabled(false);
+                ktablePL.setEnabled(true);
+                ktableLoja.setEnabled(false);
+                ktableProduto.setEnabled(false);
+                txtQuantEstoque.setEnabled(true);
+                preencherTabelaProduto("select * from produto order by nome");
+                preencherTabelaLoja("select * from loja order by codigo");
+                preencherTabelaPL("select * from loja_produto order by quant_estoque ");
+            }
+        }
+    }//GEN-LAST:event_btnSalvarActionPerformed
+
+    private void jButtonVoltar2jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltar2jButtonVoltarActionPerformed
+        byte resposta = 0;
+        resposta  = (byte) JOptionPane.showConfirmDialog(rootPane, "Deseja voltar? Seus dados não salvos serão perdidos!");
+        if(resposta ==  JOptionPane.YES_OPTION){
+        dispose();
+        }
+    }//GEN-LAST:event_jButtonVoltar2jButtonVoltarActionPerformed
+
+    private void btnApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApagarActionPerformed
+        // TODO add your handling code here:
+        int resposta = 0;
+        resposta = JOptionPane.showConfirmDialog(rootPane, "Realmente deseja Apagar?");
+        if (resposta == JOptionPane.YES_OPTION) {
+            mod.setCod_loja(Integer.parseInt(txtCodLoja.getText()));
+            mod.setCod_produto(Integer.parseInt(txtCodProd.getText()));
+            control.Apagar(mod);
+            btnEditar.setEnabled(false);
+            btnApagar.setEnabled(false);
+            btnCancelar1.setEnabled(false);
+            txtProduto.setEnabled(false);
+            txtLoja.setEnabled(false);
+            txtQuantEstoque.setEnabled(false);
+            ktableProduto.setEnabled(false);
+            ktableLoja.setEnabled(false);
+            txtQuantEstoque.setText("");
+            txtCodProd.setText("");
+            txtProduto.setText("");
+            txtLoja.setText("");
+
+            btnNovo.setEnabled(true);
+            
+            preencherTabelaProduto("select * from produto order by nome");
+                preencherTabelaLoja("select * from loja order by codigo");
+                preencherTabelaPL("select * from loja_produto order by quant_estoque ");
+        }
+    }//GEN-LAST:event_btnApagarActionPerformed
+
+    private void btnCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar1ActionPerformed
+        // TODO add your handling code here:
+        flag = 0;
+ktableLoja.setEnabled(false);
+ktableProduto.setEnabled(false);
+        txtLoja.setEnabled(!true);
+        txtProduto.setEnabled(!true);
+        txtQuantEstoque.setEnabled(!true);
+        btnApagar.setEnabled(!true);
+        btnBuscarLoja.setEnabled(!true);
+
+        btnSalvar.setEnabled(!true);
+        btnCancelar1.setEnabled(!true);
+        btnNovo.setEnabled(true);
+        btnEditar.setEnabled(false);
+        btnApagar.setEnabled(false);
+
+        txtCodLoja.setText("");
+        txtCodProd.setText("");
+        txtLoja.setText("");
+        txtProduto.setText("");
+        txtQuantEstoque.setText("");
+
+        ktablePL.setEnabled(true);
+        
+        preencherTabelaProduto("select * from produto order by nome");
+        preencherTabelaLoja("select * from loja order by codigo");
+        preencherTabelaPL("select * from loja_produto order by quant_estoque ");
+    }//GEN-LAST:event_btnCancelar1ActionPerformed
+
+    private void btnBuscarProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarProdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarProdActionPerformed
+    public void preencherTabelaProduto(String Sql) {
+        ArrayList dados = new ArrayList();
+        String[] colunas = new String[]{"nome", "codigo"};
+        conex.conexao();
+        conex.executaSql(Sql);
+
+        try {
+            conex.rs.first();
+            do {
+                dados.add(new Object[]{conex.rs.getString("nome"), conex.rs.getInt("codigo")});
+            } while (conex.rs.next());
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(rootPane, "Busque outro produto na tabela");
+
+        }
+        ModeloTabela modelo = new ModeloTabela(dados, colunas);
+
+        ktableProduto.setModel(modelo);
+        ktableProduto.getColumnModel().getColumn(0).setPreferredWidth(400);
+        ktableProduto.getColumnModel().getColumn(0).setResizable(false);
+        ktableProduto.getColumnModel().getColumn(1).setPreferredWidth(110);
+        ktableProduto.getColumnModel().getColumn(1).setResizable(false);
+
+        ktableProduto.setAutoResizeMode(ktableProduto.AUTO_RESIZE_OFF);
+        ktableProduto.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        conex.desconecta();
+    }
+
+    public void preencherTabelaLoja(String Sql) {
+        ArrayList dados = new ArrayList();
+        String[] colunas = new String[]{"endereço", "cnpj", "codigo"};
+        conex.conexao();
+        conex.executaSql(Sql);
+
+        try {
+            conex.rs.first();
+            do {
+                dados.add(new Object[]{
+                    conex.rs.getString("endereço"),
+                    conex.rs.getLong("cnpj"),
+                    conex.rs.getInt("codigo"),});
+            } while (conex.rs.next());
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(rootPane, "Busque outra loja na tabela" + ex);
+
+        }
+        ModeloTabela modelo = new ModeloTabela(dados, colunas);
+
+        ktableLoja.setModel(modelo);
+        ktableLoja.getColumnModel().getColumn(0).setPreferredWidth(140);
+        ktableLoja.getColumnModel().getColumn(0).setResizable(false);
+        ktableLoja.getColumnModel().getColumn(1).setPreferredWidth(120);
+        ktableLoja.getColumnModel().getColumn(1).setResizable(false);
+        ktableLoja.getColumnModel().getColumn(2).setPreferredWidth(30);
+        ktableLoja.getColumnModel().getColumn(2).setResizable(false);
+
+        ktableLoja.getTableHeader().setReorderingAllowed(false);
+
+        ktableLoja.setAutoResizeMode(ktableLoja.AUTO_RESIZE_OFF);
+        ktableLoja.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        conex.desconecta();
+    }
+
+    public void preencherTabelaPL(String Sql) {
+        ArrayList dados = new ArrayList();
+        String[] colunas = new String[]{"quant_estoque", "cod_loja", "cod_produto"};
+        conex.conexao();
+        conex.executaSql(Sql);
+
+        try {
+            conex.rs.first();
+            do {
+                dados.add(new Object[]{
+                    conex.rs.getString("quant_estoque"),
+                    conex.rs.getLong("cod_loja"),
+                    conex.rs.getInt("cod_produto"),});
+            } while (conex.rs.next());
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(rootPane, "Busque outro na tabela" + ex);
+
+        }
+        ModeloTabela modelo = new ModeloTabela(dados, colunas);
+
+        ktablePL.setModel(modelo);
+        ktablePL.getColumnModel().getColumn(0).setPreferredWidth(130);
+        ktablePL.getColumnModel().getColumn(0).setResizable(false);
+        ktablePL.getColumnModel().getColumn(1).setPreferredWidth(130);
+        ktablePL.getColumnModel().getColumn(1).setResizable(false);
+        ktablePL.getColumnModel().getColumn(2).setPreferredWidth(130);
+        ktablePL.getColumnModel().getColumn(2).setResizable(false);
+
+        ktablePL.getTableHeader().setReorderingAllowed(false);
+
+        ktablePL.setAutoResizeMode(ktablePL.AUTO_RESIZE_OFF);
+        ktablePL.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        conex.desconecta();
+    }
 
     /**
      * @param args the command line arguments
@@ -175,15 +627,29 @@ public class CadLojaProduto extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnApagar;
+    private javax.swing.JButton btnBuscarLoja;
     private javax.swing.JButton btnBuscarProd;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JButton btnCancelar1;
+    private javax.swing.JButton btnEditar;
+    private javax.swing.JButton btnNovo;
+    private javax.swing.JButton btnSalvar;
+    private javax.swing.JButton jButtonVoltar2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private br.com.cyber.componente.Ktable ktableCompra;
+    private javax.swing.JScrollPane jScrollPane3;
+    private br.com.cyber.componente.Ktable ktableLoja;
+    private br.com.cyber.componente.Ktable ktablePL;
     private br.com.cyber.componente.Ktable ktableProduto;
+    private br.com.cyber.componente.KTextField txtCodLoja;
+    private br.com.cyber.componente.KTextField txtCodProd;
+    private br.com.cyber.componente.KTextField txtLoja;
     private br.com.cyber.componente.KTextField txtProduto;
+    private br.com.cyber.componente.KTextField txtQuantEstoque;
     // End of variables declaration//GEN-END:variables
 }

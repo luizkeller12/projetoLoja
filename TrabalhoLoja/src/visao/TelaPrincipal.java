@@ -3,6 +3,24 @@ package visao;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import javax.swing.JOptionPane;
 import modeloConnection.ConexaoBD;
+import visao.CadCidade;
+import visao.CadCliente;
+import visao.CadCompra;
+import visao.CadProdCompra;
+import visao.CadProduto;
+import visao.TelaBuscaCadCliente;
+import visao.TelaBuscaCadCompra;
+import visao.TelaBuscaCadCompraProduto;
+import visao.TelaBuscaCadLoja;
+import visao.TelaBuscaCadProduto;
+import visao.TelaBuscaCliente;
+import visao.TelaBuscaCompra;
+import visao.TelaBuscaLoja;
+import visao.TelaBuscaProduto;
+import visao.TelaBuscaProdutoCompra;
+import visao.TelaDesenvolvedor;
+import visao.TelaLogin;
+import visao.TelaRelatos;
 
 /**
  *
@@ -49,12 +67,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenuItem10 = new javax.swing.JMenuItem();
+        jMenuItem12 = new javax.swing.JMenuItem();
         jMenuBuscar = new javax.swing.JMenu();
         jMenuItemBusProd = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem11 = new javax.swing.JMenuItem();
+        jMenuItem13 = new javax.swing.JMenuItem();
         jMenuOpcoes = new javax.swing.JMenu();
         jMenuItem9 = new javax.swing.JMenuItem();
         jMenuSobre = new javax.swing.JMenu();
@@ -152,8 +172,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         getContentPane().add(jButtonVendas);
         jButtonVendas.setBounds(570, 360, 190, 160);
 
-        jButtonSla.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_shopping-cart-trolley-purchase_2205208.png"))); // NOI18N
-        jButtonSla.setToolTipText("Produtos");
+        jButtonSla.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_dropbox_317711.png"))); // NOI18N
+        jButtonSla.setToolTipText("LojaProdutos");
         jButtonSla.setName("Compras"); // NOI18N
         jButtonSla.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -166,12 +186,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/fundo.png"))); // NOI18N
         jLabel2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(1430, -610, 2410, 2020);
+        jLabel2.setBounds(1390, -600, 2690, 2100);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/fundo.png"))); // NOI18N
         jLabel3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(-50, -620, 3630, 2020);
+        jLabel3.setBounds(-80, -620, 3660, 2110);
 
         jMenuBar1.setBackground(new java.awt.Color(255, 51, 204));
         jMenuBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -241,6 +261,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenuCadastro.add(jMenuItem10);
 
+        jMenuItem12.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jMenuItem12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_dropbox_317711 (1).png"))); // NOI18N
+        jMenuItem12.setText("Estoque");
+        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem12ActionPerformed(evt);
+            }
+        });
+        jMenuCadastro.add(jMenuItem12);
+
         jMenuBar1.add(jMenuCadastro);
 
         jMenuBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/buscar.png"))); // NOI18N
@@ -296,6 +326,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         jMenuBuscar.add(jMenuItem11);
+
+        jMenuItem13.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jMenuItem13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_dropbox_317711 (1).png"))); // NOI18N
+        jMenuItem13.setText("Estoque");
+        jMenuItem13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem13ActionPerformed(evt);
+            }
+        });
+        jMenuBuscar.add(jMenuItem13);
 
         jMenuBar1.add(jMenuBuscar);
 
@@ -512,7 +552,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void jButtonSlaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSlaActionPerformed
         // TODO add your handling code here:
+        CadLojaProduto tela =  new  CadLojaProduto();
+        tela.setVisible(true);
     }//GEN-LAST:event_jButtonSlaActionPerformed
+
+    private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
+        // TODO add your handling code here:
+        CadLojaProduto tela =  new  CadLojaProduto();
+        tela.setVisible(true);
+    }//GEN-LAST:event_jMenuItem13ActionPerformed
+
+    private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
+        // TODO add your handling code here:
+        CadLojaProduto tela =  new  CadLojaProduto();
+        tela.setVisible(true);
+    }//GEN-LAST:event_jMenuItem12ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -573,6 +627,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
+    private javax.swing.JMenuItem jMenuItem12;
+    private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;

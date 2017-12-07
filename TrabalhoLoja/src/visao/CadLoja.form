@@ -460,6 +460,9 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="18" style="0"/>
                 </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagens/if_ic_keyboard_return_48px_352473.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="VOLTAR"/>
               </Properties>
               <Events>
@@ -467,7 +470,7 @@
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="890" y="470" width="152" height="34"/>
+                  <AbsoluteConstraints x="892" y="464" width="150" height="40"/>
                 </Constraint>
               </Constraints>
             </Component>

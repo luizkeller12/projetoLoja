@@ -59,8 +59,6 @@ public class CadCidade extends javax.swing.JFrame {
         jButtonPesquisa = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jTextFieldCodigo = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         jTextFieldCep = new javax.swing.JFormattedTextField();
         jTextFieldNome = new br.com.cyber.componente.KTextField();
         jButtonVoltar = new javax.swing.JButton();
@@ -93,22 +91,23 @@ public class CadCidade extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.setLayout(null);
 
-        jLabel2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel2.setText("Nome:");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(12, 23, 78, 18);
+        jLabel2.setBounds(30, 50, 78, 40);
 
-        jLabel3.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel3.setText("UF:");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(12, 201, 78, 22);
+        jLabel3.setBounds(50, 170, 40, 40);
 
-        jLabel4.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel4.setText("CEP:");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(12, 113, 78, 20);
+        jLabel4.setBounds(40, 110, 60, 40);
 
         jButtonNovo.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jButtonNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_new10_216291.png"))); // NOI18N
         jButtonNovo.setText("NOVO");
         jButtonNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,9 +115,10 @@ public class CadCidade extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButtonNovo);
-        jButtonNovo.setBounds(20, 410, 115, 40);
+        jButtonNovo.setBounds(300, 40, 160, 60);
 
         jButtonSalvar.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jButtonSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_save_1608823 (1).png"))); // NOI18N
         jButtonSalvar.setText("SALVAR");
         jButtonSalvar.setEnabled(false);
         jButtonSalvar.addActionListener(new java.awt.event.ActionListener() {
@@ -127,9 +127,10 @@ public class CadCidade extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButtonSalvar);
-        jButtonSalvar.setBounds(150, 410, 109, 40);
+        jButtonSalvar.setBounds(300, 100, 160, 60);
 
         jButtonCancelar.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jButtonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_cancel-2_309095.png"))); // NOI18N
         jButtonCancelar.setText("CANCELAR");
         jButtonCancelar.setEnabled(false);
         jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -138,9 +139,10 @@ public class CadCidade extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButtonCancelar);
-        jButtonCancelar.setBounds(280, 410, 135, 40);
+        jButtonCancelar.setBounds(300, 160, 160, 60);
 
         jButtonEditar.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jButtonEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_edit_2561427.png"))); // NOI18N
         jButtonEditar.setText("EDITAR");
         jButtonEditar.setEnabled(false);
         jButtonEditar.addActionListener(new java.awt.event.ActionListener() {
@@ -149,9 +151,10 @@ public class CadCidade extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButtonEditar);
-        jButtonEditar.setBounds(440, 410, 101, 40);
+        jButtonEditar.setBounds(40, 360, 160, 60);
 
         jButtonApagar.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jButtonApagar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_Streamline-70_185090.png"))); // NOI18N
         jButtonApagar.setText("APAGAR");
         jButtonApagar.setEnabled(false);
         jButtonApagar.addActionListener(new java.awt.event.ActionListener() {
@@ -160,9 +163,10 @@ public class CadCidade extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButtonApagar);
-        jButtonApagar.setBounds(570, 410, 113, 40);
+        jButtonApagar.setBounds(250, 360, 160, 60);
 
         jButtonPesquisa.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jButtonPesquisa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_search_126577.png"))); // NOI18N
         jButtonPesquisa.setText("PESQUISAR");
         jButtonPesquisa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -170,12 +174,12 @@ public class CadCidade extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButtonPesquisa);
-        jButtonPesquisa.setBounds(810, 60, 141, 40);
+        jButtonPesquisa.setBounds(820, 50, 163, 40);
 
-        jLabel5.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel5.setText("Código:");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(12, 298, 78, 23);
+        jLabel5.setBounds(100, 250, 78, 23);
 
         jTextFieldCodigo.setEnabled(false);
         jTextFieldCodigo.addActionListener(new java.awt.event.ActionListener() {
@@ -184,17 +188,7 @@ public class CadCidade extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jTextFieldCodigo);
-        jTextFieldCodigo.setBounds(12, 327, 97, 34);
-
-        jLabel8.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jLabel8.setText("Ex: \"98200000\"");
-        jPanel1.add(jLabel8);
-        jLabel8.setBounds(12, 181, 82, 14);
-
-        jLabel9.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jLabel9.setText("Ex: \"Ibirubá\"");
-        jPanel1.add(jLabel9);
-        jLabel9.setBounds(12, 93, 58, 14);
+        jTextFieldCodigo.setBounds(180, 240, 97, 34);
 
         try {
             jTextFieldCep.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("########")));
@@ -208,7 +202,7 @@ public class CadCidade extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jTextFieldCep);
-        jTextFieldCep.setBounds(12, 139, 182, 35);
+        jTextFieldCep.setBounds(100, 110, 182, 40);
 
         jTextFieldNome.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jTextFieldNome.setEnabled(false);
@@ -216,9 +210,10 @@ public class CadCidade extends javax.swing.JFrame {
         jTextFieldNome.setK_back_focus_gained(new java.awt.Color(255, 255, 255));
         jTextFieldNome.setK_placeholder_text("digite o nome da cidade");
         jPanel1.add(jTextFieldNome);
-        jTextFieldNome.setBounds(12, 47, 285, 35);
+        jTextFieldNome.setBounds(100, 50, 180, 40);
 
         jButtonVoltar.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jButtonVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_ic_keyboard_return_48px_352473.png"))); // NOI18N
         jButtonVoltar.setText("VOLTAR");
         jButtonVoltar.setToolTipText("Voltar a tela principal");
         jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -227,13 +222,13 @@ public class CadCidade extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButtonVoltar);
-        jButtonVoltar.setBounds(850, 410, 109, 40);
+        jButtonVoltar.setBounds(830, 350, 140, 50);
 
         kComboBoXUf.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "SELECIONE", "RS", "PR", "SC" }));
         kComboBoXUf.setEnabled(false);
         kComboBoXUf.setName(""); // NOI18N
         jPanel1.add(kComboBoXUf);
-        kComboBoXUf.setBounds(12, 234, 142, 34);
+        kComboBoXUf.setBounds(100, 170, 180, 40);
 
         jTableCidade.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -262,14 +257,14 @@ public class CadCidade extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTableCidade);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(440, 110, 540, 260);
+        jScrollPane1.setBounds(470, 100, 510, 240);
 
         jTextFieldPesquisa.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jTextFieldPesquisa.setK_back_focus_gained(new java.awt.Color(255, 255, 255));
         jTextFieldPesquisa.setK_placeholder_text("Nome da cidade ex: \"Ibirubá\"");
         jTextFieldPesquisa.setK_placeholder_text_color(new java.awt.Color(102, 102, 102));
         jPanel1.add(jTextFieldPesquisa);
-        jTextFieldPesquisa.setBounds(440, 60, 340, 40);
+        jTextFieldPesquisa.setBounds(470, 50, 340, 40);
 
         jPanel2.add(jPanel1);
         jPanel1.setBounds(30, 90, 1010, 460);
@@ -539,8 +534,6 @@ public class CadCidade extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPopupMenu jPopupMenu1;

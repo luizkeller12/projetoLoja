@@ -292,6 +292,7 @@ public class CadLoja extends javax.swing.JFrame {
         btnBuscarCid.setBounds(250, 270, 110, 40);
 
         jButtonVoltar.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jButtonVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_ic_keyboard_return_48px_352473.png"))); // NOI18N
         jButtonVoltar.setText("VOLTAR");
         jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -299,7 +300,7 @@ public class CadLoja extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButtonVoltar);
-        jButtonVoltar.setBounds(890, 470, 152, 34);
+        jButtonVoltar.setBounds(892, 464, 150, 40);
 
         try {
             txtTel.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("############")));
@@ -547,8 +548,11 @@ public class CadLoja extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarCidActionPerformed
 
     private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
-        // TODO add your handling code here:
+        byte resposta = 0;
+        resposta  = (byte) JOptionPane.showConfirmDialog(rootPane, "Deseja voltar? Seus dados não salvos serão perdidos!");
+        if(resposta ==  JOptionPane.YES_OPTION){
         dispose();
+        }
     }//GEN-LAST:event_jButtonVoltarActionPerformed
 
     private void ktableLojaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ktableLojaMouseClicked

@@ -200,6 +200,7 @@ public class CadCompra extends javax.swing.JFrame {
         btnApagar.setBounds(680, 410, 150, 50);
 
         jButtonVoltar.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jButtonVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/if_ic_keyboard_return_48px_352473.png"))); // NOI18N
         jButtonVoltar.setText("VOLTAR");
         jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -558,8 +559,11 @@ public class CadCompra extends javax.swing.JFrame {
     }//GEN-LAST:event_btnApagarActionPerformed
 
     private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
-        // TODO add your handling code here:
+       byte resposta = 0;
+        resposta  = (byte) JOptionPane.showConfirmDialog(rootPane, "Deseja voltar? Seus dados não salvos serão perdidos!");
+        if(resposta ==  JOptionPane.YES_OPTION){
         dispose();
+        }
     }//GEN-LAST:event_jButtonVoltarActionPerformed
 
     private void txtCodClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodClienteActionPerformed

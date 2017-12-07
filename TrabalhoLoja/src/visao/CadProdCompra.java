@@ -439,8 +439,11 @@ public class CadProdCompra extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
-        // TODO add your handling code here:
+        byte resposta = 0;
+        resposta  = (byte) JOptionPane.showConfirmDialog(rootPane, "Deseja voltar? Seus dados não salvos serão perdidos!");
+        if(resposta ==  JOptionPane.YES_OPTION){
         dispose();
+        }
     }//GEN-LAST:event_jButtonVoltarActionPerformed
 
     private void ktableProdutoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ktableProdutoMouseClicked

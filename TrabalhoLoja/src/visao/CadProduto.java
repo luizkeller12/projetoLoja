@@ -241,8 +241,11 @@ public class CadProduto extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
-        // TODO add your handling code here:
+        byte resposta = 0;
+        resposta  = (byte) JOptionPane.showConfirmDialog(rootPane, "Deseja voltar? Seus dados não salvos serão perdidos!");
+        if(resposta ==  JOptionPane.YES_OPTION){
         dispose();
+        }
     }//GEN-LAST:event_jButtonVoltarActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
@@ -254,9 +257,16 @@ public class CadProduto extends javax.swing.JFrame {
             if (flag == 1) {
                 mod.setNome(txtNome.getText());
                 control.Salvar(mod);
-                txtNome.setText("");
+                txtCod.setEnabled(false);
+                txtNome.setEnabled(false);
+                
                 txtCod.setText("");
+                txtNome.setText("");
+                btnBuscar.setEnabled(true);
+                txtPesq.setEnabled(true);
+               
                 btnSalvar.setEnabled(false);
+                ktableProduto.setEnabled(true);
                 preencherTabela("select * from produto order by nome");
             } else if (flag == 2) {
                 mod.setNome(txtNome.getText());
@@ -265,12 +275,12 @@ public class CadProduto extends javax.swing.JFrame {
                 control.Editar(mod);
                 txtCod.setEnabled(false);
                 txtNome.setEnabled(false);
-
+                
                 txtCod.setText("");
                 txtNome.setText("");
                 btnBuscar.setEnabled(true);
                 txtPesq.setEnabled(true);
-
+                txtNome.setEnabled(false);
                 btnSalvar.setEnabled(false);
                 ktableProduto.setEnabled(true);
                 preencherTabela("select * from produto order by nome");

@@ -13,7 +13,6 @@ import modeloBeans.ModeloTabela;
 import modeloBeans.ProdCompraBean;
 import modeloConnection.ConexaoBD;
 import modeloDao.DaoProdCompra;
-import modeloDao.DaoProduto;
 
 /**
  *
@@ -24,7 +23,7 @@ public class TelaBuscaProdutoCompra extends javax.swing.JFrame {
     ConexaoBD conex = new ConexaoBD();
     DaoProdCompra control = new DaoProdCompra();
     ProdCompraBean mod = new ProdCompraBean();
-    DaoProduto daoprod = new DaoProduto();
+
     /**
      * Creates new form TelaBuscaLoja
      */
@@ -214,9 +213,6 @@ public class TelaBuscaProdutoCompra extends javax.swing.JFrame {
         lblValor.setText(ktableProdCompra.getValueAt(indice, 1).toString());
         lblCodProd.setText(ktableProdCompra.getValueAt(indice, 2).toString());
         lblCodCompra.setText(ktableProdCompra.getValueAt(indice, 3).toString());
-        System.out.println("aki: "+ktableProdCompra.getValueAt(indice, 2).toString());
-        System.out.println("aki: "+daoprod.buscaProduto(Integer.parseInt(ktableProdCompra.getValueAt(indice, 2).toString())).getNome());
-        lblCodProd.setText(daoprod.buscaProduto(Integer.parseInt(ktableProdCompra.getValueAt(indice, 2).toString())).getNome());
         
         
 
